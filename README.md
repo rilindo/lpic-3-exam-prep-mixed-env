@@ -165,6 +165,21 @@ Open:
 http://localhost:5173
 ```
 
+## GitHub Merge Protection
+
+This repo is set up to gate merges into `main` with the `verify` check from `.github/workflows/ci.yml`.
+
+That workflow already runs:
+
+- `npm run lint`
+- `npm test`
+- `npm run build`
+- `npm audit --audit-level=high`
+
+To require this before merge, configure branch protection or a ruleset for `main` in GitHub and mark `verify` as a required status check.
+
+Dependabot is configured in `.github/dependabot.yml` to open weekly update pull requests for `npm` dependencies and GitHub Actions.
+
 ## Project Structure
 
 - `src/components/` UI for home, quiz, progress, and results screens
