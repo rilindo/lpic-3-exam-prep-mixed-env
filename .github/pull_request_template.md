@@ -10,6 +10,7 @@
 
 ## Merge Checks
 
+- The only required GitHub status check for `main` is `verify`.
 - [ ] GitHub required checks are enabled for `main`
 - [ ] `verify` is passing
 
