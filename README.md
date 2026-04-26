@@ -1,5 +1,7 @@
 # LPIC-3 Mixed Environments Exam Prep
 
+[![CI](https://github.com/rilindo/lpic-3-exam-prep-mixed-env/actions/workflows/ci.yml/badge.svg)](https://github.com/rilindo/lpic-3-exam-prep-mixed-env/actions/workflows/ci.yml)
+
 Static React + TypeScript quiz app for LPIC-3 Exam 300 (Mixed Environments) practice.
 
 ## Features
