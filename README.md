@@ -1,5 +1,7 @@
 # LPIC-3 Mixed Environments Exam Prep
 
+[![CI](https://github.com/rilindo/lpic-3-exam-prep-mixed-env/actions/workflows/ci.yml/badge.svg)](https://github.com/rilindo/lpic-3-exam-prep-mixed-env/actions/workflows/ci.yml)
+
 Static React + TypeScript quiz app for LPIC-3 Exam 300 (Mixed Environments) practice.
 
 ## Features
@@ -63,6 +65,26 @@ npm run preview
 
 This repo includes a `Containerfile` that builds the static site and serves it from Nginx on port `8080`.
 
+If you want a simple repo-local wrapper around the Podman commands, use the helper scripts in `scripts/`.
+
+Start the production container with the helper:
+
+```bash
+./scripts/run-prod.sh
+```
+
+Start the development container with the helper:
+
+```bash
+./scripts/run-dev.sh
+```
+
+Stop either helper-started container:
+
+```bash
+./scripts/stop-containers.sh
+```
+
 Build the image:
 
 ```bash
@@ -103,6 +125,12 @@ Stop it:
 
 ```bash
 podman compose down
+```
+
+If `podman compose` is not yet available on your machine, install a compose provider first. On macOS with Homebrew:
+
+```bash
+brew install podman-compose
 ```
 
 ## Development Container
