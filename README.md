@@ -73,11 +73,15 @@ Start the production container with the helper:
 ./scripts/run-prod.sh
 ```
 
+Open the production app at `http://localhost:8080`.
+
 Start the development container with the helper:
 
 ```bash
 ./scripts/run-dev.sh
 ```
+
+Open the development app at `http://localhost:5173`.
 
 Stop either helper-started container:
 
