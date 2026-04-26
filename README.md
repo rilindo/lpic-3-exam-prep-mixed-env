@@ -167,19 +167,16 @@ http://localhost:5173
 
 ## GitHub Merge Protection
 
-This repo includes two GitHub checks intended to gate merges into `main`:
+This repo is set up to gate merges into `main` with the `verify` check from `.github/workflows/ci.yml`.
 
-- `verify` from `.github/workflows/ci.yml`
-- `dependency-review` from `.github/workflows/dependency-review.yml`
+That workflow already runs:
 
-To require both checks before merge, configure branch protection or a ruleset for `main` in GitHub and mark these status checks as required.
+- `npm run lint`
+- `npm test`
+- `npm run build`
+- `npm audit --audit-level=high`
 
-The `dependency-review` check requires GitHub repository security features to be enabled. If GitHub reports `Dependency review is not supported on this repository`, enable both of these repository settings first:
-
-- Dependency graph
-- GitHub Advanced Security
-
-After enabling those settings, rerun the workflow or push a new commit so GitHub registers the `dependency-review` check successfully.
+To require this before merge, configure branch protection or a ruleset for `main` in GitHub and mark `verify` as a required status check.
 
 Dependabot is configured in `.github/dependabot.yml` to open weekly update pull requests for `npm` dependencies and GitHub Actions.
 

@@ -12,7 +12,6 @@
 
 - [ ] GitHub required checks are enabled for `main`
 - [ ] `verify` is passing
-- [ ] `dependency-review` is passing
 
 ## Notes
 
