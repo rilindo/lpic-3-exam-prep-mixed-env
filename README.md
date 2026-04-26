@@ -174,6 +174,13 @@ This repo includes two GitHub checks intended to gate merges into `main`:
 
 To require both checks before merge, configure branch protection or a ruleset for `main` in GitHub and mark these status checks as required.
 
+The `dependency-review` check requires GitHub repository security features to be enabled. If GitHub reports `Dependency review is not supported on this repository`, enable both of these repository settings first:
+
+- Dependency graph
+- GitHub Advanced Security
+
+After enabling those settings, rerun the workflow or push a new commit so GitHub registers the `dependency-review` check successfully.
+
 Dependabot is configured in `.github/dependabot.yml` to open weekly update pull requests for `npm` dependencies and GitHub Actions.
 
 ## Project Structure
