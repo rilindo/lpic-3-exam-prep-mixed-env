@@ -1,0 +1,45 @@
+[
+  {
+    "id": "305.3-1",
+    "type": "multiple_choice",
+    "objective": "305.3",
+    "topic": "FreeIPA Active Directory Integration",
+    "question": "Which command installs the components needed to create a cross-forest Kerberos trust between FreeIPA and Active Directory?",
+    "options": ["ipa trust-add", "ipa-adtrust-configure", "ipa-adtrust-install", "ipactl trust-setup"],
+    "correct": "ipa-adtrust-install",
+    "explanation": "ipa-adtrust-install configures the FreeIPA server with the components required for establishing an Active Directory trust, including Samba and required services.",
+    "reference": "https://www.freeipa.org/page/Active_Directory_trust_setup"
+  },
+  {
+    "id": "305.3-2",
+    "type": "multiple_choice",
+    "objective": "305.3",
+    "topic": "FreeIPA Active Directory Integration",
+    "question": "Which ipa subcommand establishes a cross-forest trust between FreeIPA and an Active Directory domain?",
+    "options": ["ipa trust-create", "ipa trust-add", "ipa ad-trust-add", "ipa forest-trust"],
+    "correct": "ipa trust-add",
+    "explanation": "ipa trust-add creates a cross-forest Kerberos trust between FreeIPA and Active Directory. It requires specifying the AD domain and shared secret or admin credentials.",
+    "reference": "https://www.freeipa.org/page/Active_Directory_trust_setup"
+  },
+  {
+    "id": "305.3-3",
+    "type": "multiple_choice",
+    "objective": "305.3",
+    "topic": "FreeIPA Active Directory Integration",
+    "question": "Which ipa subcommand configures the range of POSIX IDs assigned to users from a trusted Active Directory domain?",
+    "options": ["ipa trust-range", "ipa idrange-add", "ipa ad-range", "ipa id-range-config"],
+    "correct": "ipa idrange-add",
+    "explanation": "ipa idrange-add creates an ID range that maps SIDs from a trusted AD domain to a specific range of POSIX UIDs/GIDs in FreeIPA.",
+    "reference": "https://www.freeipa.org/page/V4/ID_Ranges"
+  },
+  {
+    "id": "305.3-4",
+    "type": "fill_blank",
+    "objective": "305.3",
+    "topic": "FreeIPA Active Directory Integration",
+    "question": "Groups in FreeIPA that contain AD users from a trusted domain but have no POSIX attributes are called ______ groups.",
+    "correct": "external",
+    "explanation": "External groups in FreeIPA are non-POSIX groups that can contain members from trusted Active Directory domains (referenced by SID). They are used as stepping stones to map AD users into FreeIPA POSIX groups.",
+    "reference": "https://www.freeipa.org/page/Active_Directory_trust_setup#External_groups"
+  }
+]

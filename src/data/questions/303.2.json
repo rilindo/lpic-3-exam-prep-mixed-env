@@ -1,0 +1,67 @@
+[
+  {
+    "id": "303.2-1",
+    "type": "multiple_choice",
+    "objective": "303.2",
+    "topic": "File Share Security",
+    "question": "Which smb.conf parameter sets the default permissions mask applied when creating new files in a share?",
+    "options": ["file mask", "create mask", "new file mode", "default create mode"],
+    "correct": "create mask",
+    "explanation": "The 'create mask' (also 'create mode') parameter sets the maximum permissions that can be applied to newly created files. The requested permissions are ANDed with this mask.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#CREATEMASK"
+  },
+  {
+    "id": "303.2-2",
+    "type": "multiple_choice",
+    "objective": "303.2",
+    "topic": "File Share Security",
+    "question": "Which VFS module stores Windows ACLs as POSIX extended attributes on the Linux filesystem?",
+    "options": ["vfs_acl_tdb", "vfs_acl_xattr", "vfs_posixacl", "vfs_winacl"],
+    "correct": "vfs_acl_xattr",
+    "explanation": "vfs_acl_xattr stores Windows NT ACLs in POSIX extended attributes (xattrs) on the filesystem. This requires a filesystem that supports xattrs (e.g., ext4, xfs).",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/vfs_acl_xattr.8.html"
+  },
+  {
+    "id": "303.2-3",
+    "type": "multiple_choice",
+    "objective": "303.2",
+    "topic": "File Share Security",
+    "question": "Which command-line tool manages Windows ACLs on CIFS shares from a Linux client?",
+    "options": ["getfacl", "smbcacls", "setfacl", "getcifsacl"],
+    "correct": "smbcacls",
+    "explanation": "smbcacls displays and modifies Windows NT ACLs on files and directories in a CIFS share. It is the SMB equivalent of Windows cacls/icacls.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smbcacls.1.html"
+  },
+  {
+    "id": "303.2-4",
+    "type": "multiple_choice",
+    "objective": "303.2",
+    "topic": "File Share Security",
+    "question": "Which smb.conf parameter forces all files in a share to be owned by a specific user regardless of who creates them?",
+    "options": ["default user", "force owner", "force user", "owner"],
+    "correct": "force user",
+    "explanation": "The 'force user' parameter causes all file operations in the share to be performed as the specified user, regardless of the authenticated user. Useful for managing ownership uniformly.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#FORCEUSER"
+  },
+  {
+    "id": "303.2-5",
+    "type": "multiple_choice",
+    "objective": "303.2",
+    "topic": "File Share Security",
+    "question": "Which smb.conf parameter enables SMB-level encryption of CIFS connections for a share?",
+    "options": ["encrypt connections = yes", "smb encrypt", "tls enabled = yes", "seal = yes"],
+    "correct": "smb encrypt",
+    "explanation": "The 'smb encrypt' parameter controls SMB-level encryption. Values include 'off', 'if_unencrypted', 'desired', and 'required'. SMB3 encryption is used when both sides support it.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#SMBENCRYPT"
+  },
+  {
+    "id": "303.2-6",
+    "type": "fill_blank",
+    "objective": "303.2",
+    "topic": "File Share Security",
+    "question": "The Samba privilege that grants a user the right to manage disk shares (create, delete, modify) on a server is called ______.",
+    "correct": "SeDiskOperatorPrivilege",
+    "explanation": "SeDiskOperatorPrivilege is a Samba privilege that allows a user to manage disk shares without being a full administrator. It can be assigned via 'net rpc rights grant'.",
+    "reference": "https://wiki.samba.org/index.php/Setting_up_a_Share_Using_Windows_ACLs"
+  }
+]

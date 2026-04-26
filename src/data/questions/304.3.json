@@ -1,0 +1,67 @@
+[
+  {
+    "id": "304.3-1",
+    "type": "multiple_choice",
+    "objective": "304.3",
+    "topic": "Windows Clients",
+    "question": "Which samba-tool subcommand creates a new Group Policy Object (GPO)?",
+    "options": ["samba-tool gpo new", "samba-tool gpo create", "samba-tool gpo add", "samba-tool gpo make"],
+    "correct": "samba-tool gpo create",
+    "explanation": "samba-tool gpo create creates a new GPO in the Samba AD. The GPO is created with a default structure and can then be linked to sites, domains, or OUs.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba-tool.8.html"
+  },
+  {
+    "id": "304.3-2",
+    "type": "multiple_choice",
+    "objective": "304.3",
+    "topic": "Windows Clients",
+    "question": "Which smb.conf parameter specifies the path of a user's roaming profile directory on a Samba server?",
+    "options": ["profile path", "roaming profile", "logon profile", "logon path"],
+    "correct": "logon path",
+    "explanation": "The 'logon path' parameter in smb.conf specifies the UNC path to the user's roaming profile, e.g., \\\\server\\profiles\\%U. This is used by Windows clients to store and retrieve profiles.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#LOGONPATH"
+  },
+  {
+    "id": "304.3-3",
+    "type": "multiple_choice",
+    "objective": "304.3",
+    "topic": "Windows Clients",
+    "question": "Which open-source tool allows Linux users to connect to a remote Windows desktop via RDP?",
+    "options": ["vncclient", "xfreerdp", "rdesktop", "x2go"],
+    "correct": "rdesktop",
+    "explanation": "rdesktop is an open-source RDP client for Linux that allows connecting to Windows Remote Desktop Services. FreeRDP (xfreerdp) is its modern successor.",
+    "reference": "https://wiki.samba.org/index.php/Windows_Clients"
+  },
+  {
+    "id": "304.3-4",
+    "type": "multiple_choice",
+    "objective": "304.3",
+    "topic": "Windows Clients",
+    "question": "Which smb.conf parameter specifies the logon script filename run when a Windows domain user logs in?",
+    "options": ["logon script", "login script", "startup script", "user script"],
+    "correct": "logon script",
+    "explanation": "The 'logon script' parameter specifies the batch script filename (relative to the NETLOGON share) that is executed when a Windows client user logs on to the domain.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#LOGONSCRIPT"
+  },
+  {
+    "id": "304.3-5",
+    "type": "multiple_choice",
+    "objective": "304.3",
+    "topic": "Windows Clients",
+    "question": "Which Windows command forces an immediate refresh of Group Policy on a Windows client?",
+    "options": ["gprefresh /force", "gpupdate /force", "secedit /refreshpolicy", "gpo refresh"],
+    "correct": "gpupdate /force",
+    "explanation": "gpupdate /force is the Windows command that immediately refreshes all Group Policy settings for both the computer and user, regardless of whether policy has changed.",
+    "reference": "https://wiki.samba.org/index.php/Group_Policy"
+  },
+  {
+    "id": "304.3-6",
+    "type": "fill_blank",
+    "objective": "304.3",
+    "topic": "Windows Clients",
+    "question": "The samba-tool subcommand used to link an existing GPO to an Active Directory organizational unit (OU) is 'samba-tool gpo ______'.",
+    "correct": "setlink",
+    "explanation": "samba-tool gpo setlink links a GPO to an OU (or domain/site). The link activates the policy for objects in the specified container.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba-tool.8.html"
+  }
+]

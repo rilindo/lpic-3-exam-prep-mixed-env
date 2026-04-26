@@ -1,0 +1,89 @@
+[
+  {
+    "id": "302.4-1",
+    "type": "multiple_choice",
+    "objective": "302.4",
+    "topic": "Samba Domain Membership",
+    "question": "Which command joins a Linux Samba member server to an existing Active Directory domain?",
+    "options": ["samba-tool domain join", "net ads join", "net rpc join", "wbinfo --join"],
+    "correct": "net ads join",
+    "explanation": "net ads join joins a Linux machine to an Active Directory domain. It requires a working Kerberos configuration and DNS resolution for the AD domain.",
+    "reference": "https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member"
+  },
+  {
+    "id": "302.4-2",
+    "type": "multiple_choice",
+    "objective": "302.4",
+    "topic": "Samba Domain Membership",
+    "question": "Which smb.conf parameter specifies the AD domain realm for Kerberos when configuring Samba as a domain member?",
+    "options": ["domain", "kerberos realm", "realm", "workgroup"],
+    "correct": "realm",
+    "explanation": "The 'realm' parameter in smb.conf specifies the Kerberos realm (uppercase AD domain name, e.g., EXAMPLE.COM). It is required when security = ads.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#REALM"
+  },
+  {
+    "id": "302.4-3",
+    "type": "multiple_choice",
+    "objective": "302.4",
+    "topic": "Samba Domain Membership",
+    "question": "Which smb.conf parameter configures the Winbind ID mapping for a specific domain?",
+    "options": ["winbind idmap", "idmap config", "winbind uid", "id mapping"],
+    "correct": "idmap config",
+    "explanation": "The 'idmap config' parameter in smb.conf configures ID mapping for domain users and groups. For example: idmap config EXAMPLE : backend = rid",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#IDMAPCONFIG"
+  },
+  {
+    "id": "302.4-4",
+    "type": "multiple_choice",
+    "objective": "302.4",
+    "topic": "Samba Domain Membership",
+    "question": "Which idmap backend assigns UIDs/GIDs based on the RID portion of a user's SID using a mathematical formula?",
+    "options": ["idmap_ad", "idmap_ldap", "idmap_tdb", "idmap_rid"],
+    "correct": "idmap_rid",
+    "explanation": "idmap_rid calculates UNIX IDs from the RID (Relative Identifier) part of the AD SID using a configurable formula. It does not require AD schema extensions.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/idmap_rid.8.html"
+  },
+  {
+    "id": "302.4-5",
+    "type": "multiple_choice",
+    "objective": "302.4",
+    "topic": "Samba Domain Membership",
+    "question": "Which command queries Winbind for information about domain users and groups?",
+    "options": ["getent", "net ads user", "wbinfo", "winbind query"],
+    "correct": "wbinfo",
+    "explanation": "wbinfo queries the Winbind service for domain user and group information. For example: wbinfo -u lists domain users, wbinfo -g lists domain groups, wbinfo -t tests the Winbind connection.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/wbinfo.1.html"
+  },
+  {
+    "id": "302.4-6",
+    "type": "multiple_choice",
+    "objective": "302.4",
+    "topic": "Samba Domain Membership",
+    "question": "Which NSS library file enables the system to resolve Winbind users and groups via getent?",
+    "options": ["libpam_winbind.so", "libnss_winbind.so", "libwinbind_nss.so", "libnss_samba.so"],
+    "correct": "libnss_winbind.so",
+    "explanation": "libnss_winbind.so is the NSS module that allows the system's Name Service Switch to resolve AD users and groups through Winbind. It must be referenced in /etc/nsswitch.conf.",
+    "reference": "https://wiki.samba.org/index.php/Winbind"
+  },
+  {
+    "id": "302.4-7",
+    "type": "fill_blank",
+    "objective": "302.4",
+    "topic": "Samba Domain Membership",
+    "question": "The idmap backend that reads UNIX attributes (uidNumber, gidNumber) directly from RFC2307 attributes in Active Directory is called ______.",
+    "correct": "idmap_rfc2307",
+    "explanation": "idmap_rfc2307 reads UID and GID values from RFC2307 schema attributes (uidNumber, gidNumber) stored in Active Directory, providing consistent IDs that match other Linux/Unix systems.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/idmap_rfc2307.8.html"
+  },
+  {
+    "id": "302.4-8",
+    "type": "multiple_choice",
+    "objective": "302.4",
+    "topic": "Samba Domain Membership",
+    "question": "Which smb.conf parameter allows domain users to log in even when the domain controller is temporarily unreachable?",
+    "options": ["winbind cache time", "winbind offline logon", "winbind reconnect delay", "offline logon = yes"],
+    "correct": "winbind offline logon",
+    "explanation": "Setting 'winbind offline logon = yes' allows Winbind to use cached credentials when the domain controller is unreachable, enabling offline logins for domain users.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#WINBINDOFFLINELOGON"
+  }
+]

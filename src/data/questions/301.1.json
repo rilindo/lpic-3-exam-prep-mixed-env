@@ -1,0 +1,45 @@
+[
+  {
+    "id": "301.1-1",
+    "type": "multiple_choice",
+    "objective": "301.1",
+    "topic": "Samba Concepts and Architecture",
+    "question": "Which Samba daemon is responsible for providing file and print services to SMB/CIFS clients?",
+    "options": ["nmbd", "winbindd", "smbd", "samba"],
+    "correct": "smbd",
+    "explanation": "smbd provides file sharing and printing services to Windows clients using the SMB/CIFS protocol. nmbd handles NetBIOS name resolution, winbindd handles Windows domain integration, and samba is the AD DC process.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smbd.8.html"
+  },
+  {
+    "id": "301.1-2",
+    "type": "multiple_choice",
+    "objective": "301.1",
+    "topic": "Samba Concepts and Architecture",
+    "question": "Which Samba daemon handles NetBIOS name resolution and browsing?",
+    "options": ["smbd", "samba", "winbindd", "nmbd"],
+    "correct": "nmbd",
+    "explanation": "nmbd is the Samba daemon that handles NetBIOS over TCP/IP name service requests, provides browsing support, and acts as a WINS server.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/nmbd.8.html"
+  },
+  {
+    "id": "301.1-3",
+    "type": "multiple_choice",
+    "objective": "301.1",
+    "topic": "Samba Concepts and Architecture",
+    "question": "Which SMB protocol version introduced persistent file handles and improved resilience for cluster failover?",
+    "options": ["SMB 1.0", "SMB 2.0", "SMB 2.1", "SMB 3.0"],
+    "correct": "SMB 3.0",
+    "explanation": "SMB 3.0 introduced persistent file handles, transparent failover, multichannel support (multiple network connections), and end-to-end encryption.",
+    "reference": "https://wiki.samba.org/index.php/Samba4/SMB3"
+  },
+  {
+    "id": "301.1-4",
+    "type": "fill_blank",
+    "objective": "301.1",
+    "topic": "Samba Concepts and Architecture",
+    "question": "The Samba daemon that provides Winbind services for resolving Windows domain users and groups on a Linux system is called ______.",
+    "correct": "winbindd",
+    "explanation": "winbindd is the Samba daemon that provides a service for the Name Service Switch (NSS) capability and for PAM authentication, resolving users and groups from Windows/AD domains.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/winbindd.8.html"
+  }
+]

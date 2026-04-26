@@ -1,0 +1,23 @@
+[
+  {
+    "id": "303.3-1",
+    "type": "multiple_choice",
+    "objective": "303.3",
+    "topic": "DFS Share Configuration",
+    "question": "Which smb.conf global parameter must be set to 'yes' to enable Distributed File System (DFS) support in Samba?",
+    "options": ["dfs enabled = yes", "host msdfs = yes", "dfs root = yes", "msdfs support = yes"],
+    "correct": "host msdfs = yes",
+    "explanation": "Setting 'host msdfs = yes' in the [global] section enables Samba's DFS server support. Individual shares must also be marked as DFS roots with 'msdfs root = yes'.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#HOSTMSDFS"
+  },
+  {
+    "id": "303.3-2",
+    "type": "fill_blank",
+    "objective": "303.3",
+    "topic": "DFS Share Configuration",
+    "question": "In Samba DFS configuration, a DFS link pointing to another server's share is created using a symbolic link. The smb.conf share parameter that marks a share as the root of a DFS tree is ______.",
+    "correct": "msdfs root",
+    "explanation": "Setting 'msdfs root = yes' on a share designates it as a DFS root. Symbolic links within the share (created with ln -s) pointing to msdfs: URLs become DFS referrals.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#MSDFSROOT"
+  }
+]

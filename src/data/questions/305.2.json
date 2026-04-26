@@ -1,0 +1,94 @@
+[
+  {
+    "id": "305.2-1",
+    "type": "multiple_choice",
+    "objective": "305.2",
+    "topic": "FreeIPA Entity Management",
+    "question": "Which ipa subcommand adds a new user to a FreeIPA domain?",
+    "options": ["ipa user-new", "ipa user-create", "ipa user-add", "ipa useradd"],
+    "correct": "ipa user-add",
+    "explanation": "ipa user-add creates a new user account in FreeIPA. It accepts various attributes such as --first, --last, --uid, --shell, and --email.",
+    "reference": "https://www.freeipa.org/page/User_Management"
+  },
+  {
+    "id": "305.2-2",
+    "type": "multiple_choice",
+    "objective": "305.2",
+    "topic": "FreeIPA Entity Management",
+    "question": "What are the three components of FreeIPA's Role-Based Access Control (RBAC) model in order from most granular to least?",
+    "options": ["Role, Privilege, Permission", "Permission, Privilege, Role", "Privilege, Permission, Role", "Access, Role, Policy"],
+    "correct": "Permission, Privilege, Role",
+    "explanation": "FreeIPA RBAC uses Permissions (individual access rights), Privileges (collections of permissions), and Roles (collections of privileges assigned to users or groups).",
+    "reference": "https://www.freeipa.org/page/Howto/RBAC"
+  },
+  {
+    "id": "305.2-3",
+    "type": "multiple_choice",
+    "objective": "305.2",
+    "topic": "FreeIPA Entity Management",
+    "question": "Which ipa subcommand adds a new host to the FreeIPA domain?",
+    "options": ["ipa host-create", "ipa host-register", "ipa host-add", "ipa host-enroll"],
+    "correct": "ipa host-add",
+    "explanation": "ipa host-add registers a new host in FreeIPA. Hosts can be organized into hostgroups and have services, keytabs, and access control policies assigned.",
+    "reference": "https://www.freeipa.org/page/Host_Management"
+  },
+  {
+    "id": "305.2-4",
+    "type": "multiple_choice",
+    "objective": "305.2",
+    "topic": "FreeIPA Entity Management",
+    "question": "Which ipa command retrieves a Kerberos keytab for a specific service principal in FreeIPA?",
+    "options": ["ipa service-getkeytab", "ipa getkeytab", "ipa-getkeytab", "ipa keytab-get"],
+    "correct": "ipa-getkeytab",
+    "explanation": "ipa-getkeytab retrieves or creates a Kerberos keytab for a service principal registered in FreeIPA. It is typically run on the host that will provide the service.",
+    "reference": "https://www.freeipa.org/page/Service_Management"
+  },
+  {
+    "id": "305.2-5",
+    "type": "multiple_choice",
+    "objective": "305.2",
+    "topic": "FreeIPA Entity Management",
+    "question": "What is the purpose of an ID View in FreeIPA?",
+    "options": [
+      "To view audit logs of identity operations",
+      "To override POSIX attributes (UID, GID, shell) for users from trusted domains",
+      "To create read-only snapshots of the user directory",
+      "To filter which users are visible in LDAP searches"
+    ],
+    "correct": "To override POSIX attributes (UID, GID, shell) for users from trusted domains",
+    "explanation": "ID Views allow administrators to override POSIX attributes (uidNumber, gidNumber, homeDirectory, shell) for users from trusted Active Directory domains, enabling controlled attribute mapping.",
+    "reference": "https://www.freeipa.org/page/V4/ID_Views"
+  },
+  {
+    "id": "305.2-6",
+    "type": "multiple_choice",
+    "objective": "305.2",
+    "topic": "FreeIPA Entity Management",
+    "question": "Which ipa subcommand moves a stage user to active status in FreeIPA?",
+    "options": ["ipa stageuser-promote", "ipa stageuser-activate", "ipa user-promote", "ipa stageuser-add"],
+    "correct": "ipa stageuser-activate",
+    "explanation": "Stage users are pre-provisioned accounts not yet active. ipa stageuser-activate moves a stage user to the active users tree, enabling login.",
+    "reference": "https://www.freeipa.org/page/V4/Stage_Users"
+  },
+  {
+    "id": "305.2-7",
+    "type": "fill_blank",
+    "objective": "305.2",
+    "topic": "FreeIPA Entity Management",
+    "question": "The ipa command used to display advice on how to integrate specific services (e.g., sudo, autofs) with FreeIPA is 'ipa ______'.",
+    "correct": "advice",
+    "explanation": "ipa advice lists and displays advice scripts for integrating various services with FreeIPA, such as configuring sudo, autofs, NIS compatibility, and SELinux user mapping.",
+    "reference": "https://www.freeipa.org/page/V4/ipa_advice"
+  },
+  {
+    "id": "305.2-8",
+    "type": "multiple_choice",
+    "objective": "305.2",
+    "topic": "FreeIPA Entity Management",
+    "question": "Which ipa subcommand adds a user to a FreeIPA group?",
+    "options": ["ipa group-adduser", "ipa group-add-member", "ipa user-addgroup", "ipa group-member-add"],
+    "correct": "ipa group-add-member",
+    "explanation": "ipa group-add-member adds users, groups, or services as members of a FreeIPA group. For example: ipa group-add-member devteam --users=alice",
+    "reference": "https://www.freeipa.org/page/User_Management"
+  }
+]

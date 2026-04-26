@@ -1,0 +1,111 @@
+[
+  {
+    "id": "304.1-1",
+    "type": "multiple_choice",
+    "objective": "304.1",
+    "topic": "Linux Authentication Clients",
+    "question": "Which file controls the order in which the system uses different services (files, LDAP, Winbind) to resolve users, groups, and hosts?",
+    "options": ["/etc/pam.conf", "/etc/login.defs", "/etc/nsswitch.conf", "/etc/security/pam_env.conf"],
+    "correct": "/etc/nsswitch.conf",
+    "explanation": "/etc/nsswitch.conf (Name Service Switch) defines the order of lookup sources for system databases such as passwd, group, shadow, and hosts.",
+    "reference": "https://linux.die.net/man/5/nsswitch.conf"
+  },
+  {
+    "id": "304.1-2",
+    "type": "multiple_choice",
+    "objective": "304.1",
+    "topic": "Linux Authentication Clients",
+    "question": "Which PAM module creates a home directory for a user on first login if it does not already exist?",
+    "options": ["pam_userdir.so", "pam_homedir.so", "pam_mkhomedir.so", "pam_mkdir.so"],
+    "correct": "pam_mkhomedir.so",
+    "explanation": "pam_mkhomedir.so creates the user's home directory on first login by copying skeleton files from /etc/skel. It is typically added to the session section of PAM configuration.",
+    "reference": "https://linux.die.net/man/8/pam_mkhomedir"
+  },
+  {
+    "id": "304.1-3",
+    "type": "multiple_choice",
+    "objective": "304.1",
+    "topic": "Linux Authentication Clients",
+    "question": "Which PAM module locks an account after a configurable number of failed login attempts?",
+    "options": ["pam_tally2.so", "pam_faillock.so", "pam_lockout.so", "pam_deny.so"],
+    "correct": "pam_faillock.so",
+    "explanation": "pam_faillock.so (which replaced pam_tally2.so on modern systems) counts failed login attempts and locks the account for a configurable time after too many failures.",
+    "reference": "https://linux.die.net/man/8/pam_faillock"
+  },
+  {
+    "id": "304.1-4",
+    "type": "multiple_choice",
+    "objective": "304.1",
+    "topic": "Linux Authentication Clients",
+    "question": "Which SSSD configuration section defines authentication against an Active Directory domain?",
+    "options": ["[domain/AD]", "[sssd/ad]", "[provider/ad]", "[domain/name] with id_provider = ad"],
+    "correct": "[domain/name] with id_provider = ad",
+    "explanation": "In sssd.conf, each domain is defined in a [domain/<name>] section. Setting 'id_provider = ad' and 'auth_provider = ad' configures SSSD to authenticate against Active Directory.",
+    "reference": "https://sssd.io/docs/users/ad_provider.html"
+  },
+  {
+    "id": "304.1-5",
+    "type": "multiple_choice",
+    "objective": "304.1",
+    "topic": "Linux Authentication Clients",
+    "question": "Which command displays the current Kerberos tickets cached for the active user?",
+    "options": ["kinit -l", "ktickets", "klist", "kdump"],
+    "correct": "klist",
+    "explanation": "klist lists the contents of the Kerberos credentials cache, showing all cached tickets including the TGT and any service tickets with their expiry times.",
+    "reference": "https://web.mit.edu/kerberos/krb5-latest/doc/user/user_commands/klist.html"
+  },
+  {
+    "id": "304.1-6",
+    "type": "multiple_choice",
+    "objective": "304.1",
+    "topic": "Linux Authentication Clients",
+    "question": "Which command modifies password aging and expiry settings for a user account?",
+    "options": ["passwd -e", "usermod --expiry", "chage", "pwconv"],
+    "correct": "chage",
+    "explanation": "chage (change age) modifies password aging settings in /etc/shadow, including minimum/maximum days, warning period, and account expiry date.",
+    "reference": "https://linux.die.net/man/1/chage"
+  },
+  {
+    "id": "304.1-7",
+    "type": "multiple_choice",
+    "objective": "304.1",
+    "topic": "Linux Authentication Clients",
+    "question": "Which SSSD command invalidates the SSSD cache, forcing it to re-fetch data from the identity provider?",
+    "options": ["sssd --flush", "sss_cache -E", "sssd restart --clear", "sss_flush"],
+    "correct": "sss_cache -E",
+    "explanation": "sss_cache invalidates entries in the SSSD cache. The -E flag invalidates all cached entries, forcing SSSD to re-query the identity provider on the next lookup.",
+    "reference": "https://sssd.io/docs/users/troubleshooting/general.html"
+  },
+  {
+    "id": "304.1-8",
+    "type": "multiple_choice",
+    "objective": "304.1",
+    "topic": "Linux Authentication Clients",
+    "question": "Which PAM module enforces password complexity rules such as minimum length and character class requirements?",
+    "options": ["pam_pwquality.so", "pam_cracklib.so", "Both pam_pwquality.so and pam_cracklib.so", "pam_unix.so"],
+    "correct": "Both pam_pwquality.so and pam_cracklib.so",
+    "explanation": "Both pam_cracklib.so (older) and pam_pwquality.so (modern replacement) enforce password complexity policies. pam_pwquality.so is preferred on current systems.",
+    "reference": "https://linux.die.net/man/8/pam_pwquality"
+  },
+  {
+    "id": "304.1-9",
+    "type": "fill_blank",
+    "objective": "304.1",
+    "topic": "Linux Authentication Clients",
+    "question": "The Kerberos client configuration file that specifies the default realm, KDC addresses, and ticket options is located at ______.",
+    "correct": "/etc/krb5.conf",
+    "explanation": "/etc/krb5.conf is the main Kerberos client configuration file. It defines the default realm, maps domains to realms, specifies KDC addresses, and sets ticket lifetime and other options.",
+    "reference": "https://web.mit.edu/kerberos/krb5-latest/doc/admin/conf_files/krb5_conf.html"
+  },
+  {
+    "id": "304.1-10",
+    "type": "multiple_choice",
+    "objective": "304.1",
+    "topic": "Linux Authentication Clients",
+    "question": "Which SSSD utility creates a local override for an AD user's attributes (such as changing the login shell)?",
+    "options": ["sssd_override", "sss_override", "sss_usermod", "sssd-override"],
+    "correct": "sss_override",
+    "explanation": "sss_override creates local overrides in SSSD for users and groups from remote identity providers, allowing attributes like shell, home directory, or UID to be changed without modifying AD.",
+    "reference": "https://linux.die.net/man/8/sss_override"
+  }
+]

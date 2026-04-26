@@ -1,0 +1,67 @@
+[
+  {
+    "id": "304.2-1",
+    "type": "multiple_choice",
+    "objective": "304.2",
+    "topic": "Linux CIFS Clients",
+    "question": "Which command mounts a remote CIFS/SMB share on a Linux system?",
+    "options": ["mount -t smbfs", "mount -t cifs", "smbmount", "cifsmount"],
+    "correct": "mount -t cifs",
+    "explanation": "mount -t cifs (using the CIFS kernel module) is the current method for mounting remote CIFS/SMB shares on Linux. The older smbmount/smbfs is deprecated.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/mount.cifs.8.html"
+  },
+  {
+    "id": "304.2-2",
+    "type": "multiple_choice",
+    "objective": "304.2",
+    "topic": "Linux CIFS Clients",
+    "question": "Which PAM module automatically mounts a user's home directory from a CIFS share at login?",
+    "options": ["pam_automount.so", "pam_mount.so", "pam_cifs.so", "pam_autofs.so"],
+    "correct": "pam_mount.so",
+    "explanation": "pam_mount.so mounts filesystems (including CIFS shares) at login time based on rules in pam_mount.conf.xml, and unmounts them at logout.",
+    "reference": "https://manpages.org/pam_mount"
+  },
+  {
+    "id": "304.2-3",
+    "type": "multiple_choice",
+    "objective": "304.2",
+    "topic": "Linux CIFS Clients",
+    "question": "Which tool manages CIFS credentials (username/password) stored in the kernel keyring for use with CIFS mounts?",
+    "options": ["smbclient --credentials", "mount.cifs --keyring", "cifscreds", "cifs-utils keyring"],
+    "correct": "cifscreds",
+    "explanation": "cifscreds adds, updates, or removes CIFS credentials from the Linux kernel keyring. These credentials are automatically used by the CIFS client for mounts to matching servers.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/cifscreds.1.html"
+  },
+  {
+    "id": "304.2-4",
+    "type": "multiple_choice",
+    "objective": "304.2",
+    "topic": "Linux CIFS Clients",
+    "question": "Which smbclient subcommand downloads a file from a remote CIFS share?",
+    "options": ["smbclient //server/share -c 'fetch file'", "smbclient //server/share -c 'get file'", "smbclient //server/share -c 'download file'", "smbclient //server/share -c 'copy file'"],
+    "correct": "smbclient //server/share -c 'get file'",
+    "explanation": "smbclient uses FTP-like commands in its interactive shell. The 'get' command downloads a file from the remote share to the local machine.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smbclient.1.html"
+  },
+  {
+    "id": "304.2-5",
+    "type": "fill_blank",
+    "objective": "304.2",
+    "topic": "Linux CIFS Clients",
+    "question": "The /etc/fstab entry type used to persistently mount a CIFS share is ______.",
+    "correct": "cifs",
+    "explanation": "In /etc/fstab, CIFS shares are mounted with filesystem type 'cifs'. Example: //server/share /mnt/share cifs credentials=/etc/cifs-creds,uid=1000 0 0",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/mount.cifs.8.html"
+  },
+  {
+    "id": "304.2-6",
+    "type": "multiple_choice",
+    "objective": "304.2",
+    "topic": "Linux CIFS Clients",
+    "question": "Which command retrieves and displays CIFS/NT ACLs on a file or directory mounted via CIFS?",
+    "options": ["getfacl", "smbcacls", "getcifsacl", "samba-tool ntacl get"],
+    "correct": "getcifsacl",
+    "explanation": "getcifsacl retrieves the Windows/NT ACL from a file or directory on a CIFS-mounted filesystem. setcifsacl is the companion command for setting ACLs.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/getcifsacl.1.html"
+  }
+]

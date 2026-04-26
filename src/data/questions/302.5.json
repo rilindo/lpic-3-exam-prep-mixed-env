@@ -1,0 +1,45 @@
+[
+  {
+    "id": "302.5-1",
+    "type": "multiple_choice",
+    "objective": "302.5",
+    "topic": "Samba Local User Management",
+    "question": "Which smb.conf parameter specifies the backend used to store local Samba user account information?",
+    "options": ["security backend", "passdb backend", "auth backend", "user database"],
+    "correct": "passdb backend",
+    "explanation": "The 'passdb backend' parameter specifies how Samba stores user account data. Common values are 'tdbsam' (TDB file), 'smbpasswd' (flat file), and 'ldapsam' (LDAP).",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#PASSDBBACKEND"
+  },
+  {
+    "id": "302.5-2",
+    "type": "multiple_choice",
+    "objective": "302.5",
+    "topic": "Samba Local User Management",
+    "question": "Which command sets or changes a local Samba user's password in the smbpasswd file?",
+    "options": ["pdbedit -u user -p", "samba-tool user setpassword", "smbpasswd username", "net user password"],
+    "correct": "smbpasswd username",
+    "explanation": "smbpasswd changes or sets a Samba user's SMB password. When run as root, it can set passwords for any user without knowing the old password.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smbpasswd.8.html"
+  },
+  {
+    "id": "302.5-3",
+    "type": "fill_blank",
+    "objective": "302.5",
+    "topic": "Samba Local User Management",
+    "question": "The pdbedit flag used to list all users in the Samba passdb backend is ______.",
+    "correct": "-L",
+    "explanation": "pdbedit -L lists all user accounts in the Samba passdb backend. pdbedit -Lv provides verbose output with additional attributes per user.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/pdbedit.8.html"
+  },
+  {
+    "id": "302.5-4",
+    "type": "multiple_choice",
+    "objective": "302.5",
+    "topic": "Samba Local User Management",
+    "question": "Which pdbedit option converts the passdb backend from smbpasswd to tdbsam?",
+    "options": ["pdbedit --import smbpasswd --export tdbsam", "pdbedit -i smbpasswd -e tdbsam", "pdbedit --convert tdbsam", "samba-tool passdb convert"],
+    "correct": "pdbedit -i smbpasswd -e tdbsam",
+    "explanation": "pdbedit -i (import) and -e (export) allow conversion between passdb backends. For example: pdbedit -i smbpasswd -e tdbsam imports all smbpasswd users into the tdbsam backend.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/pdbedit.8.html"
+  }
+]

@@ -1,0 +1,89 @@
+[
+  {
+    "id": "301.2-1",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "Which command is used to validate the syntax and settings of a Samba configuration file?",
+    "options": ["smbstatus", "smbcontrol", "testparm", "pdbedit"],
+    "correct": "testparm",
+    "explanation": "testparm checks an smb.conf configuration file for internal correctness and prints a summary of the parsed configuration. It is the standard tool for validating Samba configuration.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/testparm.1.html"
+  },
+  {
+    "id": "301.2-2",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "Which smb.conf parameter sets the security mode so that Samba authenticates users against an Active Directory domain?",
+    "options": ["security = user", "security = ads", "security = domain", "security = share"],
+    "correct": "security = ads",
+    "explanation": "Setting 'security = ads' in smb.conf configures Samba to act as a domain member and authenticate against an Active Directory domain using Kerberos.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#SECURITY"
+  },
+  {
+    "id": "301.2-3",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "Which smb.conf parameter enables Samba to store its configuration in the Windows registry rather than a flat file?",
+    "options": ["registry shares = yes", "config backend = registry", "use registry = yes", "store config = registry"],
+    "correct": "config backend = registry",
+    "explanation": "Setting 'config backend = registry' in smb.conf instructs Samba to read its configuration from the Windows-compatible registry stored in HKLM\\Software\\Samba\\ instead of smb.conf.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#CONFIGBACKEND"
+  },
+  {
+    "id": "301.2-4",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "Which smb.conf parameter enables TLS encryption for Samba LDAP connections?",
+    "options": ["tls enabled = yes", "smb encrypt = required", "tls keyfile", "ldap ssl = yes"],
+    "correct": "tls enabled = yes",
+    "explanation": "The 'tls enabled = yes' parameter in smb.conf enables TLS for Samba's internal LDAP server. Additional parameters like tls keyfile, tls certfile, and tls cafile specify the certificate paths.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#TLSENABLED"
+  },
+  {
+    "id": "301.2-5",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "Which tool allows you to browse and edit the Samba registry on a domain controller?",
+    "options": ["tdbtool", "ldbsearch", "samba-regedit", "net registry"],
+    "correct": "samba-regedit",
+    "explanation": "samba-regedit is an ncurses-based tool that allows administrators to browse and edit the Samba registry interactively, similar to Windows regedit.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba-regedit.8.html"
+  },
+  {
+    "id": "301.2-6",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "Which smb.conf parameter allows you to include settings from another configuration file?",
+    "options": ["source", "include", "import", "extend"],
+    "correct": "include",
+    "explanation": "The 'include' parameter in smb.conf allows you to include the contents of another file at that point in the configuration, enabling modular configuration management.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#INCLUDE"
+  },
+  {
+    "id": "301.2-7",
+    "type": "fill_blank",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "The smb.conf parameter that specifies the server's role (e.g., active directory domain controller) is called ______.",
+    "correct": "server role",
+    "explanation": "The 'server role' parameter in smb.conf defines the role Samba plays: standalone server, member server, classic primary domain controller, active directory domain controller, etc.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#SERVERROLE"
+  },
+  {
+    "id": "301.2-8",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "Which subcommand of 'net registry' would you use to list the values under a specific registry key?",
+    "options": ["net registry list", "net registry enumerate", "net registry getvalue", "net registry show"],
+    "correct": "net registry enumerate",
+    "explanation": "The 'net registry enumerate' command lists the subkeys and values of a given registry key in the Samba registry. 'net registry getvalue' retrieves a single value.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/net.8.html"
+  }
+]

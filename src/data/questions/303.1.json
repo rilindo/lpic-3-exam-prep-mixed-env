@@ -1,0 +1,89 @@
+[
+  {
+    "id": "303.1-1",
+    "type": "multiple_choice",
+    "objective": "303.1",
+    "topic": "File Share Configuration",
+    "question": "Which smb.conf share parameter specifies the filesystem path exposed by the share?",
+    "options": ["directory", "root", "location", "path"],
+    "correct": "path",
+    "explanation": "The 'path' parameter in a Samba share section specifies the directory on the local filesystem to be shared. This is a required parameter for file shares.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#PATH"
+  },
+  {
+    "id": "303.1-2",
+    "type": "multiple_choice",
+    "objective": "303.1",
+    "topic": "File Share Configuration",
+    "question": "Which smb.conf parameter restricts access to a share to a comma-separated list of users or groups?",
+    "options": ["allow users", "valid users", "permitted users", "access list"],
+    "correct": "valid users",
+    "explanation": "The 'valid users' parameter lists users and groups permitted to access the share. Entries prefixed with '@' denote groups. If empty, all users are allowed.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#VALIDUSERS"
+  },
+  {
+    "id": "303.1-3",
+    "type": "multiple_choice",
+    "objective": "303.1",
+    "topic": "File Share Configuration",
+    "question": "Which special Samba share name automatically creates a home directory share for each authenticated user?",
+    "options": ["[userdir]", "[home]", "[homes]", "[user]"],
+    "correct": "[homes]",
+    "explanation": "The [homes] share is a special Samba share that dynamically creates a share for each user pointing to their home directory when they connect.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#idm140393"
+  },
+  {
+    "id": "303.1-4",
+    "type": "multiple_choice",
+    "objective": "303.1",
+    "topic": "File Share Configuration",
+    "question": "Which smb.conf parameter prevents specific filenames or patterns from being visible to clients in a share?",
+    "options": ["hide files", "veto files", "mask files", "exclude files"],
+    "correct": "veto files",
+    "explanation": "The 'veto files' parameter specifies a list of filename patterns that are never accessible through the share. Files matching the pattern are hidden and cannot be accessed by clients.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#VETOFILES"
+  },
+  {
+    "id": "303.1-5",
+    "type": "multiple_choice",
+    "objective": "303.1",
+    "topic": "File Share Configuration",
+    "question": "Which smb.conf parameter allows anonymous (guest) access to a share without requiring authentication?",
+    "options": ["public = yes", "guest ok = yes", "anonymous = yes", "allow guest = yes"],
+    "correct": "guest ok = yes",
+    "explanation": "Setting 'guest ok = yes' (also written as 'public = yes') on a share allows unauthenticated guest access. The guest user is mapped to the 'guest account' (typically 'nobody').",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#GUESTOK"
+  },
+  {
+    "id": "303.1-6",
+    "type": "multiple_choice",
+    "objective": "303.1",
+    "topic": "File Share Configuration",
+    "question": "Which smb.conf parameter limits share access to clients with specific IP addresses or hostnames?",
+    "options": ["valid hosts", "allow from", "hosts allow", "permit hosts"],
+    "correct": "hosts allow",
+    "explanation": "The 'hosts allow' (also 'allow hosts') parameter restricts share or global server access to clients matching the specified IP addresses, networks, or hostnames.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#HOSTSALLOW"
+  },
+  {
+    "id": "303.1-7",
+    "type": "fill_blank",
+    "objective": "303.1",
+    "topic": "File Share Configuration",
+    "question": "The smb.conf parameter that copies another share's settings into the current share definition is ______.",
+    "correct": "copy",
+    "explanation": "The 'copy' parameter copies the named share definition into the current section, providing a way to inherit settings from another share definition without repeating them.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#COPY"
+  },
+  {
+    "id": "303.1-8",
+    "type": "multiple_choice",
+    "objective": "303.1",
+    "topic": "File Share Configuration",
+    "question": "Which command manages disk quotas on CIFS shares from a Linux client or server?",
+    "options": ["quota", "edquota", "smbcquotas", "cifsmount quota"],
+    "correct": "smbcquotas",
+    "explanation": "smbcquotas is the Samba tool for managing disk quotas on CIFS/SMB shares. It can get and set quota limits for users on remote Samba or Windows shares.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smbcquotas.1.html"
+  }
+]

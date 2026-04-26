@@ -1,0 +1,45 @@
+[
+  {
+    "id": "303.4-1",
+    "type": "multiple_choice",
+    "objective": "303.4",
+    "topic": "Print Share Configuration",
+    "question": "Which Samba share section name is used as the repository for Windows printer drivers?",
+    "options": ["[drivers]", "[printdrivers]", "[print$]", "[printers$]"],
+    "correct": "[print$]",
+    "explanation": "The [print$] share is the standard Samba share where Windows printer drivers are stored. Windows clients download drivers from this share when connecting to printers.",
+    "reference": "https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Print_Server"
+  },
+  {
+    "id": "303.4-2",
+    "type": "multiple_choice",
+    "objective": "303.4",
+    "topic": "Print Share Configuration",
+    "question": "Which smb.conf parameter, when set to 'yes', marks a share as a print queue rather than a file share?",
+    "options": ["print share = yes", "is printer = yes", "printable = yes", "print ok = yes"],
+    "correct": "printable = yes",
+    "explanation": "Setting 'printable = yes' (also 'print ok = yes') marks the share as a printer share. Samba will then allow clients to open, write, and close files in the share as if it were a print queue.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#PRINTABLE"
+  },
+  {
+    "id": "303.4-3",
+    "type": "multiple_choice",
+    "objective": "303.4",
+    "topic": "Print Share Configuration",
+    "question": "Which CUPS command sends a print job to a Samba-shared printer from a Linux client?",
+    "options": ["cupsctl", "lpr", "smbspool", "cupsprinter"],
+    "correct": "smbspool",
+    "explanation": "smbspool is the CUPS backend for printing to SMB/CIFS printers. It is called by CUPS when a print job is sent to a printer configured with an smb:// URI.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smbspool.8.html"
+  },
+  {
+    "id": "303.4-4",
+    "type": "fill_blank",
+    "objective": "303.4",
+    "topic": "Print Share Configuration",
+    "question": "The Samba privilege required to manage printers (add, delete, modify) without full administrator rights is called ______.",
+    "correct": "SePrintOperatorPrivilege",
+    "explanation": "SePrintOperatorPrivilege allows delegated users to manage printers on a Samba print server without being full domain or local admins.",
+    "reference": "https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Print_Server"
+  }
+]

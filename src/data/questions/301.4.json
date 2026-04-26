@@ -1,0 +1,67 @@
+[
+  {
+    "id": "301.4-1",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "Which smb.conf parameter controls the verbosity of Samba's log output, with higher values producing more detail?",
+    "options": ["log file", "debug level", "log level", "syslog"],
+    "correct": "log level",
+    "explanation": "The 'log level' parameter (also called 'debuglevel') controls how much detail Samba writes to its log files. Level 0 is minimal, level 10 is maximum verbosity. You can also set per-class log levels.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#LOGLEVEL"
+  },
+  {
+    "id": "301.4-2",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "Which tool allows you to dump the contents of a Samba TDB file to standard output in a readable format?",
+    "options": ["tdbrestore", "tdbbackup", "tdbtool", "tdbdump"],
+    "correct": "tdbdump",
+    "explanation": "tdbdump outputs the contents of a TDB file as human-readable key/value pairs. tdbtool provides an interactive interface for TDB manipulation.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/tdbdump.8.html"
+  },
+  {
+    "id": "301.4-3",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "Which command is used to query and modify user entries in the Samba SAM password database?",
+    "options": ["smbpasswd", "ldbmodify", "pdbedit", "net user"],
+    "correct": "pdbedit",
+    "explanation": "pdbedit manages the SAM database (passdb backend). It can list, add, modify, and delete user entries, and convert between different passdb backends.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/pdbedit.8.html"
+  },
+  {
+    "id": "301.4-4",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "Which command is used to search the Samba AD LDAP directory from the command line?",
+    "options": ["ldapsearch", "ldbsearch", "samba-tool user list", "net ads search"],
+    "correct": "ldbsearch",
+    "explanation": "ldbsearch queries the Samba LDB (LDAP-like) database directly. Unlike standard ldapsearch, it operates on Samba's internal LDB files without needing a live LDAP connection.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/ldbsearch.1.html"
+  },
+  {
+    "id": "301.4-5",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "Which command checks the integrity of a Samba AD domain controller's database?",
+    "options": ["samba-tool domain check", "samba-tool dbcheck", "tdbcheck", "samba-tool fsmo check"],
+    "correct": "samba-tool dbcheck",
+    "explanation": "samba-tool dbcheck checks the Samba AD LDB database for structural problems and inconsistencies. It can also attempt to fix problems with the --fix flag.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba-tool.8.html"
+  },
+  {
+    "id": "301.4-6",
+    "type": "fill_blank",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "The command-line tool used to query information from a remote Samba or Windows server via RPC calls is called ______.",
+    "correct": "rpcclient",
+    "explanation": "rpcclient is a utility for executing client-side MS-RPC functions. It can query information about a remote server such as printer lists, user lists, and more.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html"
+  }
+]

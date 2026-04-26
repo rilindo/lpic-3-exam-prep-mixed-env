@@ -1,0 +1,45 @@
+[
+  {
+    "id": "305.1-1",
+    "type": "multiple_choice",
+    "objective": "305.1",
+    "topic": "FreeIPA Installation and Maintenance",
+    "question": "Which command installs and configures a new FreeIPA server?",
+    "options": ["ipa install-server", "ipa-server-install", "freeipa-setup", "ipactl install"],
+    "correct": "ipa-server-install",
+    "explanation": "ipa-server-install sets up a new FreeIPA server, configuring Kerberos, LDAP (389-ds), DNS, NTP, CA, and other integrated services. It prompts interactively unless --unattended flags are given.",
+    "reference": "https://www.freeipa.org/page/Quick_Start_Guide"
+  },
+  {
+    "id": "305.1-2",
+    "type": "multiple_choice",
+    "objective": "305.1",
+    "topic": "FreeIPA Installation and Maintenance",
+    "question": "Which command joins a Linux client to an existing FreeIPA domain?",
+    "options": ["ipa-join", "ipa-client-install", "ipa client-enroll", "realm join"],
+    "correct": "ipa-client-install",
+    "explanation": "ipa-client-install enrolls a Linux system as a client of an existing FreeIPA domain. It configures SSSD, NSS, PAM, Kerberos, and NTP automatically.",
+    "reference": "https://www.freeipa.org/page/Client_Configuration"
+  },
+  {
+    "id": "305.1-3",
+    "type": "multiple_choice",
+    "objective": "305.1",
+    "topic": "FreeIPA Installation and Maintenance",
+    "question": "Which command controls the FreeIPA server services (start, stop, restart, status)?",
+    "options": ["systemctl ipa", "ipa-service", "ipactl", "ipa-server-ctl"],
+    "correct": "ipactl",
+    "explanation": "ipactl manages all FreeIPA server services as a unit. 'ipactl start', 'ipactl stop', 'ipactl restart', and 'ipactl status' control LDAP, Kerberos, DNS, and CA together.",
+    "reference": "https://www.freeipa.org/page/Administration_Guide"
+  },
+  {
+    "id": "305.1-4",
+    "type": "fill_blank",
+    "objective": "305.1",
+    "topic": "FreeIPA Installation and Maintenance",
+    "question": "The FreeIPA command used to prepare a replica package for installing an additional FreeIPA server is ______.",
+    "correct": "ipa-replica-prepare",
+    "explanation": "ipa-replica-prepare creates a replica information file that is used with ipa-replica-install to set up an additional FreeIPA server for replication and redundancy. (Note: in FreeIPA 4.3+ this step is integrated into ipa-replica-install.)",
+    "reference": "https://www.freeipa.org/page/Replica_Setup"
+  }
+]

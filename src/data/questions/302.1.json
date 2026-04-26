@@ -1,0 +1,111 @@
+[
+  {
+    "id": "302.1-1",
+    "type": "multiple_choice",
+    "objective": "302.1",
+    "topic": "Samba as Active Directory Domain Controller",
+    "question": "Which samba-tool subcommand is used to provision a new Active Directory domain?",
+    "options": ["samba-tool domain join", "samba-tool domain provision", "samba-tool domain setup", "samba-tool domain create"],
+    "correct": "samba-tool domain provision",
+    "explanation": "samba-tool domain provision sets up a new Samba Active Directory domain controller from scratch, creating the necessary directory structure, DNS zones, and Kerberos realm.",
+    "reference": "https://wiki.samba.org/index.php/Setting_up_Samba_as_an_Active_Directory_Domain_Controller"
+  },
+  {
+    "id": "302.1-2",
+    "type": "multiple_choice",
+    "objective": "302.1",
+    "topic": "Samba as Active Directory Domain Controller",
+    "question": "Which FSMO role is responsible for maintaining the master list of security principals (users, groups, computers) in a domain?",
+    "options": ["PDC Emulator", "Infrastructure Master", "RID Master", "Schema Master"],
+    "correct": "RID Master",
+    "explanation": "The RID (Relative Identifier) Master allocates pools of relative identifiers to domain controllers, ensuring unique SIDs for security principals across the domain.",
+    "reference": "https://wiki.samba.org/index.php/FSMO_Roles"
+  },
+  {
+    "id": "302.1-3",
+    "type": "multiple_choice",
+    "objective": "302.1",
+    "topic": "Samba as Active Directory Domain Controller",
+    "question": "Which command verifies AD replication status between Samba domain controllers?",
+    "options": ["samba-tool fsmo show", "samba-tool drs showrepl", "samba-tool domain status", "samba-tool drs replicate"],
+    "correct": "samba-tool drs showrepl",
+    "explanation": "samba-tool drs showrepl shows the replication status and history for a domain controller, similar to 'repadmin /showrepl' on Windows.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba-tool.8.html"
+  },
+  {
+    "id": "302.1-4",
+    "type": "multiple_choice",
+    "objective": "302.1",
+    "topic": "Samba as Active Directory Domain Controller",
+    "question": "Which directory contains the SYSVOL share on a Samba AD domain controller?",
+    "options": ["/etc/samba/sysvol", "/var/lib/samba/sysvol", "/srv/samba/sysvol", "/usr/share/samba/sysvol"],
+    "correct": "/var/lib/samba/sysvol",
+    "explanation": "Samba stores the SYSVOL content (group policy objects, logon scripts) under /var/lib/samba/sysvol by default. This directory must be replicated between domain controllers.",
+    "reference": "https://wiki.samba.org/index.php/SysVol_replication_(DFS-R)"
+  },
+  {
+    "id": "302.1-5",
+    "type": "multiple_choice",
+    "objective": "302.1",
+    "topic": "Samba as Active Directory Domain Controller",
+    "question": "Which tool is recommended for SYSVOL replication between Samba AD domain controllers on Linux?",
+    "options": ["samba-tool drs replicate", "unison", "rsync", "drbd"],
+    "correct": "rsync",
+    "explanation": "rsync is the recommended tool for SYSVOL replication between Samba AD domain controllers on Linux, as Samba does not yet implement DFS-R natively. robocopy is the Windows equivalent.",
+    "reference": "https://wiki.samba.org/index.php/SysVol_replication_(DFS-R)"
+  },
+  {
+    "id": "302.1-6",
+    "type": "multiple_choice",
+    "objective": "302.1",
+    "topic": "Samba as Active Directory Domain Controller",
+    "question": "Which FSMO role acts as the authoritative time source for Kerberos authentication in a domain?",
+    "options": ["RID Master", "Infrastructure Master", "Schema Master", "PDC Emulator"],
+    "correct": "PDC Emulator",
+    "explanation": "The PDC Emulator is authoritative for time synchronization in the domain. Kerberos requires clocks to be within 5 minutes of each other, so all machines sync to the PDC Emulator.",
+    "reference": "https://wiki.samba.org/index.php/FSMO_Roles"
+  },
+  {
+    "id": "302.1-7",
+    "type": "multiple_choice",
+    "objective": "302.1",
+    "topic": "Samba as Active Directory Domain Controller",
+    "question": "Which samba-tool command is used to seize or transfer FSMO roles?",
+    "options": ["samba-tool roles", "samba-tool drs fsmo", "samba-tool fsmo seize", "samba-tool domain fsmo"],
+    "correct": "samba-tool fsmo seize",
+    "explanation": "samba-tool fsmo seize forcibly takes over an FSMO role. samba-tool fsmo transfer performs a graceful transfer. Both subcommands require specifying the role name.",
+    "reference": "https://wiki.samba.org/index.php/FSMO_Roles"
+  },
+  {
+    "id": "302.1-8",
+    "type": "multiple_choice",
+    "objective": "302.1",
+    "topic": "Samba as Active Directory Domain Controller",
+    "question": "What is the smb.conf parameter required to set the Samba server role as an Active Directory domain controller?",
+    "options": ["server role = primary domain controller", "server role = active directory domain controller", "security = ads", "domain master = yes"],
+    "correct": "server role = active directory domain controller",
+    "explanation": "Setting 'server role = active directory domain controller' in smb.conf configures Samba to act as a full AD DC, enabling the Kerberos KDC, internal DNS, and LDAP services.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#SERVERROLE"
+  },
+  {
+    "id": "302.1-9",
+    "type": "fill_blank",
+    "objective": "302.1",
+    "topic": "Samba as Active Directory Domain Controller",
+    "question": "The ntpd configuration option that points ntpd to the Samba NTP signing socket for secure time synchronisation in an AD domain is called ______.",
+    "correct": "ntpsigndsocket",
+    "explanation": "The 'ntpsigndsocket' option in ntpd.conf points to Samba's NTP signing socket, allowing ntpd to cryptographically sign NTP responses as required by Windows domain clients.",
+    "reference": "https://wiki.samba.org/index.php/Time_Synchronisation"
+  },
+  {
+    "id": "302.1-10",
+    "type": "multiple_choice",
+    "objective": "302.1",
+    "topic": "Samba as Active Directory Domain Controller",
+    "question": "Which samba-tool subcommand lists the AD sites and their subnet assignments?",
+    "options": ["samba-tool domain sites", "samba-tool sites list", "samba-tool sites subnet list", "samba-tool network sites"],
+    "correct": "samba-tool sites list",
+    "explanation": "samba-tool sites list shows all AD sites. samba-tool sites subnet list shows subnet-to-site assignments. Sites are used to control AD replication traffic and client login optimization.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba-tool.8.html"
+  }
+]

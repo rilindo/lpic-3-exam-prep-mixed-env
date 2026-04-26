@@ -1,0 +1,67 @@
+[
+  {
+    "id": "305.4-1",
+    "type": "multiple_choice",
+    "objective": "305.4",
+    "topic": "Network File System",
+    "question": "Which file on an NFS server defines which directories are exported and to which clients?",
+    "options": ["/etc/nfs.conf", "/etc/nfsd.conf", "/etc/exports", "/etc/nfs/exports"],
+    "correct": "/etc/exports",
+    "explanation": "/etc/exports defines the NFS exports on a server: which directories are shared, to which clients, and with which options (rw, ro, sync, no_root_squash, etc.).",
+    "reference": "https://linux.die.net/man/5/exports"
+  },
+  {
+    "id": "305.4-2",
+    "type": "multiple_choice",
+    "objective": "305.4",
+    "topic": "Network File System",
+    "question": "Which command re-reads /etc/exports and updates the kernel NFS export table without restarting the NFS server?",
+    "options": ["nfsctl reload", "service nfs reload", "exportfs -r", "exportfs -a"],
+    "correct": "exportfs -r",
+    "explanation": "exportfs -r re-reads /etc/exports and synchronises the kernel's export table, adding new exports and removing deleted ones. exportfs -a exports all directories without re-reading.",
+    "reference": "https://linux.die.net/man/8/exportfs"
+  },
+  {
+    "id": "305.4-3",
+    "type": "multiple_choice",
+    "objective": "305.4",
+    "topic": "Network File System",
+    "question": "Which configuration file controls NFSv4 ID mapping between user names and numeric UIDs on both client and server?",
+    "options": ["/etc/nfs-idmap.conf", "/etc/idmapd.conf", "/etc/nfs4-idmap.conf", "/etc/nfs/idmap.conf"],
+    "correct": "/etc/idmapd.conf",
+    "explanation": "/etc/idmapd.conf configures the NFSv4 ID mapping daemon (rpc.idmapd). It specifies the NFSv4 domain, which must match on client and server for correct user name resolution.",
+    "reference": "https://linux.die.net/man/5/idmapd.conf"
+  },
+  {
+    "id": "305.4-4",
+    "type": "multiple_choice",
+    "objective": "305.4",
+    "topic": "Network File System",
+    "question": "Which command sets NFSv4 ACLs on a file or directory?",
+    "options": ["setfacl --nfs4", "nfs4_setfacl", "nfsacl set", "setcifsacl --nfs4"],
+    "correct": "nfs4_setfacl",
+    "explanation": "nfs4_setfacl sets NFSv4 ACLs on files and directories on NFSv4 mounts. nfs4_getfacl retrieves them. NFSv4 ACLs are richer than POSIX ACLs and closer to Windows NTFS ACLs.",
+    "reference": "https://linux.die.net/man/1/nfs4_setfacl"
+  },
+  {
+    "id": "305.4-5",
+    "type": "multiple_choice",
+    "objective": "305.4",
+    "topic": "Network File System",
+    "question": "Which Kerberos security flavor for NFS provides both authentication and encryption of data in transit?",
+    "options": ["krb5", "krb5i", "krb5p", "gss/krb5"],
+    "correct": "krb5p",
+    "explanation": "NFSv4 supports three Kerberos security flavors: krb5 (authentication only), krb5i (authentication + integrity), and krb5p (authentication + integrity + privacy/encryption).",
+    "reference": "https://www.kernel.org/doc/html/latest/filesystems/nfs/rpc-cache.html"
+  },
+  {
+    "id": "305.4-6",
+    "type": "fill_blank",
+    "objective": "305.4",
+    "topic": "Network File System",
+    "question": "The NFSv4 feature that presents all exported filesystems under a single virtual root directory is called the NFSv4 ______ filesystem.",
+    "correct": "pseudo",
+    "explanation": "The NFSv4 pseudo filesystem is a virtual namespace on the server that aggregates all exports under a single root (/). Clients mount the pseudo filesystem root and can access all exports below it.",
+    "reference": "https://linux.die.net/man/5/exports"
+  }
+]

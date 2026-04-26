@@ -1,0 +1,45 @@
+[
+  {
+    "id": "301.3-1",
+    "type": "multiple_choice",
+    "objective": "301.3",
+    "topic": "Regular Samba Maintenance",
+    "question": "Which command displays currently connected SMB clients and open files on a Samba server?",
+    "options": ["smbcontrol", "smbstatus", "wbinfo", "net status"],
+    "correct": "smbstatus",
+    "explanation": "smbstatus reports on current Samba connections, showing active clients, locked files, and shares in use. It reads information from Samba's TDB files.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smbstatus.1.html"
+  },
+  {
+    "id": "301.3-2",
+    "type": "multiple_choice",
+    "objective": "301.3",
+    "topic": "Regular Samba Maintenance",
+    "question": "Which command is used to back up a Samba TDB file while Samba is running?",
+    "options": ["tdbdump", "tdbrestore", "tdbbackup", "samba-tool domain backup"],
+    "correct": "tdbbackup",
+    "explanation": "tdbbackup creates a backup of a TDB file. It is safe to run while Samba is running. The backup file is typically named with a .bak extension.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/tdbbackup.8.html"
+  },
+  {
+    "id": "301.3-3",
+    "type": "multiple_choice",
+    "objective": "301.3",
+    "topic": "Regular Samba Maintenance",
+    "question": "Which command is used to send a message to a running Samba daemon, such as requesting it to reload its configuration?",
+    "options": ["smbstatus", "samba-tool", "smbcontrol", "systemctl reload smbd"],
+    "correct": "smbcontrol",
+    "explanation": "smbcontrol sends messages to running Samba daemons. For example, 'smbcontrol smbd reload-config' causes smbd to reload smb.conf without restarting.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smbcontrol.1.html"
+  },
+  {
+    "id": "301.3-4",
+    "type": "fill_blank",
+    "objective": "301.3",
+    "topic": "Regular Samba Maintenance",
+    "question": "The samba-tool subcommand used to create an online backup of an Active Directory domain controller is 'samba-tool domain ______'.",
+    "correct": "backup",
+    "explanation": "The 'samba-tool domain backup' command (with subcommands like 'online', 'offline', and 'rename') is used to back up and restore Samba Active Directory domain controllers.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba-tool.8.html"
+  }
+]
