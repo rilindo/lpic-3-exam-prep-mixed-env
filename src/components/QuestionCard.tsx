@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { Question, QuizMode } from '../types/question'
+import { sanitizeUrl } from '../utils/url'
 
 interface QuestionCardProps {
   question: Question
@@ -125,7 +126,7 @@ export function QuestionCard({ question, mode, onAnswer, onNext, isLast }: Quest
           <p className="text-gray-700">{question.explanation}</p>
           {mode === 'practice' && (
             <a
-              href={question.reference}
+              href={sanitizeUrl(question.reference)}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 inline-block text-blue-600 underline text-xs break-all"
