@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { QuizResult } from '../types/question'
 import { calculateScore } from '../utils/score'
+import { sanitizeUrl } from '../utils/url'
 
 interface ResultsScreenProps {
   results: QuizResult[]
@@ -81,7 +82,7 @@ export function ResultsScreen({ results, onReset }: ResultsScreenProps) {
                   )}
                   <p className="text-gray-600 text-xs">{result.question.explanation}</p>
                   <a
-                    href={result.question.reference}
+                    href={sanitizeUrl(result.question.reference)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block text-blue-600 underline text-xs break-all"
