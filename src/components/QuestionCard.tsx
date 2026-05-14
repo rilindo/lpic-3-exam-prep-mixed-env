@@ -14,6 +14,7 @@ export function QuestionCard({ question, mode, onAnswer, onNext, isLast }: Quest
   const [selected, setSelected] = useState<string>('')
   const [fillValue, setFillValue] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [showHint, setShowHint] = useState(false)
 
   const handleSubmit = () => {
     if (submitted) return
@@ -27,6 +28,7 @@ export function QuestionCard({ question, mode, onAnswer, onNext, isLast }: Quest
     setSelected('')
     setFillValue('')
     setSubmitted(false)
+    setShowHint(false)
     onNext()
   }
 
@@ -115,6 +117,31 @@ export function QuestionCard({ question, mode, onAnswer, onNext, isLast }: Quest
             <p className="mt-2 text-xs text-green-700 font-medium">
               Correct answer: <span className="font-mono">{question.correct}</span>
             </p>
+          )}
+        </div>
+      )}
+
+      {/* Hint (practice mode, before submit) */}
+      {mode === 'practice' && !submitted && (
+        <div className="text-right">
+          <button
+            onClick={() => setShowHint((v) => !v)}
+            className="text-xs text-blue-500 hover:text-blue-700 underline transition-colors"
+          >
+            {showHint ? 'Hide hint' : 'Show hint'}
+          </button>
+          {showHint && (
+            <div className="mt-1.5 rounded-xl border border-blue-200 bg-blue-50 px-4 py-2 text-left">
+              <p className="text-xs font-medium text-blue-700 mb-0.5">Reference</p>
+              <a
+                href={sanitizeUrl(question.reference)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-blue-600 underline break-all"
+              >
+                {question.reference}
+              </a>
+            </div>
           )}
         </div>
       )}
