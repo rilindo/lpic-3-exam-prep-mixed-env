@@ -52,7 +52,7 @@
     "options": ["Universal Principal Name", "User Principal Name", "Unified Permission Node", "User Permission Number"],
     "correct": "User Principal Name",
     "explanation": "A User Principal Name (UPN) is the AD logon name in email format (user@domain.com). UPN suffixes allow users to log in with alternative domain names.",
-    "reference": "https://wiki.samba.org/index.php/User_and_Group_management"
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba-tool.8.html"
   },
   {
     "id": "302.3-6",

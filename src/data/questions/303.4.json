@@ -40,6 +40,6 @@
     "question": "The Samba privilege required to manage printers (add, delete, modify) without full administrator rights is called ______.",
     "correct": "SePrintOperatorPrivilege",
     "explanation": "SePrintOperatorPrivilege allows delegated users to manage printers on a Samba print server without being full domain or local admins.",
-    "reference": "https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Print_Server"
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html"
   }
 ]
