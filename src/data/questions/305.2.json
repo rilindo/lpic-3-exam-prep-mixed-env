@@ -19,7 +19,7 @@
     "options": ["Role, Privilege, Permission", "Permission, Privilege, Role", "Privilege, Permission, Role", "Access, Role, Policy"],
     "correct": "Permission, Privilege, Role",
     "explanation": "FreeIPA RBAC uses Permissions (individual access rights), Privileges (collections of permissions), and Roles (collections of privileges assigned to users or groups).",
-    "reference": "https://www.freeipa.org/page/Howto/RBAC"
+    "reference": "https://github.com/freeipa/freeipa/blob/master/doc/api/access_control_guide.md"
   },
   {
     "id": "305.2-3",
@@ -57,7 +57,7 @@
     ],
     "correct": "To override POSIX attributes (UID, GID, shell) for users from trusted domains",
     "explanation": "ID Views allow administrators to override POSIX attributes (uidNumber, gidNumber, homeDirectory, shell) for users from trusted Active Directory domains, enabling controlled attribute mapping.",
-    "reference": "https://www.freeipa.org/page/V4/ID_Views"
+    "reference": "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/windows_integration_guide/id-views"
   },
   {
     "id": "305.2-6",
@@ -68,7 +68,7 @@
     "options": ["ipa stageuser-promote", "ipa stageuser-activate", "ipa user-promote", "ipa stageuser-add"],
     "correct": "ipa stageuser-activate",
     "explanation": "Stage users are pre-provisioned accounts not yet active. ipa stageuser-activate moves a stage user to the active users tree, enabling login.",
-    "reference": "https://www.freeipa.org/page/V4/Stage_Users"
+    "reference": "https://www.freeipa.org/page/V4/User_Life-Cycle_Management.html"
   },
   {
     "id": "305.2-7",

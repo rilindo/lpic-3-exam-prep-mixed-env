@@ -106,6 +106,6 @@
     "options": ["sssd_override", "sss_override", "sss_usermod", "sssd-override"],
     "correct": "sss_override",
     "explanation": "sss_override creates local overrides in SSSD for users and groups from remote identity providers, allowing attributes like shell, home directory, or UID to be changed without modifying AD.",
-    "reference": "https://linux.die.net/man/8/sss_override"
+    "reference": "https://manpages.debian.org/testing/sssd-tools/sss_override.8.en.html"
   }
 ]

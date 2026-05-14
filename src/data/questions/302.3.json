@@ -82,8 +82,8 @@
     "topic": "Active Directory User Management",
     "question": "Which type of AD group can be used to assign permissions to resources and can contain users from any trusted domain?",
     "options": ["Domain Local Group", "Global Group", "Universal Group", "Distribution Group"],
-    "correct": "Universal Group",
-    "explanation": "Universal Groups can contain members from any domain in the forest and can be assigned permissions to resources in any domain. They are stored in the global catalog.",
-    "reference": "https://wiki.samba.org/index.php/User_and_Group_management"
+    "correct": "Domain Local Group",
+    "explanation": "Domain Local groups can be assigned permissions to resources in their own domain and can contain accounts and groups from any domain or trusted domain. Universal groups can span domains in the same forest, but that is narrower than 'any trusted domain'.",
+    "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups"
   }
 ]
