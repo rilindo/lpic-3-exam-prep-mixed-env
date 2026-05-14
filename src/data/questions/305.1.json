@@ -19,7 +19,7 @@
     "options": ["ipa-join", "ipa-client-install", "ipa client-enroll", "realm join"],
     "correct": "ipa-client-install",
     "explanation": "ipa-client-install enrolls a Linux system as a client of an existing FreeIPA domain. It configures SSSD, NSS, PAM, Kerberos, and NTP automatically.",
-    "reference": "https://www.freeipa.org/page/Client_Configuration"
+    "reference": "https://www.mankier.com/1/ipa-client-install"
   },
   {
     "id": "305.1-3",

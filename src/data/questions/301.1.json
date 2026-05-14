@@ -30,7 +30,7 @@
     "options": ["SMB 1.0", "SMB 2.0", "SMB 2.1", "SMB 3.0"],
     "correct": "SMB 3.0",
     "explanation": "SMB 3.0 introduced persistent file handles, transparent failover, multichannel support (multiple network connections), and end-to-end encryption.",
-    "reference": "https://wiki.samba.org/index.php/Samba4/SMB3"
+    "reference": "https://learn.microsoft.com/en-us/windows-server/storage/file-server/file-server-smb-overview"
   },
   {
     "id": "301.1-4",

@@ -8,7 +8,7 @@
     "options": ["mount -t smbfs", "mount -t cifs", "smbmount", "cifsmount"],
     "correct": "mount -t cifs",
     "explanation": "mount -t cifs (using the CIFS kernel module) is the current method for mounting remote CIFS/SMB shares on Linux. The older smbmount/smbfs is deprecated.",
-    "reference": "https://www.samba.org/samba/docs/current/man-html/mount.cifs.8.html"
+    "reference": "https://manpages.debian.org/testing/cifs-utils/mount.cifs.8.en.html"
   },
   {
     "id": "304.2-2",
@@ -30,7 +30,7 @@
     "options": ["smbclient --credentials", "mount.cifs --keyring", "cifscreds", "cifs-utils keyring"],
     "correct": "cifscreds",
     "explanation": "cifscreds adds, updates, or removes CIFS credentials from the Linux kernel keyring. These credentials are automatically used by the CIFS client for mounts to matching servers.",
-    "reference": "https://www.samba.org/samba/docs/current/man-html/cifscreds.1.html"
+    "reference": "https://manpages.debian.org/testing/cifs-utils/cifscreds.1.en.html"
   },
   {
     "id": "304.2-4",
@@ -51,7 +51,7 @@
     "question": "The /etc/fstab entry type used to persistently mount a CIFS share is ______.",
     "correct": "cifs",
     "explanation": "In /etc/fstab, CIFS shares are mounted with filesystem type 'cifs'. Example: //server/share /mnt/share cifs credentials=/etc/cifs-creds,uid=1000 0 0",
-    "reference": "https://www.samba.org/samba/docs/current/man-html/mount.cifs.8.html"
+    "reference": "https://manpages.debian.org/testing/cifs-utils/mount.cifs.8.en.html"
   },
   {
     "id": "304.2-6",
@@ -62,6 +62,6 @@
     "options": ["getfacl", "smbcacls", "getcifsacl", "samba-tool ntacl get"],
     "correct": "getcifsacl",
     "explanation": "getcifsacl retrieves the Windows/NT ACL from a file or directory on a CIFS-mounted filesystem. setcifsacl is the companion command for setting ACLs.",
-    "reference": "https://www.samba.org/samba/docs/current/man-html/getcifsacl.1.html"
+    "reference": "https://manpages.debian.org/testing/cifs-utils/getcifsacl.1.en.html"
   }
 ]

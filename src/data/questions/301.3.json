@@ -19,7 +19,7 @@
     "options": ["tdbdump", "tdbrestore", "tdbbackup", "samba-tool domain backup"],
     "correct": "tdbbackup",
     "explanation": "tdbbackup creates a backup of a TDB file. It is safe to run while Samba is running. The backup file is typically named with a .bak extension.",
-    "reference": "https://www.samba.org/samba/docs/current/man-html/tdbbackup.8.html"
+    "reference": "https://www.mankier.com/8/tdbbackup"
   },
   {
     "id": "301.3-3",

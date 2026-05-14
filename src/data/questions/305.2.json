@@ -8,7 +8,7 @@
     "options": ["ipa user-new", "ipa user-create", "ipa user-add", "ipa useradd"],
     "correct": "ipa user-add",
     "explanation": "ipa user-add creates a new user account in FreeIPA. It accepts various attributes such as --first, --last, --uid, --shell, and --email.",
-    "reference": "https://www.freeipa.org/page/User_Management"
+    "reference": "https://github.com/freeipa/freeipa/blob/master/doc/api/user_add.md"
   },
   {
     "id": "305.2-2",
@@ -30,7 +30,7 @@
     "options": ["ipa host-create", "ipa host-register", "ipa host-add", "ipa host-enroll"],
     "correct": "ipa host-add",
     "explanation": "ipa host-add registers a new host in FreeIPA. Hosts can be organized into hostgroups and have services, keytabs, and access control policies assigned.",
-    "reference": "https://www.freeipa.org/page/Host_Management"
+    "reference": "https://github.com/freeipa/freeipa/blob/master/doc/api/host_add.md"
   },
   {
     "id": "305.2-4",
@@ -41,7 +41,7 @@
     "options": ["ipa service-getkeytab", "ipa getkeytab", "ipa-getkeytab", "ipa keytab-get"],
     "correct": "ipa-getkeytab",
     "explanation": "ipa-getkeytab retrieves or creates a Kerberos keytab for a service principal registered in FreeIPA. It is typically run on the host that will provide the service.",
-    "reference": "https://www.freeipa.org/page/Service_Management"
+    "reference": "https://www.mankier.com/1/ipa-getkeytab"
   },
   {
     "id": "305.2-5",
@@ -75,10 +75,10 @@
     "type": "fill_blank",
     "objective": "305.2",
     "topic": "FreeIPA Entity Management",
-    "question": "The ipa command used to display advice on how to integrate specific services (e.g., sudo, autofs) with FreeIPA is 'ipa ______'.",
-    "correct": "advice",
-    "explanation": "ipa advice lists and displays advice scripts for integrating various services with FreeIPA, such as configuring sudo, autofs, NIS compatibility, and SELinux user mapping.",
-    "reference": "https://www.freeipa.org/page/V4/ipa_advice"
+    "question": "The FreeIPA command used to display advice on how to integrate specific services (e.g., sudo, autofs) is ipa-______.",
+    "correct": "advise",
+    "explanation": "ipa-advise prints configuration advice for integrating services with FreeIPA, including common scenarios such as sudo and autofs integration.",
+    "reference": "https://www.mankier.com/1/ipa-advise"
   },
   {
     "id": "305.2-8",
@@ -89,6 +89,6 @@
     "options": ["ipa group-adduser", "ipa group-add-member", "ipa user-addgroup", "ipa group-member-add"],
     "correct": "ipa group-add-member",
     "explanation": "ipa group-add-member adds users, groups, or services as members of a FreeIPA group. For example: ipa group-add-member devteam --users=alice",
-    "reference": "https://www.freeipa.org/page/User_Management"
+    "reference": "https://github.com/freeipa/freeipa/blob/master/doc/api/group_add_member.md"
   }
 ]

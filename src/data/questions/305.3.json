@@ -30,7 +30,7 @@
     "options": ["ipa trust-range", "ipa idrange-add", "ipa ad-range", "ipa id-range-config"],
     "correct": "ipa idrange-add",
     "explanation": "ipa idrange-add creates an ID range that maps SIDs from a trusted AD domain to a specific range of POSIX UIDs/GIDs in FreeIPA.",
-    "reference": "https://www.freeipa.org/page/V4/ID_Ranges"
+    "reference": "https://github.com/freeipa/freeipa/blob/master/doc/api/idrange_add.md"
   },
   {
     "id": "305.3-4",

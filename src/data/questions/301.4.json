@@ -19,7 +19,7 @@
     "options": ["tdbrestore", "tdbbackup", "tdbtool", "tdbdump"],
     "correct": "tdbdump",
     "explanation": "tdbdump outputs the contents of a TDB file as human-readable key/value pairs. tdbtool provides an interactive interface for TDB manipulation.",
-    "reference": "https://www.samba.org/samba/docs/current/man-html/tdbdump.8.html"
+    "reference": "https://www.mankier.com/8/tdbdump"
   },
   {
     "id": "301.4-3",
@@ -41,7 +41,7 @@
     "options": ["ldapsearch", "ldbsearch", "samba-tool user list", "net ads search"],
     "correct": "ldbsearch",
     "explanation": "ldbsearch queries the Samba LDB (LDAP-like) database directly. Unlike standard ldapsearch, it operates on Samba's internal LDB files without needing a live LDAP connection.",
-    "reference": "https://www.samba.org/samba/docs/current/man-html/ldbsearch.1.html"
+    "reference": "https://manpages.debian.org/testing/ldb-tools/ldbsearch.1.en.html"
   },
   {
     "id": "301.4-5",

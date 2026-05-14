@@ -73,7 +73,7 @@
     "question": "The Kerberos command used to obtain a Ticket Granting Ticket (TGT) for an AD user is ______.",
     "correct": "kinit",
     "explanation": "kinit obtains and caches a Kerberos Ticket Granting Ticket. For AD users, it is typically used as: kinit user@REALM. The obtained ticket is used for subsequent Kerberos-authenticated services.",
-    "reference": "https://wiki.samba.org/index.php/Kerberos"
+    "reference": "https://web.mit.edu/kerberos/krb5-latest/doc/user/user_commands/kinit.html"
   },
   {
     "id": "302.3-8",

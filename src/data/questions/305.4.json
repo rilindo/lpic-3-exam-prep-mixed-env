@@ -8,7 +8,7 @@
     "options": ["/etc/nfs.conf", "/etc/nfsd.conf", "/etc/exports", "/etc/nfs/exports"],
     "correct": "/etc/exports",
     "explanation": "/etc/exports defines the NFS exports on a server: which directories are shared, to which clients, and with which options (rw, ro, sync, no_root_squash, etc.).",
-    "reference": "https://linux.die.net/man/5/exports"
+    "reference": "https://man7.org/linux/man-pages/man5/exports.5.html"
   },
   {
     "id": "305.4-2",
@@ -19,7 +19,7 @@
     "options": ["nfsctl reload", "service nfs reload", "exportfs -r", "exportfs -a"],
     "correct": "exportfs -r",
     "explanation": "exportfs -r re-reads /etc/exports and synchronises the kernel's export table, adding new exports and removing deleted ones. exportfs -a exports all directories without re-reading.",
-    "reference": "https://linux.die.net/man/8/exportfs"
+    "reference": "https://man7.org/linux/man-pages/man8/exportfs.8.html"
   },
   {
     "id": "305.4-3",
@@ -30,7 +30,7 @@
     "options": ["/etc/nfs-idmap.conf", "/etc/idmapd.conf", "/etc/nfs4-idmap.conf", "/etc/nfs/idmap.conf"],
     "correct": "/etc/idmapd.conf",
     "explanation": "/etc/idmapd.conf configures the NFSv4 ID mapping daemon (rpc.idmapd). It specifies the NFSv4 domain, which must match on client and server for correct user name resolution.",
-    "reference": "https://linux.die.net/man/5/idmapd.conf"
+    "reference": "https://www.mankier.com/5/idmapd.conf"
   },
   {
     "id": "305.4-4",
@@ -41,7 +41,7 @@
     "options": ["setfacl --nfs4", "nfs4_setfacl", "nfsacl set", "setcifsacl --nfs4"],
     "correct": "nfs4_setfacl",
     "explanation": "nfs4_setfacl sets NFSv4 ACLs on files and directories on NFSv4 mounts. nfs4_getfacl retrieves them. NFSv4 ACLs are richer than POSIX ACLs and closer to Windows NTFS ACLs.",
-    "reference": "https://linux.die.net/man/1/nfs4_setfacl"
+    "reference": "https://manpages.debian.org/testing/nfs4-acl-tools/nfs4_setfacl.1.en.html"
   },
   {
     "id": "305.4-5",
@@ -52,7 +52,7 @@
     "options": ["krb5", "krb5i", "krb5p", "gss/krb5"],
     "correct": "krb5p",
     "explanation": "NFSv4 supports three Kerberos security flavors: krb5 (authentication only), krb5i (authentication + integrity), and krb5p (authentication + integrity + privacy/encryption).",
-    "reference": "https://linux.die.net/man/5/nfs#security_considerations"
+    "reference": "https://man7.org/linux/man-pages/man5/nfs.5.html"
   },
   {
     "id": "305.4-6",

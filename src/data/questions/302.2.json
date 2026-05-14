@@ -30,7 +30,7 @@
     "options": ["nslookup", "host", "dig", "nmblookup"],
     "correct": "dig",
     "explanation": "dig (Domain Information Groper) is the preferred tool for querying DNS, including AD SRV records such as _ldap._tcp.<domain>. It provides detailed output about DNS responses.",
-    "reference": "https://wiki.samba.org/index.php/Verifying_the_Samba_AD_Installation"
+    "reference": "https://manpages.debian.org/testing/bind9-dnsutils/dig.1.en.html"
   },
   {
     "id": "302.2-4",

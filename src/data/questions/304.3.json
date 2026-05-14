@@ -30,7 +30,7 @@
     "options": ["vncclient", "xfreerdp", "rdesktop", "x2go"],
     "correct": "rdesktop",
     "explanation": "rdesktop is an open-source RDP client for Linux that allows connecting to Windows Remote Desktop Services. FreeRDP (xfreerdp) is its modern successor.",
-    "reference": "https://wiki.samba.org/index.php/Windows_Clients"
+    "reference": "https://www.mankier.com/1/rdesktop"
   },
   {
     "id": "304.3-4",

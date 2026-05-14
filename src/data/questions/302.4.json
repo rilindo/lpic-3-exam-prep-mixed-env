@@ -63,7 +63,7 @@
     "options": ["libpam_winbind.so", "libnss_winbind.so", "libwinbind_nss.so", "libnss_samba.so"],
     "correct": "libnss_winbind.so",
     "explanation": "libnss_winbind.so is the NSS module that allows the system's Name Service Switch to resolve AD users and groups through Winbind. It must be referenced in /etc/nsswitch.conf.",
-    "reference": "https://wiki.samba.org/index.php/Winbind"
+    "reference": "https://www.samba.org/samba/docs/current/man-html/winbindd.8.html"
   },
   {
     "id": "302.4-7",
