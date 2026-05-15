@@ -89,7 +89,7 @@ function significantTokens(answer) {
   return answer
     .toLowerCase()
     .replace(/\([^)]*\)/g, ' ')           // remove (...) parentheticals
-    .replace(/[^a-z0-9_\-\.]/g, ' ')      // keep alnum + _ - .
+    .replace(/[^a-z0-9_.-]/g, ' ')         // keep alnum + _ - .
     .split(/\s+/)
     .map((t) => t.replace(/\.so$/, ''))   // strip .so suffix
     .filter((t) => {
