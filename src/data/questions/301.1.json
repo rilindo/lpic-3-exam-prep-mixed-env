@@ -41,5 +41,156 @@
     "correct": "winbindd",
     "explanation": "winbindd is the Samba daemon that provides a service for the Name Service Switch (NSS) capability and for PAM authentication, resolving users and groups from Windows/AD domains.",
     "reference": "https://www.samba.org/samba/docs/current/man-html/winbindd.8.html"
+  },
+  {
+    "id": "301.1-5",
+    "type": "multiple_choice",
+    "objective": "301.1",
+    "topic": "Samba Concepts and Architecture",
+    "question": "Which Samba process is used when Samba operates as an Active Directory Domain Controller?",
+    "options": ["smbd", "nmbd", "winbindd", "samba"],
+    "correct": "samba",
+    "explanation": "The 'samba' daemon is the combined process used when Samba acts as an Active Directory Domain Controller. It includes integrated LDAP, Kerberos, and DNS services. It replaces the separate smbd/nmbd daemons in AD DC mode.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba.8.html"
+  },
+  {
+    "id": "301.1-6",
+    "type": "multiple_choice",
+    "objective": "301.1",
+    "topic": "Samba Concepts and Architecture",
+    "question": "Which TCP port is used by the SMB/CIFS protocol for direct hosting (without NetBIOS)?",
+    "options": ["137", "138", "139", "445"],
+    "correct": "445",
+    "explanation": "TCP port 445 is used for direct-hosted SMB (SMB over TCP/IP without NetBIOS). TCP port 139 is used for SMB over NetBIOS. Ports 137 and 138 are UDP ports used by NetBIOS Name Service and Datagram Service respectively.",
+    "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/service-overview-and-network-port-requirements"
+  },
+  {
+    "id": "301.1-7",
+    "type": "multiple_choice",
+    "objective": "301.1",
+    "topic": "Samba Concepts and Architecture",
+    "question": "Which port does Kerberos use by default for authentication in an Active Directory environment?",
+    "options": ["389", "445", "88", "464"],
+    "correct": "88",
+    "explanation": "Kerberos uses UDP/TCP port 88 for authentication. Port 389 is LDAP, port 445 is SMB, and port 464 is used for Kerberos password change (kpasswd).",
+    "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/service-overview-and-network-port-requirements"
+  },
+  {
+    "id": "301.1-8",
+    "type": "multiple_choice",
+    "objective": "301.1",
+    "topic": "Samba Concepts and Architecture",
+    "question": "Which UDP port does the NetBIOS Name Service (NBNS) use?",
+    "options": ["135", "137", "138", "139"],
+    "correct": "137",
+    "explanation": "UDP port 137 is used by the NetBIOS Name Service for name registration and resolution. UDP port 138 is used for NetBIOS Datagram Service. TCP port 139 is used for NetBIOS Session Service.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/nmbd.8.html"
+  },
+  {
+    "id": "301.1-9",
+    "type": "multiple_choice",
+    "objective": "301.1",
+    "topic": "Samba Concepts and Architecture",
+    "question": "Which SMB protocol version first introduced large MTU support and improved opportunistic locking (oplocks)?",
+    "options": ["SMB 1.0", "SMB 2.0", "SMB 2.1", "SMB 3.0"],
+    "correct": "SMB 2.1",
+    "explanation": "SMB 2.1 (introduced in Windows 7 and Windows Server 2008 R2) added support for large MTU (maximum transmission unit) transfers and improved opportunistic locking for better performance and power efficiency.",
+    "reference": "https://learn.microsoft.com/en-us/windows-server/storage/file-server/file-server-smb-overview"
+  },
+  {
+    "id": "301.1-10",
+    "type": "multiple_choice",
+    "objective": "301.1",
+    "topic": "Samba Concepts and Architecture",
+    "question": "Which SMB protocol version significantly reduced the number of commands compared to SMB 1.0 and introduced compound requests?",
+    "options": ["SMB 1.0", "SMB 2.0", "SMB 2.1", "SMB 3.0"],
+    "correct": "SMB 2.0",
+    "explanation": "SMB 2.0 (introduced in Windows Vista and Windows Server 2008) drastically reduced the command set from over 100 in SMB 1.0 to fewer than 20, introduced pipelining and compound requests, and improved performance and scalability.",
+    "reference": "https://learn.microsoft.com/en-us/windows-server/storage/file-server/file-server-smb-overview"
+  },
+  {
+    "id": "301.1-11",
+    "type": "multiple_choice",
+    "objective": "301.1",
+    "topic": "Samba Concepts and Architecture",
+    "question": "Which SMB protocol version introduced end-to-end encryption and multichannel support for using multiple network connections simultaneously?",
+    "options": ["SMB 1.0", "SMB 2.0", "SMB 2.1", "SMB 3.0"],
+    "correct": "SMB 3.0",
+    "explanation": "SMB 3.0 (introduced in Windows 8 and Windows Server 2012) added end-to-end encryption, SMB Multichannel (multiple NICs per connection), SMB Direct (RDMA), and persistent handles for transparent failover in clusters.",
+    "reference": "https://learn.microsoft.com/en-us/windows-server/storage/file-server/file-server-smb-overview"
+  },
+  {
+    "id": "301.1-12",
+    "type": "multiple_choice",
+    "objective": "301.1",
+    "topic": "Samba Concepts and Architecture",
+    "question": "What is the primary architectural difference between Samba 3 and Samba 4 regarding domain controller capabilities?",
+    "options": [
+      "Samba 3 supports Active Directory DC; Samba 4 supports only NT4-style DC",
+      "Samba 4 supports Active Directory DC with LDAP and Kerberos; Samba 3 only supports NT4-style DC",
+      "Samba 3 and Samba 4 both support Active Directory DC equally",
+      "Samba 4 dropped domain controller support entirely"
+    ],
+    "correct": "Samba 4 supports Active Directory DC with LDAP and Kerberos; Samba 3 only supports NT4-style DC",
+    "explanation": "Samba 3 could only act as an NT4-style (classic) domain controller. Samba 4 introduced a full Active Directory Domain Controller implementation, including integrated Kerberos (Heimdal), LDAP, DNS, and Group Policy support.",
+    "reference": "https://wiki.samba.org/index.php/Samba4/Architecture"
+  },
+  {
+    "id": "301.1-13",
+    "type": "multiple_choice",
+    "objective": "301.1",
+    "topic": "Samba Concepts and Architecture",
+    "question": "What is the purpose of Samba VFS (Virtual File System) modules?",
+    "options": [
+      "To replace the standard Linux kernel VFS",
+      "To provide pluggable extensions that intercept file system operations, enabling features like auditing, recycle bins, and antivirus scanning",
+      "To enable Samba to mount remote CIFS shares",
+      "To configure Samba networking interfaces"
+    ],
+    "correct": "To provide pluggable extensions that intercept file system operations, enabling features like auditing, recycle bins, and antivirus scanning",
+    "explanation": "Samba VFS modules are stackable plugins that intercept and modify file system operations between smbd and the underlying OS file system. They enable features such as access auditing, recycle bin behavior, shadow copy support, and on-access antivirus scanning.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/vfs_audit.8.html"
+  },
+  {
+    "id": "301.1-14",
+    "type": "multiple_choice",
+    "objective": "301.1",
+    "topic": "Samba Concepts and Architecture",
+    "question": "What is CTDB in the context of Samba clustering?",
+    "options": [
+      "A Samba configuration tool for cluster settings",
+      "A clustered database used to share state information between nodes in a Samba cluster for high availability",
+      "A file system designed specifically for Samba shared storage",
+      "A tool for replicating Samba configuration files across nodes"
+    ],
+    "correct": "A clustered database used to share state information between nodes in a Samba cluster for high availability",
+    "explanation": "CTDB (Clustered Trivial Database) is a clustered version of the TDB database used by Samba. It allows multiple Samba nodes to share lock and state information, enabling high-availability file serving with transparent failover.",
+    "reference": "https://ctdb.samba.org/"
+  },
+  {
+    "id": "301.1-15",
+    "type": "multiple_choice",
+    "objective": "301.1",
+    "topic": "Samba Concepts and Architecture",
+    "question": "Which key concern arises when integrating Linux/Unix systems with Windows systems in a heterogeneous network using Samba?",
+    "options": [
+      "Linux cannot support the FAT32 file system required by Windows",
+      "Differences in user identity models, file permission semantics, and character encoding between Unix and Windows",
+      "Windows systems cannot use TCP/IP to connect to Linux servers",
+      "Samba requires all clients to use the same version of SMB"
+    ],
+    "correct": "Differences in user identity models, file permission semantics, and character encoding between Unix and Windows",
+    "explanation": "Key heterogeneous network issues include mapping between Unix UIDs/GIDs and Windows SIDs, POSIX permissions vs. Windows ACLs, case sensitivity differences, and filename character set encoding (e.g., UTF-8 vs. Windows codepages).",
+    "reference": "https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Standalone_Server"
+  },
+  {
+    "id": "301.1-16",
+    "type": "fill_blank",
+    "objective": "301.1",
+    "topic": "Samba Concepts and Architecture",
+    "question": "The LDAP protocol port used by Active Directory for standard (unencrypted) directory queries is ______.",
+    "correct": "389",
+    "explanation": "LDAP uses TCP port 389 for standard directory access. LDAPS (LDAP over SSL) uses port 636. Active Directory also uses port 3268 for Global Catalog queries and 3269 for Global Catalog over SSL.",
+    "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/service-overview-and-network-port-requirements"
   }
 ]
