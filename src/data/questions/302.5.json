@@ -95,7 +95,7 @@
     "options": ["pam_winbind.so", "pam_krb5.so", "pam_smbpass.so", "pam_samba.so"],
     "correct": "pam_smbpass.so",
     "explanation": "pam_smbpass.so (the pam_smbpass PAM module) intercepts password change events and synchronizes the new password to the Samba passdb backend, keeping the Linux and Samba passwords in sync without requiring manual smbpasswd updates.",
-    "reference": "https://www.samba.org/samba/docs/current/man-html/pam_smbpass.8.html"
+    "reference": "https://manpages.org/pam_smbpass/8"
   },
   {
     "id": "302.5-10",

@@ -56,7 +56,7 @@
     ],
     "correct": "systemctl start samba-ad-dc",
     "explanation": "The Samba AD DC service unit is named 'samba-ad-dc'. On file/print servers, 'smbd' and 'nmbd' are used instead. The 'samba' binary itself is the AD DC daemon, but the systemd unit is 'samba-ad-dc'.",
-    "reference": "https://wiki.samba.org/index.php/Starting_the_Samba_AD_DC_Service"
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba.8.html"
   },
   {
     "id": "301.3-6",
@@ -176,7 +176,7 @@
     ],
     "correct": "A 128-bit value stored in a VM that changes when the VM is restored from a snapshot or cloned, allowing the AD DC to detect rollback and prevent USN reuse",
     "explanation": "The VM-GenID is a 128-bit identifier exposed by the hypervisor. When a VM is reverted to a snapshot or cloned, the VM-GenID changes. An AD DC detects this change and triggers safeguards to prevent USN (Update Sequence Number) rollback, which could cause replication inconsistencies.",
-    "reference": "https://wiki.samba.org/index.php/Samba_AD_DC_and_virtual_machines"
+    "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controller-deployment-and-configuration"
   },
   {
     "id": "301.3-16",
@@ -192,6 +192,6 @@
     ],
     "correct": "Restoring a snapshot rolls back the DC's USN counter, which can cause AD replication partners to miss updates and lead to directory inconsistencies",
     "explanation": "When a DC snapshot is restored, its USN (Update Sequence Number) reverts to an earlier value. Replication partners believe they are already synchronized up to that USN and will not request the missing updates, resulting in USN rollback and potential directory inconsistency across the domain.",
-    "reference": "https://wiki.samba.org/index.php/Samba_AD_DC_and_virtual_machines"
+    "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controller-deployment-and-configuration"
   }
 ]

@@ -133,7 +133,7 @@
     ],
     "correct": "Samba 4 supports Active Directory DC with LDAP and Kerberos; Samba 3 only supports NT4-style DC",
     "explanation": "Samba 3 could only act as an NT4-style (classic) domain controller. Samba 4 introduced a full Active Directory Domain Controller implementation, including integrated Kerberos (Heimdal), LDAP, DNS, and Group Policy support.",
-    "reference": "https://wiki.samba.org/index.php/Samba4/Architecture"
+    "reference": "https://www.samba.org/samba/history/samba-4.0.0.html"
   },
   {
     "id": "301.1-13",

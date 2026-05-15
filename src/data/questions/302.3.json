@@ -133,7 +133,7 @@
     "options": ["Group Policy Object (GPO)", "Password Setting Object (PSO)", "Fine-Grained Password Policy (FGPP) template", "Kerberos policy object"],
     "correct": "Password Setting Object (PSO)",
     "explanation": "Password Setting Objects (PSOs), also called Fine-Grained Password Policies, allow different password policies for different users or groups within the same domain. They are managed with samba-tool domain passwordsettings pso.",
-    "reference": "https://wiki.samba.org/index.php/Fine-Grained_Password_Policies"
+    "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/adac/fine-grained-password-policies"
   },
   {
     "id": "302.3-13",

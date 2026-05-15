@@ -132,7 +132,7 @@
     ],
     "correct": "Sensitive data including machine account passwords, domain secrets, and Kerberos credentials",
     "explanation": "secrets.tdb stores sensitive security data such as the machine account password used by Samba to authenticate to a domain, stored domain secrets, and Kerberos-related credentials. It should be protected with strict file permissions.",
-    "reference": "https://wiki.samba.org/index.php/TDB_and_LDB_Databases_Explained"
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#PRIVATEDIR"
   },
   {
     "id": "301.4-12",
@@ -148,7 +148,7 @@
     ],
     "correct": "The Samba Windows-compatible registry (HKLM/HKCU keys and values)",
     "explanation": "registry.tdb is the TDB file that backs Samba's Windows-compatible registry. It stores registry keys and values under HKLM and HKCU hives, including configuration data when 'config backend = registry' is used.",
-    "reference": "https://wiki.samba.org/index.php/TDB_and_LDB_Databases_Explained"
+    "reference": "https://www.samba.org/samba/docs/current/man-html/net.8.html#RPCREGISTRYOPERATIONS"
   },
   {
     "id": "301.4-13",
@@ -224,7 +224,7 @@
     ],
     "correct": "Restore accidentally deleted Active Directory objects without requiring a full directory restore",
     "explanation": "The AD Recycle Bin preserves deleted AD objects (users, groups, OUs, etc.) in a 'soft-deleted' state for a configurable period. This allows administrators to restore them using samba-tool or RSAT without restoring from a full backup.",
-    "reference": "https://wiki.samba.org/index.php/Active_Directory_Recycle_Bin"
+    "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/adac/active-directory-recycle-bin"
   },
   {
     "id": "301.4-19",

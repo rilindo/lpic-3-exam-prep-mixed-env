@@ -176,7 +176,7 @@
     "options": ["Microsoft RSAT", "Microsoft LDP", "Microsoft ADSI Edit", "Microsoft MMC"],
     "correct": "Microsoft ADSI Edit",
     "explanation": "ADSI Edit (adsiedit.msc) is a Microsoft MMC snap-in that provides a low-level view of all Active Directory objects and attributes, allowing administrators to view, create, modify, or delete any AD object or attribute directly.",
-    "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/active-directory-adsi-edit"
+    "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/useraccountcontrol-manipulate-account-properties"
   },
   {
     "id": "301.2-16",
@@ -187,7 +187,7 @@
     "options": ["ADSI Edit", "Regedit", "LDP", "MMC"],
     "correct": "LDP",
     "explanation": "LDP (ldp.exe) is a Windows LDAP client utility that allows administrators to connect to an LDAP or Active Directory server, browse the directory tree, and perform LDAP operations such as search, add, modify, and delete.",
-    "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771012(v=ws.11)"
+    "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/enable-ldap-over-ssl-3rd-certification-authority"
   },
   {
     "id": "301.2-17",

@@ -95,7 +95,7 @@
     "options": ["mDNS", "WINS", "DNS-SD", "LLMNR"],
     "correct": "WINS",
     "explanation": "WINS (Windows Internet Name Service) is a NetBIOS name server that resolves NetBIOS names to IP addresses, analogous to DNS for hostnames. It is a legacy mechanism; Active Directory relies on DNS. Samba can act as a WINS server.",
-    "reference": "https://wiki.samba.org/index.php/Samba_WINS"
+    "reference": "https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/service-overview-and-network-port-requirements#windows-internet-name-service-wins"
   },
   {
     "id": "302.2-10",
