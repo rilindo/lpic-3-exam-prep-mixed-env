@@ -85,5 +85,183 @@
     "correct": "net registry enumerate",
     "explanation": "The 'net registry enumerate' command lists the subkeys and values of a given registry key in the Samba registry. 'net registry getvalue' retrieves a single value.",
     "reference": "https://www.samba.org/samba/docs/current/man-html/net.8.html"
+  },
+  {
+    "id": "301.2-9",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "Which smb.conf parameter sets the descriptive name of the Samba server as shown to browsing Windows clients?",
+    "options": ["server role", "netbios name", "server string", "workgroup"],
+    "correct": "server string",
+    "explanation": "The 'server string' parameter sets the text description of the server that appears in Windows Network Neighborhood and browse lists (e.g., 'server string = Samba File Server'). It accepts smb.conf variables such as %v for the Samba version.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#SERVERSTRING"
+  },
+  {
+    "id": "301.2-10",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "Which smb.conf parameter is used to specify one or more VFS modules to load for a share?",
+    "options": ["vfs modules", "vfs objects", "vfs plugins", "vfs stack"],
+    "correct": "vfs objects",
+    "explanation": "The 'vfs objects' parameter specifies a space-separated list of VFS modules to load and stack for a given share. For example: 'vfs objects = recycle audit' loads both the recycle bin and audit VFS modules.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#VFSOBJECTS"
+  },
+  {
+    "id": "301.2-11",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "What does the 'registry shares = yes' parameter in smb.conf enable?",
+    "options": [
+      "It stores the entire smb.conf in the registry",
+      "It allows share definitions to be dynamically added and managed via the Samba registry",
+      "It enables Windows clients to browse the Linux registry",
+      "It replaces the [global] section with registry settings"
+    ],
+    "correct": "It allows share definitions to be dynamically added and managed via the Samba registry",
+    "explanation": "When 'registry shares = yes' is set, Samba checks the registry (under HKLM\\Software\\Samba\\smbconf) for additional share definitions at connection time, allowing shares to be managed without editing smb.conf.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#REGISTRYSHARES"
+  },
+  {
+    "id": "301.2-12",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "Which smb.conf parameter specifies the path to the private key file used for TLS in Samba?",
+    "options": ["tls cafile", "tls certfile", "tls keyfile", "tls dh params file"],
+    "correct": "tls keyfile",
+    "explanation": "'tls keyfile' specifies the path to the server's private key used for TLS. 'tls certfile' is the server's certificate, 'tls cafile' is the CA certificate for client verification, and 'tls dh params file' specifies Diffie-Hellman parameters.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#TLSKEYFILE"
+  },
+  {
+    "id": "301.2-13",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "What is the purpose of the 'tls dh params file' parameter in smb.conf?",
+    "options": [
+      "It specifies the CA certificate for validating client certificates",
+      "It specifies the file containing Diffie-Hellman parameters for TLS key exchange",
+      "It sets the minimum TLS protocol version",
+      "It defines the cipher suite used for TLS connections"
+    ],
+    "correct": "It specifies the file containing Diffie-Hellman parameters for TLS key exchange",
+    "explanation": "'tls dh params file' points to a PEM file containing Diffie-Hellman parameters used during TLS handshake for forward-secrecy key exchange. It is optional but recommended for stronger security.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#TLSDHPARAMSFILE"
+  },
+  {
+    "id": "301.2-14",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "In the Samba registry, what is the difference between the REG_SZ and REG_MULTI_SZ value types?",
+    "options": [
+      "REG_SZ stores binary data; REG_MULTI_SZ stores a single string",
+      "REG_SZ stores a single null-terminated string; REG_MULTI_SZ stores a sequence of multiple null-terminated strings",
+      "REG_SZ stores integers; REG_MULTI_SZ stores strings",
+      "REG_SZ is read-only; REG_MULTI_SZ is writable"
+    ],
+    "correct": "REG_SZ stores a single null-terminated string; REG_MULTI_SZ stores a sequence of multiple null-terminated strings",
+    "explanation": "REG_SZ is the registry type for a single string value. REG_MULTI_SZ holds multiple strings (a list), each separated by a null character and terminated by two null characters. In Samba, multi-valued smb.conf parameters use REG_MULTI_SZ.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/net.8.html"
+  },
+  {
+    "id": "301.2-15",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "Which Windows administrative tool provides a low-level GUI for browsing and editing Active Directory objects and their attributes?",
+    "options": ["Microsoft RSAT", "Microsoft LDP", "Microsoft ADSI Edit", "Microsoft MMC"],
+    "correct": "Microsoft ADSI Edit",
+    "explanation": "ADSI Edit (adsiedit.msc) is a Microsoft MMC snap-in that provides a low-level view of all Active Directory objects and attributes, allowing administrators to view, create, modify, or delete any AD object or attribute directly.",
+    "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/active-directory-adsi-edit"
+  },
+  {
+    "id": "301.2-16",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "Which Windows tool functions as an LDAP client, allowing administrators to connect to and browse an LDAP/Active Directory directory service?",
+    "options": ["ADSI Edit", "Regedit", "LDP", "MMC"],
+    "correct": "LDP",
+    "explanation": "LDP (ldp.exe) is a Windows LDAP client utility that allows administrators to connect to an LDAP or Active Directory server, browse the directory tree, and perform LDAP operations such as search, add, modify, and delete.",
+    "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc771012(v=ws.11)"
+  },
+  {
+    "id": "301.2-17",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "What is Microsoft RSAT and how is it relevant to managing a Samba AD Domain Controller?",
+    "options": [
+      "A Linux package for querying Samba registry remotely",
+      "A set of Windows tools (including AD Users and Computers, DNS Manager, and Group Policy Management) used to manage a Samba AD DC from a Windows workstation",
+      "A Windows firewall tool for allowing SMB traffic",
+      "A Microsoft utility for converting smb.conf files to registry format"
+    ],
+    "correct": "A set of Windows tools (including AD Users and Computers, DNS Manager, and Group Policy Management) used to manage a Samba AD DC from a Windows workstation",
+    "explanation": "Remote Server Administration Tools (RSAT) is a Windows feature that provides the same administrative MMC snap-ins used to manage Windows Server. Since Samba 4 implements the AD protocols, RSAT tools can manage a Samba AD DC the same way they manage a Windows DC.",
+    "reference": "https://wiki.samba.org/index.php/Installing_RSAT"
+  },
+  {
+    "id": "301.2-18",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "Which 'net registry' subcommand is used to set a value in the Samba registry?",
+    "options": ["net registry createvalue", "net registry setvalue", "net registry write", "net registry putvalue"],
+    "correct": "net registry setvalue",
+    "explanation": "'net registry setvalue <key> <valuename> <type> <data>' sets a registry value under the given key. 'net registry createkey' creates a new key, 'net registry enumerate' lists a key's contents, and 'net registry deletevalue' removes a value.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/net.8.html"
+  },
+  {
+    "id": "301.2-19",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "In smb.conf, which variable substitution expands to the username of the connected client?",
+    "options": ["%m", "%S", "%u", "%h"],
+    "correct": "%u",
+    "explanation": "In smb.conf, %u expands to the Unix username of the connected client. %m is the client's NetBIOS machine name, %S is the current share name, and %h is the server's hostname.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#VARIABLESUBSTITUTIONS"
+  },
+  {
+    "id": "301.2-20",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "Which smb.conf parameter explicitly controls which Samba internal services (such as 'smb', 'nmb', 'winbind') are started?",
+    "options": ["server role", "enable services", "server services", "start services"],
+    "correct": "server services",
+    "explanation": "The 'server services' parameter in smb.conf specifies a list of internal Samba services to start, such as 'smb', 'nmb', 'winbind', 'wrepl', 'ldap', 'drepl', 'kdc'. It allows fine-grained control over which daemons and services are enabled.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#SERVERSERVICES"
+  },
+  {
+    "id": "301.2-21",
+    "type": "fill_blank",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "The registry path under which Samba stores its registry-based configuration is HKLM\\Software\\______.",
+    "correct": "Samba",
+    "explanation": "Samba stores its registry-based configuration under HKLM\\Software\\Samba\\. Share definitions managed via registry shares appear under HKLM\\Software\\Samba\\smbconf\\.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#CONFIGBACKEND"
+  },
+  {
+    "id": "301.2-22",
+    "type": "multiple_choice",
+    "objective": "301.2",
+    "topic": "Samba Configuration",
+    "question": "When running 'testparm' to troubleshoot a Samba configuration, what does it do if it encounters an unknown parameter?",
+    "options": [
+      "It silently ignores unknown parameters",
+      "It exits immediately with a fatal error",
+      "It prints a warning about the unknown parameter and continues parsing",
+      "It replaces unknown parameters with default values"
+    ],
+    "correct": "It prints a warning about the unknown parameter and continues parsing",
+    "explanation": "testparm prints a warning message for unrecognized parameters (e.g., 'Unknown parameter encountered') and continues validating the rest of the configuration. This allows administrators to identify typos or deprecated options without stopping the check.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/testparm.1.html"
   }
 ]
