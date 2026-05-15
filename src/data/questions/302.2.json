@@ -40,6 +40,6 @@
     "question": "The script that registers or updates Samba AD DNS records (SRV, A records for the DC) is called ______.",
     "correct": "samba_dnsupdate",
     "explanation": "samba_dnsupdate is a script that ensures all required DNS records for a Samba AD domain controller are registered. It is typically run by Samba automatically but can be run manually.",
-    "reference": "https://wiki.samba.org/index.php/DNS_Administration"
+    "reference": "https://raw.githubusercontent.com/samba-team/samba/master/source4/scripting/bin/samba_dnsupdate"
   }
 ]

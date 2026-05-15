@@ -30,7 +30,7 @@
     "options": ["uidNumber", "unixUID", "posixUID", "sambaSIDToUID"],
     "correct": "uidNumber",
     "explanation": "The RFC2307 schema attribute 'uidNumber' holds the UNIX UID for an AD user. Samba AD supports RFC2307 attributes which allow AD accounts to be used directly in Linux environments.",
-    "reference": "https://wiki.samba.org/index.php/Setting_up_RFC2307_in_AD"
+    "reference": "https://wiki.samba.org/index.php/Maintaining_Unix_Attributes_in_AD_using_ADUC"
   },
   {
     "id": "302.3-4",

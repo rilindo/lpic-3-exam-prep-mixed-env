@@ -41,7 +41,7 @@
     "options": ["/etc/samba/sysvol", "/var/lib/samba/sysvol", "/srv/samba/sysvol", "/usr/share/samba/sysvol"],
     "correct": "/var/lib/samba/sysvol",
     "explanation": "Samba stores the SYSVOL content (group policy objects, logon scripts) under /var/lib/samba/sysvol by default. This directory must be replicated between domain controllers.",
-    "reference": "https://wiki.samba.org/index.php/SysVol_replication_(DFS-R)"
+    "reference": "https://wiki.samba.org/index.php/Rsync_based_SysVol_replication_workaround"
   },
   {
     "id": "302.1-5",

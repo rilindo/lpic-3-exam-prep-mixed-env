@@ -8,7 +8,7 @@
     "options": ["ipa user-new", "ipa user-create", "ipa user-add", "ipa useradd"],
     "correct": "ipa user-add",
     "explanation": "ipa user-add creates a new user account in FreeIPA. It accepts various attributes such as --first, --last, --uid, --shell, and --email.",
-    "reference": "https://github.com/freeipa/freeipa/blob/master/doc/api/user_add.md"
+    "reference": "https://www.mankier.com/1/ipa"
   },
   {
     "id": "305.2-2",
@@ -19,7 +19,7 @@
     "options": ["Role, Privilege, Permission", "Permission, Privilege, Role", "Privilege, Permission, Role", "Access, Role, Policy"],
     "correct": "Permission, Privilege, Role",
     "explanation": "FreeIPA RBAC uses Permissions (individual access rights), Privileges (collections of permissions), and Roles (collections of privileges assigned to users or groups).",
-    "reference": "https://github.com/freeipa/freeipa/blob/master/doc/api/access_control_guide.md"
+    "reference": "https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/managing_idm_users_groups_hosts_and_access_control_rules/"
   },
   {
     "id": "305.2-3",
@@ -30,7 +30,7 @@
     "options": ["ipa host-create", "ipa host-register", "ipa host-add", "ipa host-enroll"],
     "correct": "ipa host-add",
     "explanation": "ipa host-add registers a new host in FreeIPA. Hosts can be organized into hostgroups and have services, keytabs, and access control policies assigned.",
-    "reference": "https://github.com/freeipa/freeipa/blob/master/doc/api/host_add.md"
+    "reference": "https://www.mankier.com/1/ipa"
   },
   {
     "id": "305.2-4",
@@ -89,6 +89,6 @@
     "options": ["ipa group-adduser", "ipa group-add-member", "ipa user-addgroup", "ipa group-member-add"],
     "correct": "ipa group-add-member",
     "explanation": "ipa group-add-member adds users, groups, or services as members of a FreeIPA group. For example: ipa group-add-member devteam --users=alice",
-    "reference": "https://github.com/freeipa/freeipa/blob/master/doc/api/group_add_member.md"
+    "reference": "https://www.freeipa.org/page/Active_Directory_trust_setup"
   }
 ]

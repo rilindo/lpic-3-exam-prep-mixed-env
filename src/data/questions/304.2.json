@@ -19,7 +19,7 @@
     "options": ["pam_automount.so", "pam_mount.so", "pam_cifs.so", "pam_autofs.so"],
     "correct": "pam_mount.so",
     "explanation": "pam_mount.so mounts filesystems (including CIFS shares) at login time based on rules in pam_mount.conf.xml, and unmounts them at logout.",
-    "reference": "https://manpages.org/pam_mount"
+    "reference": "https://manpages.debian.org/testing/libpam-mount/pam_mount.8.en.html"
   },
   {
     "id": "304.2-3",
