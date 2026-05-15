@@ -41,5 +41,38 @@
     "correct": "ipa-replica-prepare",
     "explanation": "ipa-replica-prepare creates a replica information file that is used with ipa-replica-install to set up an additional FreeIPA server for replication and redundancy. (Note: in FreeIPA 4.3+ this step is integrated into ipa-replica-install.)",
     "reference": "https://www.systutorials.com/docs/linux/man/1-ipa-replica-prepare/"
+  },
+  {
+    "id": "305.1-5",
+    "type": "multiple_choice",
+    "objective": "305.1",
+    "topic": "FreeIPA Installation and Maintenance",
+    "question": "Which command installs a FreeIPA replica using replica information obtained from an existing server?",
+    "options": ["ipa-replica-add", "ipa-replica-install", "ipa-server-install --replica", "ipa-client-install --replica"],
+    "correct": "ipa-replica-install",
+    "explanation": "ipa-replica-install enrolls and configures an additional FreeIPA server as a replica, allowing directory and service data to be replicated for redundancy and scale.",
+    "reference": "https://www.mankier.com/1/ipa-replica-install"
+  },
+  {
+    "id": "305.1-6",
+    "type": "multiple_choice",
+    "objective": "305.1",
+    "topic": "FreeIPA Installation and Maintenance",
+    "question": "Which statement best describes FreeIPA replication topology on modern deployments?",
+    "options": ["Each replica can only replicate from a single fixed master", "Replication is multi-master and replicas can be arranged in a managed topology", "Replication is one-way from clients to servers only", "Replication requires manual LDIF export and import between servers"],
+    "correct": "Replication is multi-master and replicas can be arranged in a managed topology",
+    "explanation": "FreeIPA uses multi-master replication, allowing several servers to accept updates. Administrators manage the replication topology so replicas can exchange directory data and core identity information.",
+    "reference": "https://www.freeipa.org/page/HowTo/Remove_replica_in_a_managed_topology"
+  },
+  {
+    "id": "305.1-7",
+    "type": "multiple_choice",
+    "objective": "305.1",
+    "topic": "FreeIPA Installation and Maintenance",
+    "question": "Which command is used to create a backup of a FreeIPA server for maintenance or disaster recovery purposes?",
+    "options": ["ipa backup", "ipa-backup", "ipactl backup", "ipa-server-backup"],
+    "correct": "ipa-backup",
+    "explanation": "ipa-backup creates a backup of the FreeIPA server's configuration and data. It is the standard utility to use before major maintenance or when preparing recovery procedures.",
+    "reference": "https://www.mankier.com/1/ipa-backup"
   }
 ]

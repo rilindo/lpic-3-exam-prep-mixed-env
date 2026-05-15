@@ -63,5 +63,71 @@
     "correct": "SeDiskOperatorPrivilege",
     "explanation": "SeDiskOperatorPrivilege is a Samba privilege that allows a user to manage disk shares without being a full administrator. It can be assigned via 'net rpc rights grant'.",
     "reference": "https://wiki.samba.org/index.php/Setting_up_a_Share_Using_Windows_ACLs"
+  },
+  {
+    "id": "303.2-7",
+    "type": "multiple_choice",
+    "objective": "303.2",
+    "topic": "File Share Security",
+    "question": "Which smb.conf parameter sets the default permission mask applied when new directories are created in a share?",
+    "options": ["directory mask", "create mask", "force directory mode", "inherit permissions"],
+    "correct": "directory mask",
+    "explanation": "The 'directory mask' (also 'directory mode') parameter defines the maximum permissions new directories can receive, analogous to 'create mask' for files.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#DIRECTORYMASK"
+  },
+  {
+    "id": "303.2-8",
+    "type": "multiple_choice",
+    "objective": "303.2",
+    "topic": "File Share Security",
+    "question": "Which smb.conf parameter preserves inherited ACL entries from the parent directory when new files and folders are created?",
+    "options": ["profile acls", "inherit acls", "map acl inherit", "store dos attributes"],
+    "correct": "inherit acls",
+    "explanation": "With 'inherit acls = yes', Samba copies inheritable ACLs from the parent directory onto newly created objects so Windows-style inheritance behaves as expected.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#INHERITACLS"
+  },
+  {
+    "id": "303.2-9",
+    "type": "multiple_choice",
+    "objective": "303.2",
+    "topic": "File Share Security",
+    "question": "Which smb.conf parameter maps Windows ACL inheritance flags into POSIX default ACLs on the Linux filesystem?",
+    "options": ["acl translate", "map acl inherit", "inherit acls", "store nt acl"],
+    "correct": "map acl inherit",
+    "explanation": "The 'map acl inherit' setting helps Samba translate Windows inheritance semantics into POSIX ACL behavior for newly created files and directories.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#MAPACLINHERIT"
+  },
+  {
+    "id": "303.2-10",
+    "type": "multiple_choice",
+    "objective": "303.2",
+    "topic": "File Share Security",
+    "question": "Which VFS module stores Windows ACL information in a local TDB database instead of filesystem extended attributes?",
+    "options": ["vfs_acl_tdb", "vfs_acl_xattr", "vfs_streams_xattr", "vfs_posixacl"],
+    "correct": "vfs_acl_tdb",
+    "explanation": "The 'vfs_acl_tdb' module stores NT ACLs in a Samba TDB database rather than as filesystem xattrs, which can be useful on filesystems without suitable xattr support.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/vfs_acl_tdb.8.html"
+  },
+  {
+    "id": "303.2-11",
+    "type": "multiple_choice",
+    "objective": "303.2",
+    "topic": "File Share Security",
+    "question": "Which smb.conf parameter stores DOS attributes such as hidden, system, and archive in filesystem extended attributes instead of mapping them into UNIX mode bits?",
+    "options": ["map hidden", "store dos attributes", "dos filemode", "ea support"],
+    "correct": "store dos attributes",
+    "explanation": "With 'store dos attributes = yes', Samba keeps DOS file attributes in xattrs, allowing cleaner separation between Windows metadata and UNIX permission bits.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#STOREDOSATTRIBUTES"
+  },
+  {
+    "id": "303.2-12",
+    "type": "multiple_choice",
+    "objective": "303.2",
+    "topic": "File Share Security",
+    "question": "Which smb.conf parameter forces all files created through a share to be assigned to a specific group?",
+    "options": ["group", "force group", "valid group", "set group"],
+    "correct": "force group",
+    "explanation": "The 'force group' parameter makes Samba assign new files and directories in the share to the specified group regardless of the client's primary group.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#FORCEGROUP"
   }
 ]

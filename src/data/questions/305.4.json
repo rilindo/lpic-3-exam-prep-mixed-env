@@ -63,5 +63,49 @@
     "correct": "pseudo",
     "explanation": "The NFSv4 pseudo filesystem is a virtual namespace on the server that aggregates all exports under a single root (/). Clients mount the pseudo filesystem root and can access all exports below it.",
     "reference": "https://wiki.linux-nfs.org/wiki/index.php/Nfsv4_configuration"
+  },
+  {
+    "id": "305.4-7",
+    "type": "multiple_choice",
+    "objective": "305.4",
+    "topic": "Network File System",
+    "question": "Which command displays NFSv4 ACL entries on a file or directory?",
+    "options": ["getfacl", "nfs4_getfacl", "nfs4_editfacl", "exportfs -v"],
+    "correct": "nfs4_getfacl",
+    "explanation": "nfs4_getfacl shows NFSv4 ACL entries, which are more expressive than classic POSIX ACLs and are commonly used with NFSv4 shares.",
+    "reference": "https://manpages.debian.org/testing/nfs4-acl-tools/nfs4_getfacl.1.en.html"
+  },
+  {
+    "id": "305.4-8",
+    "type": "multiple_choice",
+    "objective": "305.4",
+    "topic": "Network File System",
+    "question": "Which utility opens an editor-like interface to interactively modify NFSv4 ACL entries?",
+    "options": ["nfs4_editfacl", "nfs4_setfacl -i", "editfacl", "setfacl --nfs4"],
+    "correct": "nfs4_editfacl",
+    "explanation": "nfs4_editfacl provides an interactive way to review and edit NFSv4 ACLs, which is useful when the ACL is too complex to express comfortably on a single command line.",
+    "reference": "https://manpages.debian.org/testing/nfs4-acl-tools/nfs4_editfacl.1.en.html"
+  },
+  {
+    "id": "305.4-9",
+    "type": "multiple_choice",
+    "objective": "305.4",
+    "topic": "Network File System",
+    "question": "Which mount option in /etc/fstab is used to force an NFS mount to use NFS version 4?",
+    "options": ["nfsvers=4", "vers=4", "proto=nfsv4", "sec=nfsv4"],
+    "correct": "vers=4",
+    "explanation": "The 'vers=4' mount option requests NFS version 4. It can be used in /etc/fstab or on the mount command line when ensuring an NFSv4 mount is used.",
+    "reference": "https://man7.org/linux/man-pages/man5/nfs.5.html"
+  },
+  {
+    "id": "305.4-10",
+    "type": "multiple_choice",
+    "objective": "305.4",
+    "topic": "Network File System",
+    "question": "Which Kerberos-related mount option enables integrity protection, but not full encryption, for an NFSv4 mount?",
+    "options": ["sec=krb5", "sec=krb5i", "sec=krb5p", "sec=gss"],
+    "correct": "sec=krb5i",
+    "explanation": "For NFSv4, 'sec=krb5i' enables Kerberos authentication plus integrity protection. 'sec=krb5p' adds privacy, meaning encryption of the data stream.",
+    "reference": "https://man7.org/linux/man-pages/man5/nfs.5.html"
   }
 ]

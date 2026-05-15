@@ -85,5 +85,71 @@
     "correct": "smbcquotas",
     "explanation": "smbcquotas is the Samba tool for managing disk quotas on CIFS/SMB shares. It can get and set quota limits for users on remote Samba or Windows shares.",
     "reference": "https://www.samba.org/samba/docs/current/man-html/smbcquotas.1.html"
+  },
+  {
+    "id": "303.1-9",
+    "type": "multiple_choice",
+    "objective": "303.1",
+    "topic": "File Share Configuration",
+    "question": "Which smb.conf share parameter hides a share from browse lists while still allowing direct access if the client knows its name?",
+    "options": ["browse lock", "browsable", "hide share", "visible"],
+    "correct": "browsable",
+    "explanation": "Setting 'browsable = no' removes the share from normal browse lists, but clients can still connect directly if permissions allow and they know the UNC path.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#BROWSABLE"
+  },
+  {
+    "id": "303.1-10",
+    "type": "multiple_choice",
+    "objective": "303.1",
+    "topic": "File Share Configuration",
+    "question": "Which smb.conf parameter hides files and directories from clients when the current user does not have read permission for them?",
+    "options": ["hide unreadable", "hide inaccessible", "read list", "veto files"],
+    "correct": "hide unreadable",
+    "explanation": "The 'hide unreadable' option suppresses the display of files and directories that the current user cannot read, reducing directory clutter and information disclosure.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#HIDEUNREADABLE"
+  },
+  {
+    "id": "303.1-11",
+    "type": "multiple_choice",
+    "objective": "303.1",
+    "topic": "File Share Configuration",
+    "question": "Which smb.conf parameter causes files matching a veto pattern to be removed when a user deletes the containing directory tree?",
+    "options": ["purge veto files", "delete veto files", "remove veto entries", "veto cleanup"],
+    "correct": "delete veto files",
+    "explanation": "With 'delete veto files = yes', files matching 'veto files' patterns are also deleted during recursive deletes, avoiding orphaned hidden files.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#DELETEVETOFILES"
+  },
+  {
+    "id": "303.1-12",
+    "type": "multiple_choice",
+    "objective": "303.1",
+    "topic": "File Share Configuration",
+    "question": "Which special Samba share is used for inter-process communication and should be explicitly restricted if you want to limit remote named-pipe access?",
+    "options": ["[NETLOGON]", "[IPC$]", "[pipe$]", "[admin$]"],
+    "correct": "[IPC$]",
+    "explanation": "[IPC$] is the special inter-process communication share used for named pipes and other RPC-style operations. Access can be controlled like other shares to reduce exposure.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html"
+  },
+  {
+    "id": "303.1-13",
+    "type": "multiple_choice",
+    "objective": "303.1",
+    "topic": "File Share Configuration",
+    "question": "Which VFS module is commonly added to 'vfs objects' when you want Samba to record per-operation audit logs for a share?",
+    "options": ["shadow_copy2", "recycle", "full_audit", "streams_xattr"],
+    "correct": "full_audit",
+    "explanation": "The 'full_audit' VFS module logs file operations such as opens, writes, renames, and deletes through Samba's logging subsystem for auditing purposes.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/vfs_full_audit.8.html"
+  },
+  {
+    "id": "303.1-14",
+    "type": "multiple_choice",
+    "objective": "303.1",
+    "topic": "File Share Configuration",
+    "question": "Which VFS module provides snapshot or shadow-copy access so Windows clients can browse previous versions of files?",
+    "options": ["shadow_copy2", "full_audit", "acl_xattr", "fruit"],
+    "correct": "shadow_copy2",
+    "explanation": "The 'shadow_copy2' VFS module exposes filesystem snapshots to SMB clients as Windows Previous Versions, allowing recovery of earlier file states.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/vfs_shadow_copy2.8.html"
   }
 ]

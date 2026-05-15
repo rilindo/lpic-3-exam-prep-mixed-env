@@ -90,5 +90,70 @@
     "correct": "ipa group-add-member",
     "explanation": "ipa group-add-member adds users, groups, or services as members of a FreeIPA group. For example: ipa group-add-member devteam --users=alice",
     "reference": "https://www.freeipa.org/page/Active_Directory_trust_setup"
+  },
+  {
+    "id": "305.2-9",
+    "type": "multiple_choice",
+    "objective": "305.2",
+    "topic": "FreeIPA Entity Management",
+    "question": "Which ipa subcommand creates a new host group so multiple systems can be managed together?",
+    "options": ["ipa hostgroup-add", "ipa host-group-add", "ipa group-add-host", "ipa host-add-group"],
+    "correct": "ipa hostgroup-add",
+    "explanation": "ipa hostgroup-add creates a hostgroup, which can then be used in host-based access control, sudo rules, and other policies that target multiple hosts at once.",
+    "reference": "https://www.mankier.com/1/ipa"
+  },
+  {
+    "id": "305.2-10",
+    "type": "multiple_choice",
+    "objective": "305.2",
+    "topic": "FreeIPA Entity Management",
+    "question": "Which ipa subcommand adds a Kerberos service principal such as HTTP/server.example.com to FreeIPA?",
+    "options": ["ipa principal-add", "ipa host-service-add", "ipa service-add", "ipa keytab-add"],
+    "correct": "ipa service-add",
+    "explanation": "ipa service-add registers a service principal in FreeIPA so that keytabs, certificates, and access controls can be associated with that service.",
+    "reference": "https://www.mankier.com/1/ipa"
+  },
+  {
+    "id": "305.2-11",
+    "type": "multiple_choice",
+    "objective": "305.2",
+    "topic": "FreeIPA Entity Management",
+    "question": "In FreeIPA RBAC, what does a role contain directly?",
+    "options": ["LDAP object classes", "Privileges", "Kerberos principals", "ID ranges"],
+    "correct": "Privileges",
+    "explanation": "A FreeIPA role is assigned to users or groups and contains privileges. Each privilege in turn groups together one or more permissions.",
+    "reference": "https://www.mankier.com/1/ipa"
+  },
+  {
+    "id": "305.2-12",
+    "type": "multiple_choice",
+    "objective": "305.2",
+    "topic": "FreeIPA Entity Management",
+    "question": "Which FreeIPA feature controls whether specific users or groups may access specific hosts?",
+    "options": ["ID views", "HBAC", "Replication agreements", "DNS locations"],
+    "correct": "HBAC",
+    "explanation": "Host-based access control (HBAC) rules in FreeIPA determine which users or groups are allowed to access which hosts and services.",
+    "reference": "https://www.freeipa.org/page/Documentation"
+  },
+  {
+    "id": "305.2-13",
+    "type": "multiple_choice",
+    "objective": "305.2",
+    "topic": "FreeIPA Entity Management",
+    "question": "Which ipa subcommand family is used to manage ID views and their overrides?",
+    "options": ["ipa idview-*", "ipa identity-*", "ipa useroverride-*", "ipa posixview-*"],
+    "correct": "ipa idview-*",
+    "explanation": "FreeIPA manages ID views and related overrides through the idview-* command family, which lets administrators define and apply alternate POSIX attribute mappings.",
+    "reference": "https://www.mankier.com/1/ipa"
+  },
+  {
+    "id": "305.2-14",
+    "type": "fill_blank",
+    "objective": "305.2",
+    "topic": "FreeIPA Entity Management",
+    "question": "The FreeIPA helper command that prints configuration advice for integrating services such as sudo, autofs, and smart-card login is ipa-______.",
+    "correct": "advise",
+    "explanation": "ipa-advise outputs curated configuration guidance for several client and service integration scenarios, including sudo and autofs.",
+    "reference": "https://www.mankier.com/1/ipa-advise"
   }
 ]

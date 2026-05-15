@@ -41,5 +41,48 @@
     "correct": "SePrintOperatorPrivilege",
     "explanation": "SePrintOperatorPrivilege allows delegated users to manage printers on a Samba print server without being full domain or local admins.",
     "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html"
+  },
+  {
+    "id": "303.4-5",
+    "type": "multiple_choice",
+    "objective": "303.4",
+    "topic": "Print Share Configuration",
+    "question": "Which smb.conf parameter is commonly set to 'cups' so Samba integrates with the CUPS printing subsystem?",
+    "options": ["printcap name", "printing", "spooler", "print backend"],
+    "correct": "printing",
+    "explanation": "Setting 'printing = cups' tells Samba to use CUPS as its printing backend for printer enumeration and job handling.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#PRINTING"
+  },
+  {
+    "id": "303.4-6",
+    "type": "multiple_choice",
+    "objective": "303.4",
+    "topic": "Print Share Configuration",
+    "question": "Which special Samba share name is typically used to expose all configured printers to SMB clients?",
+    "options": ["[spool]", "[printsrv]", "[printers]", "[cups]"],
+    "correct": "[printers]",
+    "explanation": "[printers] is the standard special share that exposes Samba-managed print queues to SMB clients, while [print$] is used for driver files.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html"
+  },
+  {
+    "id": "303.4-7",
+    "type": "multiple_choice",
+    "objective": "303.4",
+    "topic": "Print Share Configuration",
+    "question": "Which rpcclient subcommand is used to list the printer drivers installed on a Samba print server?",
+    "options": ["enumqueues", "listdrivers", "enumdrivers", "showdrivers"],
+    "correct": "enumdrivers",
+    "explanation": "The 'enumdrivers' rpcclient subcommand queries a print server for installed printer drivers, which is useful when validating driver uploads and architecture support.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html"
+  },
+  {
+    "id": "303.4-8",
+    "type": "fill_blank",
+    "objective": "303.4",
+    "topic": "Print Share Configuration",
+    "question": "The Samba setting used to declare a 64-bit Windows driver architecture for spoolss is 'spoolss: architecture = ______'.",
+    "correct": "Windows x64",
+    "explanation": "The setting 'spoolss: architecture = Windows x64' declares the driver architecture name Samba should present for 64-bit Windows print drivers.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html"
   }
 ]

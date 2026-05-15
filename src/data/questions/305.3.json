@@ -30,7 +30,10 @@
     "options": ["ipa trust-range", "ipa idrange-add", "ipa ad-range", "ipa id-range-config"],
     "correct": "ipa idrange-add",
     "explanation": "ipa idrange-add creates an ID range that maps SIDs from a trusted AD domain to a specific range of POSIX UIDs/GIDs in FreeIPA.",
-    "reference": "https://www.mankier.com/1/ipa",
+    "reference": "https://www.mankier.com/1/ipa"
+  },
+  {
+    "id": "305.3-4",
     "type": "fill_blank",
     "objective": "305.3",
     "topic": "FreeIPA Active Directory Integration",
@@ -38,5 +41,38 @@
     "correct": "external",
     "explanation": "External groups in FreeIPA are non-POSIX groups that can contain members from trusted Active Directory domains (referenced by SID). They are used as stepping stones to map AD users into FreeIPA POSIX groups.",
     "reference": "https://www.freeipa.org/page/Active_Directory_trust_setup#External_groups"
+  },
+  {
+    "id": "305.3-5",
+    "type": "multiple_choice",
+    "objective": "305.3",
+    "topic": "FreeIPA Active Directory Integration",
+    "question": "What is the main purpose of configuring an ID range in a FreeIPA trust with Active Directory?",
+    "options": ["To assign DNS forwarders to the AD forest", "To map AD SIDs into a POSIX UID/GID range on the FreeIPA side", "To replicate LDAP passwords into Active Directory", "To convert external groups into local groups automatically"],
+    "correct": "To map AD SIDs into a POSIX UID/GID range on the FreeIPA side",
+    "explanation": "FreeIPA uses ID ranges to translate trusted-domain SIDs into local POSIX UID and GID values so Linux systems can represent AD users and groups numerically.",
+    "reference": "https://www.freeipa.org/page/Active_Directory_trust_setup"
+  },
+  {
+    "id": "305.3-6",
+    "type": "multiple_choice",
+    "objective": "305.3",
+    "topic": "FreeIPA Active Directory Integration",
+    "question": "Which ipa subcommand family is used to manage trust relationships with Active Directory?",
+    "options": ["ipa forest-*", "ipa trust-*", "ipa domain-*", "ipa adtrust-*"],
+    "correct": "ipa trust-*",
+    "explanation": "FreeIPA manages trust relationships with commands in the trust-* family, such as trust-add, trust-find, and trust-show.",
+    "reference": "https://www.mankier.com/1/ipa"
+  },
+  {
+    "id": "305.3-7",
+    "type": "multiple_choice",
+    "objective": "305.3",
+    "topic": "FreeIPA Active Directory Integration",
+    "question": "When FreeIPA handles Microsoft Privilege Attribute Certificates (PACs) from a trusted AD domain, what are they primarily used for?",
+    "options": ["Delivering printer drivers to Windows clients", "Carrying authorization data such as group membership in Kerberos tickets", "Replicating DNS zones from AD to FreeIPA", "Generating POSIX passwords for external users"],
+    "correct": "Carrying authorization data such as group membership in Kerberos tickets",
+    "explanation": "Microsoft PAC data extends Kerberos tickets with authorization details, especially group membership information, which FreeIPA can interpret when processing trusted AD identities.",
+    "reference": "https://www.freeipa.org/page/Active_Directory_trust_setup"
   }
 ]

@@ -19,5 +19,26 @@
     "correct": "msdfs root",
     "explanation": "Setting 'msdfs root = yes' on a share designates it as a DFS root. Symbolic links within the share (created with ln -s) pointing to msdfs: URLs become DFS referrals.",
     "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#MSDFSROOT"
+  },
+  {
+    "id": "303.3-3",
+    "type": "multiple_choice",
+    "objective": "303.3",
+    "topic": "DFS Share Configuration",
+    "question": "Which smb.conf parameter is used on a DFS link share to point clients at another SMB target such as a remote server and share?",
+    "options": ["dfs target", "msdfs proxy", "proxy share", "redirect path"],
+    "correct": "msdfs proxy",
+    "explanation": "The 'msdfs proxy' parameter defines the remote SMB target for a DFS referral, allowing clients to be redirected to another server and share.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#MSDFSPROXY"
+  },
+  {
+    "id": "303.3-4",
+    "type": "fill_blank",
+    "objective": "303.3",
+    "topic": "DFS Share Configuration",
+    "question": "On a Samba DFS root, referrals implemented as symbolic links are typically created with the command ______.",
+    "correct": "ln",
+    "explanation": "Samba DFS referrals are often exposed through symbolic links created with 'ln -s' inside a share that has 'msdfs root = yes'.",
+    "reference": "https://man7.org/linux/man-pages/man1/ln.1.html"
   }
 ]

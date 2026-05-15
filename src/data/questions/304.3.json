@@ -63,5 +63,59 @@
     "correct": "setlink",
     "explanation": "samba-tool gpo setlink links a GPO to an OU (or domain/site). The link activates the policy for objects in the specified container.",
     "reference": "https://www.samba.org/samba/docs/current/man-html/samba-tool.8.html"
+  },
+  {
+    "id": "304.3-7",
+    "type": "multiple_choice",
+    "objective": "304.3",
+    "topic": "Windows Clients",
+    "question": "Which Windows command maps a drive letter to a remote SMB share, such as Z: to \\\\fileserver\\data?",
+    "options": ["net view", "net share", "net use", "net session"],
+    "correct": "net use",
+    "explanation": "The Windows 'net use' command connects to remote SMB shares and can assign them drive letters, for example 'net use Z: \\\\fileserver\\data'.",
+    "reference": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/gg651155(v=ws.11)"
+  },
+  {
+    "id": "304.3-8",
+    "type": "multiple_choice",
+    "objective": "304.3",
+    "topic": "Windows Clients",
+    "question": "To make a GPO affect only the users or computers in a specific organizational unit, where should that GPO normally be linked?",
+    "options": ["To the SYSVOL share", "To the relevant OU", "To the NETLOGON share", "To the user's profile path"],
+    "correct": "To the relevant OU",
+    "explanation": "Group Policy Objects are typically linked to sites, domains, or organizational units. Linking a GPO to the relevant OU scopes its application to the users or computers inside that container.",
+    "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/group-policy/group-policy-processing"
+  },
+  {
+    "id": "304.3-9",
+    "type": "multiple_choice",
+    "objective": "304.3",
+    "topic": "Windows Clients",
+    "question": "Which smb.conf parameter specifies the logon script file delivered to Windows clients, typically from the NETLOGON share, during user sign-in?",
+    "options": ["logon command", "logon script", "profile script", "startup path"],
+    "correct": "logon script",
+    "explanation": "The 'logon script' parameter names the script file that Windows domain clients run during sign-in, commonly to map drives or printers from a NETLOGON share.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#LOGONSCRIPT"
+  },
+  {
+    "id": "304.3-10",
+    "type": "multiple_choice",
+    "objective": "304.3",
+    "topic": "Windows Clients",
+    "question": "Which samba-tool gpo subcommand lists all Group Policy Objects currently stored in the domain?",
+    "options": ["samba-tool gpo show", "samba-tool gpo listall", "samba-tool gpo query", "samba-tool gpo enum"],
+    "correct": "samba-tool gpo listall",
+    "explanation": "samba-tool gpo listall enumerates the GPOs present in the domain, which is useful before linking, inspecting, backing up, or deleting policies.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba-tool.8.html"
+  },
+  {
+    "id": "304.3-11",
+    "type": "fill_blank",
+    "objective": "304.3",
+    "topic": "Windows Clients",
+    "question": "The smb.conf parameter used to point Windows roaming profiles at a server-side profile share is ______.",
+    "correct": "logon path",
+    "explanation": "The 'logon path' parameter defines the UNC path where a user's roaming profile is stored, such as \\\\server\\profiles\\%U.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#LOGONPATH"
   }
 ]

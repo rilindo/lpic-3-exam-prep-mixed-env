@@ -107,5 +107,81 @@
     "correct": "sss_override",
     "explanation": "sss_override creates local overrides in SSSD for users and groups from remote identity providers, allowing attributes like shell, home directory, or UID to be changed without modifying AD.",
     "reference": "https://manpages.debian.org/testing/sssd-tools/sss_override.8.en.html"
+  },
+  {
+    "id": "304.1-11",
+    "type": "multiple_choice",
+    "objective": "304.1",
+    "topic": "Linux Authentication Clients",
+    "question": "Which file commonly defines default password aging values such as PASS_MAX_DAYS for newly created local accounts?",
+    "options": ["/etc/shadow", "/etc/login.defs", "/etc/pam.conf", "/etc/default/useradd"],
+    "correct": "/etc/login.defs",
+    "explanation": "/etc/login.defs contains default account and password aging settings such as PASS_MAX_DAYS, PASS_MIN_DAYS, and PASS_WARN_AGE that are applied when local users are created.",
+    "reference": "https://man7.org/linux/man-pages/man5/login.defs.5.html"
+  },
+  {
+    "id": "304.1-12",
+    "type": "multiple_choice",
+    "objective": "304.1",
+    "topic": "Linux Authentication Clients",
+    "question": "Which PAM module is the traditional choice for authenticating users against an LDAP directory from PAM?",
+    "options": ["pam_sss.so", "pam_ldap.so", "pam_unix.so", "pam_directory.so"],
+    "correct": "pam_ldap.so",
+    "explanation": "pam_ldap.so is the classic PAM module used to authenticate users against an LDAP directory. In newer deployments, pam_sss.so is often preferred when SSSD is used as the identity and auth broker.",
+    "reference": "https://arthurdejong.org/nss-pam-ldapd/pam_ldap.8"
+  },
+  {
+    "id": "304.1-13",
+    "type": "multiple_choice",
+    "objective": "304.1",
+    "topic": "Linux Authentication Clients",
+    "question": "Which command obtains a new Kerberos ticket-granting ticket (TGT) for a user principal?",
+    "options": ["krenew", "klist", "kinit", "kadmin"],
+    "correct": "kinit",
+    "explanation": "kinit authenticates a principal and stores a new ticket-granting ticket in the credentials cache for later Kerberos-authenticated access.",
+    "reference": "https://web.mit.edu/kerberos/krb5-latest/doc/user/user_commands/kinit.html"
+  },
+  {
+    "id": "304.1-14",
+    "type": "multiple_choice",
+    "objective": "304.1",
+    "topic": "Linux Authentication Clients",
+    "question": "Which command destroys the current user's cached Kerberos tickets?",
+    "options": ["klist -d", "kdestroy", "kinit -R", "ktutil purge"],
+    "correct": "kdestroy",
+    "explanation": "kdestroy removes tickets from the current Kerberos credentials cache, effectively logging the user out of Kerberos-authenticated sessions until a new ticket is obtained.",
+    "reference": "https://web.mit.edu/kerberos/krb5-latest/doc/user/user_commands/kdestroy.html"
+  },
+  {
+    "id": "304.1-15",
+    "type": "multiple_choice",
+    "objective": "304.1",
+    "topic": "Linux Authentication Clients",
+    "question": "Which tool is used to display or reset records of failed login attempts for local accounts?",
+    "options": ["faillog", "lastb", "chage", "pwck"],
+    "correct": "faillog",
+    "explanation": "faillog displays failed login attempt records and can reset them. It is part of the classic local account lockout and auditing toolset alongside PAM lockout modules.",
+    "reference": "https://man7.org/linux/man-pages/man8/faillog.8.html"
+  },
+  {
+    "id": "304.1-16",
+    "type": "multiple_choice",
+    "objective": "304.1",
+    "topic": "Linux Authentication Clients",
+    "question": "Which SSSD utility is used to adjust the daemon's logging verbosity for troubleshooting?",
+    "options": ["sss_cache", "sss_debuglevel", "sssd --verbose", "sssctl debug"],
+    "correct": "sss_debuglevel",
+    "explanation": "sss_debuglevel changes SSSD debug verbosity for running services, making it useful when diagnosing authentication, lookup, or provider communication issues.",
+    "reference": "https://manpages.debian.org/testing/sssd-tools/sss_debuglevel.8.en.html"
+  },
+  {
+    "id": "304.1-17",
+    "type": "fill_blank",
+    "objective": "304.1",
+    "topic": "Linux Authentication Clients",
+    "question": "SSSD stores its on-disk cache databases below the directory ______.",
+    "correct": "/var/lib/sss/db/",
+    "explanation": "SSSD keeps cached identity and authentication data in database files under /var/lib/sss/db/. Removing or invalidating those caches can help during troubleshooting, but it should be done carefully.",
+    "reference": "https://manpages.debian.org/testing/sssd-common/sssd.8.en.html"
   }
 ]

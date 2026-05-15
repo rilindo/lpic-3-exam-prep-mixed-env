@@ -63,5 +63,70 @@
     "correct": "getcifsacl",
     "explanation": "getcifsacl retrieves the Windows/NT ACL from a file or directory on a CIFS-mounted filesystem. setcifsacl is the companion command for setting ACLs.",
     "reference": "https://manpages.debian.org/testing/cifs-utils/getcifsacl.1.en.html"
+  },
+  {
+    "id": "304.2-7",
+    "type": "multiple_choice",
+    "objective": "304.2",
+    "topic": "Linux CIFS Clients",
+    "question": "Which tool modifies CIFS/NT ACLs on a file or directory that is already mounted on a Linux client?",
+    "options": ["setfacl", "setcifsacl", "smbcacls", "chmod"],
+    "correct": "setcifsacl",
+    "explanation": "setcifsacl changes NT-style ACLs on files and directories accessed through a mounted CIFS filesystem. It complements getcifsacl, which only displays them.",
+    "reference": "https://manpages.debian.org/testing/cifs-utils/setcifsacl.1.en.html"
+  },
+  {
+    "id": "304.2-8",
+    "type": "multiple_choice",
+    "objective": "304.2",
+    "topic": "Linux CIFS Clients",
+    "question": "Which mount.cifs option is commonly used in /etc/fstab to read the SMB username and password from a protected file instead of exposing them directly in the mount line?",
+    "options": ["authfile=", "credentials=", "secret=", "credfile="],
+    "correct": "credentials=",
+    "explanation": "The 'credentials=' option points to a file containing username, password, and optionally domain entries. This is safer than placing the password directly into /etc/fstab.",
+    "reference": "https://manpages.debian.org/testing/cifs-utils/mount.cifs.8.en.html"
+  },
+  {
+    "id": "304.2-9",
+    "type": "multiple_choice",
+    "objective": "304.2",
+    "topic": "Linux CIFS Clients",
+    "question": "Which Samba utility is used on a Linux client to query or manage user quotas on a remote SMB share?",
+    "options": ["quota", "smbcquotas", "cifsiostat", "smbstatus"],
+    "correct": "smbcquotas",
+    "explanation": "smbcquotas queries and manages quota information exposed by a remote SMB server, making it the relevant Samba-side tool for CIFS quota administration.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smbcquotas.1.html"
+  },
+  {
+    "id": "304.2-10",
+    "type": "multiple_choice",
+    "objective": "304.2",
+    "topic": "Linux CIFS Clients",
+    "question": "Which cifs-utils command reports I/O statistics for mounted CIFS filesystems?",
+    "options": ["cifsstat", "cifsiostat", "iostat.cifs", "mountstats"],
+    "correct": "cifsiostat",
+    "explanation": "cifsiostat displays performance and usage statistics for CIFS mounts, similar in spirit to iostat but scoped to SMB/CIFS filesystems.",
+    "reference": "https://man7.org/linux/man-pages/man1/cifsiostat.1.html"
+  },
+  {
+    "id": "304.2-11",
+    "type": "multiple_choice",
+    "objective": "304.2",
+    "topic": "Linux CIFS Clients",
+    "question": "Which command retrieves a file directly from an SMB URL without first mounting the share?",
+    "options": ["smbget", "smbtar", "smbclient put", "mount.cifs"],
+    "correct": "smbget",
+    "explanation": "smbget downloads files using SMB URLs in a wget-like style, which is useful when you need one-off file retrieval without mounting a share.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smbget.1.html"
+  },
+  {
+    "id": "304.2-12",
+    "type": "fill_blank",
+    "objective": "304.2",
+    "topic": "Linux CIFS Clients",
+    "question": "The configuration file that defines pam_mount volume rules, including CIFS home directory mounts at login, is ______.",
+    "correct": "/etc/security/pam_mount.conf.xml",
+    "explanation": "pam_mount reads mount definitions from /etc/security/pam_mount.conf.xml, where administrators can define per-user or wildcard CIFS mounts that are created during login.",
+    "reference": "https://pam-mount.sourceforge.net/pam_mount.conf.5.html"
   }
 ]
