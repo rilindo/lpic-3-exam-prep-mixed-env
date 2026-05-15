@@ -41,5 +41,70 @@
     "correct": "samba_dnsupdate",
     "explanation": "samba_dnsupdate is a script that ensures all required DNS records for a Samba AD domain controller are registered. It is typically run by Samba automatically but can be run manually.",
     "reference": "https://raw.githubusercontent.com/samba-team/samba/master/source4/scripting/bin/samba_dnsupdate"
+  },
+  {
+    "id": "302.2-5",
+    "type": "multiple_choice",
+    "objective": "302.2",
+    "topic": "Active Directory Name Resolution",
+    "question": "Which smb.conf parameter controls whether Samba registers its hostname via mDNS (Multicast DNS)?",
+    "options": ["multicast dns register", "mdns register", "avahi register", "netbios name register"],
+    "correct": "multicast dns register",
+    "explanation": "The 'multicast dns register' parameter (note: the exam objective spells it 'multicst dns register') controls whether Samba advertises its hostname via mDNS/Avahi. Setting it to 'no' disables mDNS registration.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html"
+  },
+  {
+    "id": "302.2-6",
+    "type": "multiple_choice",
+    "objective": "302.2",
+    "topic": "Active Directory Name Resolution",
+    "question": "Which smb.conf parameter controls whether Samba's AD DNS server accepts dynamic DNS update requests from clients?",
+    "options": ["dns updates", "allow dns updates", "dynamic dns", "dns dynamic update"],
+    "correct": "allow dns updates",
+    "explanation": "The 'allow dns updates' parameter in smb.conf controls whether the Samba internal DNS server accepts dynamic DNS update requests. It can be set to 'nonsecure', 'secure only', or 'disabled'.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#ALLOWDNSUPDATES"
+  },
+  {
+    "id": "302.2-7",
+    "type": "multiple_choice",
+    "objective": "302.2",
+    "topic": "Active Directory Name Resolution",
+    "question": "Which DNS record type does Active Directory use to advertise Kerberos KDC services to clients?",
+    "options": ["A record", "PTR record", "SRV record", "CNAME record"],
+    "correct": "SRV record",
+    "explanation": "Active Directory relies on DNS SRV records (e.g., _kerberos._tcp.<domain>, _ldap._tcp.<domain>) to allow clients to locate KDCs, LDAP servers, and global catalog servers. These are automatically registered by samba_dnsupdate.",
+    "reference": "https://wiki.samba.org/index.php/DNS_Administration"
+  },
+  {
+    "id": "302.2-8",
+    "type": "multiple_choice",
+    "objective": "302.2",
+    "topic": "Active Directory Name Resolution",
+    "question": "Which alternative DNS back end for Samba AD allows BIND9 to serve AD DNS zones by querying the Samba AD database directly?",
+    "options": ["BIND9 DLZ", "BIND9 LDAP", "BIND9 TDB", "BIND9 AD bridge"],
+    "correct": "BIND9 DLZ",
+    "explanation": "The BIND9 DLZ (Dynamically Loadable Zones) back end allows BIND9 to serve Samba AD DNS zones by loading zone data directly from the Samba AD LDB database, instead of using Samba's built-in DNS server.",
+    "reference": "https://wiki.samba.org/index.php/BIND9_DLZ_DNS_Back_End"
+  },
+  {
+    "id": "302.2-9",
+    "type": "multiple_choice",
+    "objective": "302.2",
+    "topic": "Active Directory Name Resolution",
+    "question": "Which legacy name resolution mechanism, superseded by DNS in Active Directory, uses broadcasts and a central name server to resolve NetBIOS names?",
+    "options": ["mDNS", "WINS", "DNS-SD", "LLMNR"],
+    "correct": "WINS",
+    "explanation": "WINS (Windows Internet Name Service) is a NetBIOS name server that resolves NetBIOS names to IP addresses, analogous to DNS for hostnames. It is a legacy mechanism; Active Directory relies on DNS. Samba can act as a WINS server.",
+    "reference": "https://wiki.samba.org/index.php/Samba_WINS"
+  },
+  {
+    "id": "302.2-10",
+    "type": "fill_blank",
+    "objective": "302.2",
+    "topic": "Active Directory Name Resolution",
+    "question": "On a Samba AD domain controller, the file ______ must be configured to point to the DC's own IP address as the primary nameserver so that AD DNS lookups resolve correctly.",
+    "correct": "/etc/resolv.conf",
+    "explanation": "The /etc/resolv.conf file must list the Samba AD DC's own IP address as the first nameserver. This ensures that the DC itself uses Samba's internal DNS for AD name resolution, which is required for correct Kerberos and LDAP operation.",
+    "reference": "https://wiki.samba.org/index.php/Setting_up_Samba_as_an_Active_Directory_Domain_Controller#Configure_the_DNS_Resolver"
   }
 ]

@@ -41,5 +41,70 @@
     "correct": "pdbedit -i smbpasswd -e tdbsam",
     "explanation": "pdbedit -i (import) and -e (export) allow conversion between passdb backends. For example: pdbedit -i smbpasswd -e tdbsam imports all smbpasswd users into the tdbsam backend.",
     "reference": "https://www.samba.org/samba/docs/current/man-html/pdbedit.8.html"
+  },
+  {
+    "id": "302.5-5",
+    "type": "multiple_choice",
+    "objective": "302.5",
+    "topic": "Samba Local User Management",
+    "question": "Which smbpasswd flag adds a new user to the Samba local password database?",
+    "options": ["-n", "-a", "-e", "-x"],
+    "correct": "-a",
+    "explanation": "smbpasswd -a <username> adds a new user to the Samba passdb. The system user must already exist in /etc/passwd before running this command. Without -a, smbpasswd changes an existing user's password.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smbpasswd.8.html"
+  },
+  {
+    "id": "302.5-6",
+    "type": "multiple_choice",
+    "objective": "302.5",
+    "topic": "Samba Local User Management",
+    "question": "Which smbpasswd flag removes a user account from the Samba local password database?",
+    "options": ["-d", "-r", "-x", "-D"],
+    "correct": "-x",
+    "explanation": "smbpasswd -x <username> deletes the specified user from the Samba passdb backend. This removes the Samba account data but does not affect the system /etc/passwd entry.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smbpasswd.8.html"
+  },
+  {
+    "id": "302.5-7",
+    "type": "multiple_choice",
+    "objective": "302.5",
+    "topic": "Samba Local User Management",
+    "question": "Which passdb backend stores Samba user accounts in a TDB (Trivial Database) binary file and is the default for standalone Samba servers?",
+    "options": ["smbpasswd", "ldapsam", "tdbsam", "mysqlsam"],
+    "correct": "tdbsam",
+    "explanation": "tdbsam stores Samba account information in a TDB binary file (typically /var/lib/samba/private/passdb.tdb). It is the default passdb backend for standalone Samba servers and supports more user attributes than the legacy smbpasswd flat file.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#PASSDBBACKEND"
+  },
+  {
+    "id": "302.5-8",
+    "type": "multiple_choice",
+    "objective": "302.5",
+    "topic": "Samba Local User Management",
+    "question": "Which passdb backend stores Samba user accounts in an LDAP directory, allowing centralised account management across multiple Samba servers?",
+    "options": ["tdbsam", "ldapsam", "smbpasswd", "nssldap"],
+    "correct": "ldapsam",
+    "explanation": "ldapsam stores Samba account data in an LDAP directory. It requires configuring 'passdb backend = ldapsam:ldap://server' in smb.conf and an LDAP server with the Samba schema. It enables account sharing across multiple Samba member servers.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#PASSDBBACKEND"
+  },
+  {
+    "id": "302.5-9",
+    "type": "multiple_choice",
+    "objective": "302.5",
+    "topic": "Samba Local User Management",
+    "question": "Which PAM module synchronizes a user's Linux password with their Samba passdb password when the user changes their password via passwd?",
+    "options": ["pam_winbind.so", "pam_krb5.so", "pam_smbpass.so", "pam_samba.so"],
+    "correct": "pam_smbpass.so",
+    "explanation": "pam_smbpass.so (the pam_smbpass PAM module) intercepts password change events and synchronizes the new password to the Samba passdb backend, keeping the Linux and Samba passwords in sync without requiring manual smbpasswd updates.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/pam_smbpass.8.html"
+  },
+  {
+    "id": "302.5-10",
+    "type": "fill_blank",
+    "objective": "302.5",
+    "topic": "Samba Local User Management",
+    "question": "The pdbedit flag used to add a new user to the Samba passdb backend from the command line is ______.",
+    "correct": "-a",
+    "explanation": "pdbedit -a <username> adds a new user to the Samba passdb. Unlike smbpasswd -a, pdbedit can also set extended account attributes at creation time using additional flags (e.g., -f for full name, -u for UID).",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/pdbedit.8.html"
   }
 ]

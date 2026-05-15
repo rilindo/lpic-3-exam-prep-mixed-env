@@ -85,5 +85,86 @@
     "correct": "Domain Local Group",
     "explanation": "Domain Local groups can be assigned permissions to resources in their own domain and can contain accounts and groups from any domain or trusted domain. Universal groups can span domains in the same forest, but that is narrower than 'any trusted domain'.",
     "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups"
+  },
+  {
+    "id": "302.3-9",
+    "type": "multiple_choice",
+    "objective": "302.3",
+    "topic": "Active Directory User Management",
+    "question": "Which samba-tool command adds a user to an existing AD group?",
+    "options": ["samba-tool group adduser", "samba-tool user joingroup", "samba-tool group addmembers", "samba-tool group member add"],
+    "correct": "samba-tool group addmembers",
+    "explanation": "samba-tool group addmembers <groupname> <username> adds a user (or comma-separated list of users) to the specified group in the Samba AD domain.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba-tool.8.html"
+  },
+  {
+    "id": "302.3-10",
+    "type": "multiple_choice",
+    "objective": "302.3",
+    "topic": "Active Directory User Management",
+    "question": "What is the format of a Security Identifier (SID) in Active Directory?",
+    "options": ["S-1-5-21-<domain>-<RID>", "DC=domain,DC=com", "user@REALM", "CN=user,OU=Users,DC=domain"],
+    "correct": "S-1-5-21-<domain>-<RID>",
+    "explanation": "A SID follows the format S-1-5-21-<identifier authority>-<sub-authorities>-<RID>. For example: S-1-5-21-3623811015-3361044348-30300820-1013. The RID at the end uniquely identifies the principal within the domain.",
+    "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-identifiers"
+  },
+  {
+    "id": "302.3-11",
+    "type": "multiple_choice",
+    "objective": "302.3",
+    "topic": "Active Directory User Management",
+    "question": "What distinguishes a Security Group from a Distribution Group in Active Directory?",
+    "options": [
+      "Security Groups can only contain users; Distribution Groups can contain any object",
+      "Security Groups can be used to assign resource permissions; Distribution Groups cannot",
+      "Distribution Groups support Kerberos authentication; Security Groups do not",
+      "Security Groups are domain-local only; Distribution Groups are universal"
+    ],
+    "correct": "Security Groups can be used to assign resource permissions; Distribution Groups cannot",
+    "explanation": "Security Groups have a SID and can be used to assign permissions to resources (files, shares, etc.) and are used in access control lists. Distribution Groups are used for email distribution only and cannot be used for access control.",
+    "reference": "https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups"
+  },
+  {
+    "id": "302.3-12",
+    "type": "multiple_choice",
+    "objective": "302.3",
+    "topic": "Active Directory User Management",
+    "question": "Which AD feature allows you to define a password policy (e.g., different minimum length) that applies only to a specific group of users, overriding the domain default?",
+    "options": ["Group Policy Object (GPO)", "Password Setting Object (PSO)", "Fine-Grained Password Policy (FGPP) template", "Kerberos policy object"],
+    "correct": "Password Setting Object (PSO)",
+    "explanation": "Password Setting Objects (PSOs), also called Fine-Grained Password Policies, allow different password policies for different users or groups within the same domain. They are managed with samba-tool domain passwordsettings pso.",
+    "reference": "https://wiki.samba.org/index.php/Fine-Grained_Password_Policies"
+  },
+  {
+    "id": "302.3-13",
+    "type": "fill_blank",
+    "objective": "302.3",
+    "topic": "Active Directory User Management",
+    "question": "The Kerberos command used to list currently cached Kerberos tickets for the active user is ______.",
+    "correct": "klist",
+    "explanation": "klist displays the contents of the Kerberos credentials cache, showing acquired tickets (TGT and service tickets) with their expiry times. It is used to verify that kinit succeeded and that tickets are valid.",
+    "reference": "https://web.mit.edu/kerberos/krb5-latest/doc/user/user_commands/klist.html"
+  },
+  {
+    "id": "302.3-14",
+    "type": "multiple_choice",
+    "objective": "302.3",
+    "topic": "Active Directory User Management",
+    "question": "Which samba-tool command disables a user account in the Samba AD domain?",
+    "options": ["samba-tool user disable", "samba-tool user lock", "samba-tool user setexpiry --noexpiry", "samba-tool user deactivate"],
+    "correct": "samba-tool user disable",
+    "explanation": "samba-tool user disable <username> disables the specified AD user account, preventing login while retaining the account and its attributes.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba-tool.8.html"
+  },
+  {
+    "id": "302.3-15",
+    "type": "multiple_choice",
+    "objective": "302.3",
+    "topic": "Active Directory User Management",
+    "question": "Which samba-tool subcommand lists all registered Service Principal Names (SPNs) for a given account?",
+    "options": ["samba-tool spn show", "samba-tool spn list", "samba-tool kerberos spn", "samba-tool user showspn"],
+    "correct": "samba-tool spn list",
+    "explanation": "samba-tool spn list <account> displays all SPNs registered on a specific user or computer account. SPNs are required for Kerberos service authentication and must be unique in the domain.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba-tool.8.html"
   }
 ]

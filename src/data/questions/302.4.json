@@ -85,5 +85,82 @@
     "correct": "winbind offline logon",
     "explanation": "Setting 'winbind offline logon = yes' allows Winbind to use cached credentials when the domain controller is unreachable, enabling offline logins for domain users.",
     "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#WINBINDOFFLINELOGON"
+  },
+  {
+    "id": "302.4-9",
+    "type": "multiple_choice",
+    "objective": "302.4",
+    "topic": "Samba Domain Membership",
+    "question": "Which smb.conf parameter sets the character used to separate the domain name from the username in Winbind (e.g., DOMAIN+user)?",
+    "options": ["winbind domain separator", "winbind separator", "domain separator", "winbind prefix"],
+    "correct": "winbind separator",
+    "explanation": "The 'winbind separator' parameter defines the character placed between the domain name and the username (e.g., '+' gives DOMAIN+user, '\\\\' gives DOMAIN\\\\user). The default is '\\\\'.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#WINBINDSEPARATOR"
+  },
+  {
+    "id": "302.4-10",
+    "type": "multiple_choice",
+    "objective": "302.4",
+    "topic": "Samba Domain Membership",
+    "question": "Which smb.conf parameter specifies the default login shell assigned to AD domain users on the member server?",
+    "options": ["winbind default shell", "default shell", "template shell", "winbind shell"],
+    "correct": "template shell",
+    "explanation": "The 'template shell' parameter in smb.conf specifies the shell assigned to AD users who do not have a shell defined via RFC2307 attributes. For example: template shell = /bin/bash",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#TEMPLATESHELL"
+  },
+  {
+    "id": "302.4-11",
+    "type": "multiple_choice",
+    "objective": "302.4",
+    "topic": "Samba Domain Membership",
+    "question": "Which smb.conf parameter sets the home directory path template for AD domain users, using %D (domain) and %U (username) substitution variables?",
+    "options": ["home directory", "template homedir", "winbind homedir", "user home"],
+    "correct": "template homedir",
+    "explanation": "The 'template homedir' parameter defines the home directory path for domain users when no RFC2307 homeDirectory attribute is set. A typical value is /home/%D/%U.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#TEMPLATEHOMEDIR"
+  },
+  {
+    "id": "302.4-12",
+    "type": "multiple_choice",
+    "objective": "302.4",
+    "topic": "Samba Domain Membership",
+    "question": "Which idmap backend automatically assigns UID/GID ranges to domains without requiring per-domain configuration, making it suitable for environments with many trusted domains?",
+    "options": ["idmap_rid", "idmap_tdb2", "idmap_autorid", "idmap_ad"],
+    "correct": "idmap_autorid",
+    "explanation": "idmap_autorid automatically allocates ID ranges per domain from a global pool, with no per-domain configuration needed. It is useful when many trusted domains are present and consistent IDs are not required across servers.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/idmap_autorid.8.html"
+  },
+  {
+    "id": "302.4-13",
+    "type": "multiple_choice",
+    "objective": "302.4",
+    "topic": "Samba Domain Membership",
+    "question": "Which smb.conf parameter must be set to 'yes' to allow Winbind to enumerate all domain users and groups (required for commands like 'getent passwd' to list AD users)?",
+    "options": ["winbind list users", "winbind enumerate users", "winbind expand users", "winbind show users"],
+    "correct": "winbind enumerate users",
+    "explanation": "Setting 'winbind enumerate users = yes' (and 'winbind enumerate groups = yes') allows 'getent passwd' and 'getent group' to list all AD users and groups. This is disabled by default for performance in large domains.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#WINBINDENUMERATEUSERS"
+  },
+  {
+    "id": "302.4-14",
+    "type": "multiple_choice",
+    "objective": "302.4",
+    "topic": "Samba Domain Membership",
+    "question": "Which PAM module enables AD domain users to authenticate via Winbind on a Samba member server?",
+    "options": ["pam_krb5.so", "pam_ldap.so", "pam_winbind.so", "pam_samba.so"],
+    "correct": "pam_winbind.so",
+    "explanation": "pam_winbind.so (provided by libpam_winbind) is the PAM module that authenticates users against the AD domain through the Winbind service. It is added to PAM configuration files in /etc/pam.d/.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/pam_winbind.8.html"
+  },
+  {
+    "id": "302.4-15",
+    "type": "multiple_choice",
+    "objective": "302.4",
+    "topic": "Samba Domain Membership",
+    "question": "Which net ads subcommand verifies that the machine account trust relationship with the AD domain is still valid?",
+    "options": ["net ads verify", "net ads check", "net ads testjoin", "net ads status"],
+    "correct": "net ads testjoin",
+    "explanation": "net ads testjoin tests the machine account's trust relationship with the Active Directory domain, reporting whether the join is still valid. net ads status shows detailed information about the domain join.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/net.8.html"
   }
 ]
