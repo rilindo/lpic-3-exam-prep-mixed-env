@@ -192,4 +192,8 @@ Dependabot is configured in `.github/dependabot.yml` to open weekly update pull 
 ## Notes
 
 - The question bank is sourced from official LPIC objective coverage and references official Samba and FreeIPA documentation, Microsoft AD DS documentation, Linux man pages (man7.org, manpages.debian.org), Mankier, and Microsoft Learn.
+- When adding or revising question references, prefer stable vendor or upstream documentation over wiki pages when an equivalent source exists.
+- Prefer current Samba manpages or release/history documentation for Samba-specific topics, and prefer Microsoft Learn or AD DS product documentation for Windows and Active Directory administration topics.
+- If no official vendor page is available, acceptable durable fallbacks include man7.org, manpages.debian.org, and Mankier.
+- After question-bank edits, run `npm run check:urls` to catch broken references before committing.
 - The app is fully static and can be hosted on GitHub Pages, S3, GCS, or any static web host.
