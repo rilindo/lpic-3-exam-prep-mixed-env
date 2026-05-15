@@ -41,5 +41,157 @@
     "correct": "backup",
     "explanation": "The 'samba-tool domain backup' command (with subcommands like 'online', 'offline', and 'rename') is used to back up and restore Samba Active Directory domain controllers.",
     "reference": "https://www.samba.org/samba/docs/current/man-html/samba-tool.8.html"
+  },
+  {
+    "id": "301.3-5",
+    "type": "multiple_choice",
+    "objective": "301.3",
+    "topic": "Regular Samba Maintenance",
+    "question": "Which systemctl command starts the Samba Active Directory Domain Controller service?",
+    "options": [
+      "systemctl start smbd",
+      "systemctl start samba",
+      "systemctl start samba-ad-dc",
+      "systemctl start nmbd"
+    ],
+    "correct": "systemctl start samba-ad-dc",
+    "explanation": "The Samba AD DC service unit is named 'samba-ad-dc'. On file/print servers, 'smbd' and 'nmbd' are used instead. The 'samba' binary itself is the AD DC daemon, but the systemd unit is 'samba-ad-dc'.",
+    "reference": "https://wiki.samba.org/index.php/Starting_the_Samba_AD_DC_Service"
+  },
+  {
+    "id": "301.3-6",
+    "type": "multiple_choice",
+    "objective": "301.3",
+    "topic": "Regular Samba Maintenance",
+    "question": "On a Samba file server (not an AD DC), which two systemd services must typically be running to provide SMB file sharing and NetBIOS name resolution?",
+    "options": [
+      "samba and winbind",
+      "smbd and nmbd",
+      "samba-ad-dc and nmbd",
+      "smbd and samba-ad-dc"
+    ],
+    "correct": "smbd and nmbd",
+    "explanation": "On a Samba file/print server, 'smbd' provides file and print services while 'nmbd' handles NetBIOS name resolution and browsing. The 'samba-ad-dc' service is only used when Samba is acting as an Active Directory Domain Controller.",
+    "reference": "https://wiki.samba.org/index.php/Samba_File_Serving"
+  },
+  {
+    "id": "301.3-7",
+    "type": "multiple_choice",
+    "objective": "301.3",
+    "topic": "Regular Samba Maintenance",
+    "question": "Which smbcontrol message type causes smbd to reload its smb.conf configuration without restarting?",
+    "options": ["shutdown", "ping", "reload-config", "debug"],
+    "correct": "reload-config",
+    "explanation": "'smbcontrol smbd reload-config' sends a signal to all smbd processes to re-read smb.conf. This is useful for applying configuration changes without disrupting active client connections.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smbcontrol.1.html"
+  },
+  {
+    "id": "301.3-8",
+    "type": "multiple_choice",
+    "objective": "301.3",
+    "topic": "Regular Samba Maintenance",
+    "question": "Which smbcontrol message type is used to change the debug (log) level of a running Samba daemon?",
+    "options": ["reload-config", "log-level", "debug", "ping"],
+    "correct": "debug",
+    "explanation": "'smbcontrol smbd debug <level>' changes the debug logging level of the running smbd daemon dynamically. For example, 'smbcontrol smbd debug 5' sets the debug level to 5 without restarting the daemon.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smbcontrol.1.html"
+  },
+  {
+    "id": "301.3-9",
+    "type": "multiple_choice",
+    "objective": "301.3",
+    "topic": "Regular Samba Maintenance",
+    "question": "Which smbcontrol message type can be used to verify that a Samba daemon is running and responsive?",
+    "options": ["ping", "status", "check", "reload-config"],
+    "correct": "ping",
+    "explanation": "'smbcontrol <destination> ping' sends a ping message to the target daemon. The daemon responds with a 'PONG' message, confirming it is alive and processing messages.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smbcontrol.1.html"
+  },
+  {
+    "id": "301.3-10",
+    "type": "multiple_choice",
+    "objective": "301.3",
+    "topic": "Regular Samba Maintenance",
+    "question": "What file extension does tdbbackup use for the backup file it creates by default?",
+    "options": [".tar", ".bak", ".tdb.bak", ".backup"],
+    "correct": ".bak",
+    "explanation": "By default, tdbbackup appends '.bak' to the original filename to create the backup (e.g., secrets.tdb becomes secrets.tdb.bak). A custom suffix can be specified with the -s option.",
+    "reference": "https://www.mankier.com/8/tdbbackup"
+  },
+  {
+    "id": "301.3-11",
+    "type": "multiple_choice",
+    "objective": "301.3",
+    "topic": "Regular Samba Maintenance",
+    "question": "Which command restores a TDB file from a backup created by tdbbackup?",
+    "options": ["tdbbackup -r", "tdbdump --restore", "tdbrestore", "samba-tool tdb restore"],
+    "correct": "tdbrestore",
+    "explanation": "'tdbrestore' restores a TDB file from a backup. It reads the backup file (typically ending in .bak) and writes the restored TDB to the specified output file.",
+    "reference": "https://www.mankier.com/8/tdbrestore"
+  },
+  {
+    "id": "301.3-12",
+    "type": "multiple_choice",
+    "objective": "301.3",
+    "topic": "Regular Samba Maintenance",
+    "question": "Which 'samba-tool domain backup' subcommand creates a backup of a running Samba AD DC by connecting to it over LDAP?",
+    "options": ["offline", "online", "rename", "clone"],
+    "correct": "online",
+    "explanation": "'samba-tool domain backup online' connects to a running DC via LDAP and creates a backup of the AD database. It does not require stopping Samba and is suitable for live systems.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba-tool.8.html"
+  },
+  {
+    "id": "301.3-13",
+    "type": "multiple_choice",
+    "objective": "301.3",
+    "topic": "Regular Samba Maintenance",
+    "question": "Which 'samba-tool domain backup' subcommand creates a backup from the local AD database files while the DC is stopped?",
+    "options": ["online", "offline", "rename", "restore"],
+    "correct": "offline",
+    "explanation": "'samba-tool domain backup offline' creates a backup directly from the local database files (e.g., sam.ldb) and does not require an active LDAP connection. The Samba AD DC service should be stopped before running an offline backup.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba-tool.8.html"
+  },
+  {
+    "id": "301.3-14",
+    "type": "multiple_choice",
+    "objective": "301.3",
+    "topic": "Regular Samba Maintenance",
+    "question": "Which 'samba-tool domain backup' subcommand is used to restore a domain backup onto a new domain controller?",
+    "options": ["online", "offline", "rename", "restore"],
+    "correct": "restore",
+    "explanation": "'samba-tool domain backup restore' unpacks and restores a domain backup tarball to provision a new domain controller from the backup. It is typically used to recover from a DC failure or to create a new DC from a known-good backup.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba-tool.8.html"
+  },
+  {
+    "id": "301.3-15",
+    "type": "multiple_choice",
+    "objective": "301.3",
+    "topic": "Regular Samba Maintenance",
+    "question": "What is the Virtual Machine Generation Identifier (VM-GenID) and why is it important for virtualized Active Directory domain controllers?",
+    "options": [
+      "A UUID assigned to each virtual disk, used to detect storage corruption",
+      "A 128-bit value stored in a VM that changes when the VM is restored from a snapshot or cloned, allowing the AD DC to detect rollback and prevent USN reuse",
+      "A Hyper-V feature that uniquely identifies each virtual machine for licensing purposes",
+      "A Kerberos ticket identifier used by virtualized DCs to prevent replay attacks"
+    ],
+    "correct": "A 128-bit value stored in a VM that changes when the VM is restored from a snapshot or cloned, allowing the AD DC to detect rollback and prevent USN reuse",
+    "explanation": "The VM-GenID is a 128-bit identifier exposed by the hypervisor. When a VM is reverted to a snapshot or cloned, the VM-GenID changes. An AD DC detects this change and triggers safeguards to prevent USN (Update Sequence Number) rollback, which could cause replication inconsistencies.",
+    "reference": "https://wiki.samba.org/index.php/Samba_AD_DC_and_virtual_machines"
+  },
+  {
+    "id": "301.3-16",
+    "type": "multiple_choice",
+    "objective": "301.3",
+    "topic": "Regular Samba Maintenance",
+    "question": "Why are virtual machine snapshots considered risky for Active Directory domain controllers?",
+    "options": [
+      "Snapshots compress the virtual disk, causing AD database corruption",
+      "Restoring a snapshot rolls back the DC's USN counter, which can cause AD replication partners to miss updates and lead to directory inconsistencies",
+      "Snapshots disable Kerberos authentication on the DC",
+      "Snapshots prevent Samba from reading TDB files after restore"
+    ],
+    "correct": "Restoring a snapshot rolls back the DC's USN counter, which can cause AD replication partners to miss updates and lead to directory inconsistencies",
+    "explanation": "When a DC snapshot is restored, its USN (Update Sequence Number) reverts to an earlier value. Replication partners believe they are already synchronized up to that USN and will not request the missing updates, resulting in USN rollback and potential directory inconsistency across the domain.",
+    "reference": "https://wiki.samba.org/index.php/Samba_AD_DC_and_virtual_machines"
   }
 ]
