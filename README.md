@@ -191,5 +191,5 @@ Dependabot is configured in `.github/dependabot.yml` to open weekly update pull 
 
 ## Notes
 
-- The question bank is sourced from official LPIC objective coverage and references official Samba and FreeIPA documentation.
+- The question bank is sourced from official LPIC objective coverage and references official Samba and FreeIPA documentation, Microsoft AD DS documentation, Linux man pages (man7.org, manpages.debian.org), Mankier, and Microsoft Learn.
 - The app is fully static and can be hosted on GitHub Pages, S3, GCS, or any static web host.
