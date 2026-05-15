@@ -63,5 +63,200 @@
     "correct": "rpcclient",
     "explanation": "rpcclient is a utility for executing client-side MS-RPC functions. It can query information about a remote server such as printer lists, user lists, and more.",
     "reference": "https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html"
+  },
+  {
+    "id": "301.4-7",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "Which smb.conf log level syntax sets the global debug level to 2 while setting the 'auth' class to level 5 and 'winbind' to level 10?",
+    "options": [
+      "log level = 2, auth=5, winbind=10",
+      "log level = 2 auth:5 winbind:10",
+      "debuglevel = 2; auth = 5; winbind = 10",
+      "log level = auth:5 winbind:10 default:2"
+    ],
+    "correct": "log level = 2 auth:5 winbind:10",
+    "explanation": "Samba supports per-class debug levels using the syntax 'log level = <global> <class>:<level>'. For example, 'log level = 2 auth:5 winbind:10' sets a global level of 2 but increases verbosity for authentication and winbind operations specifically.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#LOGLEVEL"
+  },
+  {
+    "id": "301.4-8",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "How can you configure Samba to write a separate log file for each connecting client by their machine name?",
+    "options": [
+      "Set 'per client log = yes' in smb.conf",
+      "Use 'log file = /var/log/samba/log.%m' in smb.conf",
+      "Set 'client logging = individual' in smb.conf",
+      "Use 'log file = /var/log/samba/log.%u' in smb.conf"
+    ],
+    "correct": "Use 'log file = /var/log/samba/log.%m' in smb.conf",
+    "explanation": "Using '%m' (the client's NetBIOS machine name) in the 'log file' path creates a separate log file per client. For example, 'log file = /var/log/samba/log.%m' produces files like /var/log/samba/log.CLIENTNAME for each connecting machine.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#LOGFILE"
+  },
+  {
+    "id": "301.4-9",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "Which command is used to change a user's Samba password in the smbpasswd file?",
+    "options": ["pdbedit -u username -p newpass", "net user username newpass", "smbpasswd username", "smbpasswd -a username"],
+    "correct": "smbpasswd username",
+    "explanation": "'smbpasswd <username>' prompts for and sets a new SMB password for the specified user. The '-a' flag adds a new user to the database. As root, smbpasswd can change any user's password; as a regular user it changes only your own.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smbpasswd.8.html"
+  },
+  {
+    "id": "301.4-10",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "Which pdbedit option lists all user accounts in the Samba password database?",
+    "options": ["pdbedit -a", "pdbedit -L", "pdbedit --list-all", "pdbedit -v"],
+    "correct": "pdbedit -L",
+    "explanation": "'pdbedit -L' lists all accounts in the Samba SAM database in a short format (username:UID:full name). Adding '-v' provides verbose output with all account details.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/pdbedit.8.html"
+  },
+  {
+    "id": "301.4-11",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "What type of data is stored in Samba's secrets.tdb file?",
+    "options": [
+      "The Samba registry (HKLM/HKCU keys)",
+      "Active session and lock information for connected clients",
+      "Sensitive data including machine account passwords, domain secrets, and Kerberos credentials",
+      "The list of available network shares and their permissions"
+    ],
+    "correct": "Sensitive data including machine account passwords, domain secrets, and Kerberos credentials",
+    "explanation": "secrets.tdb stores sensitive security data such as the machine account password used by Samba to authenticate to a domain, stored domain secrets, and Kerberos-related credentials. It should be protected with strict file permissions.",
+    "reference": "https://wiki.samba.org/index.php/TDB_and_LDB_Databases_Explained"
+  },
+  {
+    "id": "301.4-12",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "What does Samba store in registry.tdb?",
+    "options": [
+      "Samba user account passwords",
+      "The Samba Windows-compatible registry (HKLM/HKCU keys and values)",
+      "TLS certificate data for encrypted connections",
+      "Active client session and file lock information"
+    ],
+    "correct": "The Samba Windows-compatible registry (HKLM/HKCU keys and values)",
+    "explanation": "registry.tdb is the TDB file that backs Samba's Windows-compatible registry. It stores registry keys and values under HKLM and HKCU hives, including configuration data when 'config backend = registry' is used.",
+    "reference": "https://wiki.samba.org/index.php/TDB_and_LDB_Databases_Explained"
+  },
+  {
+    "id": "301.4-13",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "Which tdbtool command checks a TDB file for structural integrity?",
+    "options": ["tdbtool <file> verify", "tdbtool <file> check", "tdbtool <file> validate", "tdbtool <file> scan"],
+    "correct": "tdbtool <file> check",
+    "explanation": "'tdbtool <file> check' traverses the TDB file's internal free list and data structures to check for corruption. If the TDB is corrupted, the check command reports errors. 'tdbbackup -v' can also verify integrity.",
+    "reference": "https://www.mankier.com/8/tdbtool"
+  },
+  {
+    "id": "301.4-14",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "Which tool modifies existing records in a Samba LDB database using input in LDIF format?",
+    "options": ["ldbsearch", "ldbadd", "ldbmodify", "ldbedit"],
+    "correct": "ldbmodify",
+    "explanation": "'ldbmodify' reads LDIF-formatted input (from a file or stdin) and applies the modifications to the specified LDB database. It supports the standard LDIF changetype operations: modify, add, delete, and modrdn.",
+    "reference": "https://manpages.debian.org/testing/ldb-tools/ldbmodify.1.en.html"
+  },
+  {
+    "id": "301.4-15",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "Which ldb tool adds new records to a Samba LDB database from an LDIF file?",
+    "options": ["ldbmodify", "ldbedit", "ldbadd", "ldbsearch --add"],
+    "correct": "ldbadd",
+    "explanation": "'ldbadd' reads an LDIF file and adds the records it contains to the specified LDB database. It is the LDB equivalent of 'ldapadd' for standard LDAP directories.",
+    "reference": "https://manpages.debian.org/testing/ldb-tools/ldbadd.1.en.html"
+  },
+  {
+    "id": "301.4-16",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "Which ldb tool deletes a record from a Samba LDB database by its Distinguished Name (DN)?",
+    "options": ["ldbmodify", "ldbsearch", "ldbedit", "ldbdel"],
+    "correct": "ldbdel",
+    "explanation": "'ldbdel' deletes one or more records from an LDB database by specifying their Distinguished Names (DNs). For example: 'ldbdel -H /var/lib/samba/private/sam.ldb \"CN=user,DC=example,DC=com\"'.",
+    "reference": "https://manpages.debian.org/testing/ldb-tools/ldbdel.1.en.html"
+  },
+  {
+    "id": "301.4-17",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "What is LDIF, as used with Samba ldb tools?",
+    "options": [
+      "A binary encoding format for Samba LDB databases",
+      "A text-based format for representing LDAP directory entries and changes, used with ldbadd, ldbmodify, and ldbdel",
+      "A Samba-specific XML format for exporting Active Directory objects",
+      "The file extension used for Samba LDB backup files"
+    ],
+    "correct": "A text-based format for representing LDAP directory entries and changes, used with ldbadd, ldbmodify, and ldbdel",
+    "explanation": "LDIF (LDAP Data Interchange Format) is a plain-text standard (RFC 2849) for representing LDAP directory entries and modifications. It is used by ldb tools (ldbadd, ldbmodify, ldbdel) to add, modify, or delete entries in Samba's LDB databases.",
+    "reference": "https://manpages.debian.org/testing/ldb-tools/ldbadd.1.en.html"
+  },
+  {
+    "id": "301.4-18",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "What does enabling the Active Directory Recycle Bin in Samba allow administrators to do?",
+    "options": [
+      "Recover deleted SMB file shares from within Windows Explorer",
+      "Restore accidentally deleted Active Directory objects without requiring a full directory restore",
+      "Archive old Samba log files automatically",
+      "Roll back changes to smb.conf using version history"
+    ],
+    "correct": "Restore accidentally deleted Active Directory objects without requiring a full directory restore",
+    "explanation": "The AD Recycle Bin preserves deleted AD objects (users, groups, OUs, etc.) in a 'soft-deleted' state for a configurable period. This allows administrators to restore them using samba-tool or RSAT without restoring from a full backup.",
+    "reference": "https://wiki.samba.org/index.php/Active_Directory_Recycle_Bin"
+  },
+  {
+    "id": "301.4-19",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "Which 'samba-tool domain backup' subcommand creates a renamed clone of a domain controller, useful for isolated debugging or testing?",
+    "options": ["online", "offline", "restore", "rename"],
+    "correct": "rename",
+    "explanation": "'samba-tool domain backup rename' creates a backup copy of the domain with a new domain name and realm. This allows a clone of the production domain to be restored in an isolated environment for debugging, without risking interference with the live domain.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/samba-tool.8.html"
+  },
+  {
+    "id": "301.4-20",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "Which rpcclient command enumerates domain user accounts on a remote Samba or Windows server?",
+    "options": ["srvinfo", "queryuser", "netshareenum", "enumdomusers"],
+    "correct": "enumdomusers",
+    "explanation": "'enumdomusers' is an rpcclient command that lists all user accounts in the domain by querying the SAM via MS-RPC. 'srvinfo' returns server platform information, 'netshareenum' lists available shares, and 'queryuser' retrieves details about a specific user by RID.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html"
+  },
+  {
+    "id": "301.4-21",
+    "type": "multiple_choice",
+    "objective": "301.4",
+    "topic": "Troubleshooting Samba",
+    "question": "Which rpcclient command retrieves general information about a remote server, such as its OS version and server type?",
+    "options": ["enumdomusers", "querydominfo", "srvinfo", "getdompwinfo"],
+    "correct": "srvinfo",
+    "explanation": "'srvinfo' queries the remote server for platform information including the server type flags, OS version, and server software version. It is useful for confirming what role and version a remote Samba or Windows server is advertising.",
+    "reference": "https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html"
   }
 ]
