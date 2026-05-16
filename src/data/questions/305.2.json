@@ -133,7 +133,7 @@
     "options": ["ID views", "HBAC", "Replication agreements", "DNS locations"],
     "correct": "HBAC",
     "explanation": "Host-based access control (HBAC) rules in FreeIPA determine which users or groups are allowed to access which hosts and services.",
-    "reference": "https://www.freeipa.org/page/Documentation"
+    "reference": "https://freeipa.readthedocs.io/en/latest/workshop/4-hbac.html"
   },
   {
     "id": "305.2-13",

@@ -56,7 +56,7 @@
     ],
     "correct": "systemctl start samba-ad-dc",
     "explanation": "The Samba AD DC service unit is named 'samba-ad-dc'. On file/print servers, 'smbd' and 'nmbd' are used instead. The 'samba' binary itself is the AD DC daemon, but the systemd unit is 'samba-ad-dc'.",
-    "reference": "https://www.samba.org/samba/docs/current/man-html/samba.8.html"
+    "reference": "https://wiki.samba.org/index.php/Managing_the_Samba_AD_DC_Service_Using_Systemd"
   },
   {
     "id": "301.3-6",

@@ -23,14 +23,14 @@
   },
   {
     "id": "302.2-3",
-    "type": "multiple_choice",
+    "type": "multiple_select",
     "objective": "302.2",
     "topic": "Active Directory Name Resolution",
-    "question": "Which command-line tool is used to query DNS records from an AD-integrated DNS server to verify SRV record registration?",
+    "question": "Which command-line tools can be used to query DNS records from an AD-integrated DNS server to verify SRV record registration? (Select all that apply)",
     "options": ["nslookup", "host", "dig", "nmblookup"],
-    "correct": "dig",
-    "explanation": "dig (Domain Information Groper) is the preferred tool for querying DNS, including AD SRV records such as _ldap._tcp.<domain>. It provides detailed output about DNS responses.",
-    "reference": "https://manpages.debian.org/testing/bind9-dnsutils/dig.1.en.html"
+    "correct": ["nslookup", "host", "dig"],
+    "explanation": "dig, host, and nslookup can all query DNS SRV records from an AD-integrated DNS server. dig is often preferred for troubleshooting because it provides the most detailed output, while nmblookup is for NetBIOS name resolution rather than DNS SRV lookups.",
+    "reference": "https://bind9.readthedocs.io/en/latest/manpages.html"
   },
   {
     "id": "302.2-4",
