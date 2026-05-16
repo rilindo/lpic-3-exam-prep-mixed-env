@@ -77,7 +77,11 @@ export function ResultsScreen({ results, onReset }: ResultsScreenProps) {
                   {!result.isCorrect && (
                     <div className="flex gap-2">
                       <span className="text-gray-500 shrink-0">Correct answer:</span>
-                      <span className="text-green-700 font-medium">{result.question.correct}</span>
+                      <span className="text-green-700 font-medium">
+                        {Array.isArray(result.question.correct)
+                          ? result.question.correct.join(', ')
+                          : result.question.correct}
+                      </span>
                     </div>
                   )}
                   <p className="text-gray-600 text-xs">{result.question.explanation}</p>

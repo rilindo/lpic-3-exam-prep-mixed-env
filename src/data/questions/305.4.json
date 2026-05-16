@@ -88,13 +88,13 @@
   },
   {
     "id": "305.4-9",
-    "type": "multiple_choice",
+    "type": "multiple_select",
     "objective": "305.4",
     "topic": "Network File System",
-    "question": "Which mount option in /etc/fstab is used to force an NFS mount to use NFS version 4?",
+    "question": "Which mount options in /etc/fstab can be used to force an NFS mount to use NFS version 4? (Select all that apply)",
     "options": ["nfsvers=4", "vers=4", "proto=nfsv4", "sec=nfsv4"],
-    "correct": "vers=4",
-    "explanation": "The 'vers=4' mount option requests NFS version 4. It can be used in /etc/fstab or on the mount command line when ensuring an NFSv4 mount is used.",
+    "correct": ["nfsvers=4", "vers=4"],
+    "explanation": "Both 'nfsvers=4' and 'vers=4' are equivalent aliases documented in nfs(5) for requesting NFS version 4. Either can be used in /etc/fstab or on the mount command line.",
     "reference": "https://man7.org/linux/man-pages/man5/nfs.5.html"
   },
   {

@@ -1,4 +1,4 @@
-export type QuestionType = 'multiple_choice' | 'fill_blank'
+export type QuestionType = 'multiple_choice' | 'multiple_select' | 'fill_blank'
 
 export type QuizMode = 'practice' | 'exam'
 
@@ -8,8 +8,8 @@ export interface Question {
   objective: string // e.g. "301.1"
   topic: string     // human-readable topic name
   question: string
-  options?: [string, string, string, string] // always 4 options for MC
-  correct: string   // for MC: the correct option text; for fill_blank: the expected answer
+  options?: [string, string, string, string] // always 4 options for MC/MS
+  correct: string | string[]   // MC/fill_blank: string; multiple_select: string[]
   explanation: string
   reference: string // URL to official documentation
 }

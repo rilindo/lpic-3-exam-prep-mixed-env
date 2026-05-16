@@ -10,7 +10,14 @@ export function calculateScore(results: QuizResult[]): ScoreSummary {
 
 /**
  * Case-insensitive, trimmed comparison for fill-in-the-blank answers.
+ * For multiple_select, userAnswer is a ' | '-joined sorted string;
+ * correct is a string[]. Both are sorted and compared case-insensitively.
  */
-export function isAnswerCorrect(userAnswer: string, correct: string): boolean {
+export function isAnswerCorrect(userAnswer: string, correct: string | string[]): boolean {
+  if (Array.isArray(correct)) {
+    const userSorted = userAnswer.split(' | ').map((s) => s.trim().toLowerCase()).sort().join('|')
+    const correctSorted = [...correct].map((s) => s.trim().toLowerCase()).sort().join('|')
+    return userSorted === correctSorted
+  }
   return userAnswer.trim().toLowerCase() === correct.trim().toLowerCase()
 }

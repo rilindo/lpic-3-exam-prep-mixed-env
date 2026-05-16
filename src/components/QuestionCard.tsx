@@ -12,13 +12,21 @@ interface QuestionCardProps {
 
 export function QuestionCard({ question, mode, onAnswer, onNext, isLast }: QuestionCardProps) {
   const [selected, setSelected] = useState<string>('')
+  const [selectedMulti, setSelectedMulti] = useState<string[]>([])
   const [fillValue, setFillValue] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [showHint, setShowHint] = useState(false)
 
   const handleSubmit = () => {
     if (submitted) return
-    const answer = question.type === 'multiple_choice' ? selected : fillValue
+    let answer: string
+    if (question.type === 'multiple_choice') {
+      answer = selected
+    } else if (question.type === 'multiple_select') {
+      answer = [...selectedMulti].sort().join(' | ')
+    } else {
+      answer = fillValue
+    }
     if (!answer.trim()) return
     onAnswer(answer)
     setSubmitted(true)
@@ -26,6 +34,7 @@ export function QuestionCard({ question, mode, onAnswer, onNext, isLast }: Quest
 
   const handleNext = () => {
     setSelected('')
+    setSelectedMulti([])
     setFillValue('')
     setSubmitted(false)
     setShowHint(false)
@@ -36,7 +45,10 @@ export function QuestionCard({ question, mode, onAnswer, onNext, isLast }: Quest
     submitted &&
     (question.type === 'multiple_choice'
       ? selected === question.correct
-      : fillValue.trim().toLowerCase() === question.correct.trim().toLowerCase())
+      : question.type === 'multiple_select'
+        ? Array.isArray(question.correct) &&
+          [...selectedMulti].sort().join('|') === [...question.correct].sort().join('|')
+        : fillValue.trim().toLowerCase() === (question.correct as string).trim().toLowerCase())
 
   return (
     <div className="bg-white rounded-2xl shadow-md p-6 w-full space-y-5">
@@ -93,6 +105,52 @@ export function QuestionCard({ question, mode, onAnswer, onNext, isLast }: Quest
             )
           })}
         </fieldset>
+      ) : question.type === 'multiple_select' && question.options ? (
+        <fieldset className="space-y-2" disabled={submitted}>
+          <legend className="text-xs text-gray-500 mb-1">Select all that apply</legend>
+          {question.options.map((option, idx) => {
+            const letter = ['A', 'B', 'C', 'D'][idx] ?? ''
+            const isSelected = selectedMulti.includes(option)
+            const isCorrectOption = Array.isArray(question.correct) && question.correct.includes(option)
+            const isRight = submitted && isCorrectOption
+            const isWrong = submitted && isSelected && !isCorrectOption
+
+            return (
+              <label
+                key={idx}
+                className={[
+                  'flex items-start gap-3 rounded-xl border-2 p-3 cursor-pointer transition-colors',
+                  submitted
+                    ? isRight
+                      ? 'border-green-400 bg-green-50'
+                      : isWrong
+                        ? 'border-red-400 bg-red-50'
+                        : 'border-gray-100 bg-gray-50 opacity-60'
+                    : isSelected
+                      ? 'border-blue-400 bg-blue-50'
+                      : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50',
+                ].join(' ')}
+              >
+                <input
+                  type="checkbox"
+                  name={`q-${question.id}`}
+                  value={option}
+                  checked={isSelected}
+                  onChange={() =>
+                    setSelectedMulti((prev) =>
+                      prev.includes(option) ? prev.filter((o) => o !== option) : [...prev, option],
+                    )
+                  }
+                  className="mt-0.5 accent-blue-600"
+                />
+                <span className="text-xs font-bold text-gray-400 mt-0.5 w-4 shrink-0">{letter}</span>
+                <span className="text-sm text-gray-800">{option}</span>
+                {isRight && <span className="ml-auto text-green-600 text-sm font-semibold shrink-0">✓</span>}
+                {isWrong && <span className="ml-auto text-red-500 text-sm font-semibold shrink-0">✗</span>}
+              </label>
+            )
+          })}
+        </fieldset>
       ) : (
         <div>
           <input
@@ -115,7 +173,7 @@ export function QuestionCard({ question, mode, onAnswer, onNext, isLast }: Quest
           />
           {submitted && !isCorrect && (
             <p className="mt-2 text-xs text-green-700 font-medium">
-              Correct answer: <span className="font-mono">{question.correct}</span>
+              Correct answer: <span className="font-mono">{question.correct as string}</span>
             </p>
           )}
         </div>
@@ -169,7 +227,13 @@ export function QuestionCard({ question, mode, onAnswer, onNext, isLast }: Quest
         {!submitted ? (
           <button
             onClick={handleSubmit}
-            disabled={question.type === 'multiple_choice' ? !selected : !fillValue.trim()}
+            disabled={
+            question.type === 'multiple_choice'
+              ? !selected
+              : question.type === 'multiple_select'
+                ? selectedMulti.length === 0
+                : !fillValue.trim()
+          }
             className="flex-1 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             Submit Answer

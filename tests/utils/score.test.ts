@@ -38,4 +38,16 @@ describe('isAnswerCorrect', () => {
   it('compares answers case-insensitively and trimmed', () => {
     expect(isAnswerCorrect('  WinBindD ', 'winbindd')).toBe(true)
   })
+
+  it('returns true for multiple_select when all correct options are selected (any order)', () => {
+    expect(isAnswerCorrect('vers=4 | nfsvers=4', ['nfsvers=4', 'vers=4'])).toBe(true)
+  })
+
+  it('returns false for multiple_select when only a subset is selected', () => {
+    expect(isAnswerCorrect('vers=4', ['nfsvers=4', 'vers=4'])).toBe(false)
+  })
+
+  it('returns false for multiple_select when a wrong option is selected', () => {
+    expect(isAnswerCorrect('proto=nfsv4 | vers=4', ['nfsvers=4', 'vers=4'])).toBe(false)
+  })
 })
