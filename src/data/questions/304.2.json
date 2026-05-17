@@ -1,13 +1,13 @@
 [
   {
     "id": "304.2-1",
-    "type": "multiple_choice",
+    "type": "multiple_select",
     "objective": "304.2",
     "topic": "Linux CIFS Clients",
-    "question": "Which command mounts a remote CIFS/SMB share on a Linux system?",
-    "options": ["mount -t smbfs", "mount -t cifs", "smbmount", "cifsmount"],
-    "correct": "mount -t cifs",
-    "explanation": "mount -t cifs (using the CIFS kernel module) is the current method for mounting remote CIFS/SMB shares on Linux. The older smbmount/smbfs is deprecated.",
+    "question": "Which commands can mount a remote CIFS/SMB share on a Linux system? (Select all that apply)",
+    "options": ["mount -t smbfs", "mount -t cifs", "mount.cifs", "cifsmount"],
+    "correct": ["mount -t cifs", "mount.cifs"],
+    "explanation": "Both 'mount -t cifs' and 'mount.cifs' mount remote CIFS/SMB shares on Linux — mount.cifs is the underlying helper binary that 'mount -t cifs' calls. The older smbmount/smbfs is deprecated and cifsmount does not exist.",
     "reference": "https://manpages.debian.org/testing/cifs-utils/mount.cifs.8.en.html"
   },
   {

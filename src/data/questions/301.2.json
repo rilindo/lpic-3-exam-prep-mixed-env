@@ -246,7 +246,7 @@
     "question": "The registry path under which Samba stores its registry-based configuration is HKLM\\Software\\______.",
     "correct": "Samba",
     "explanation": "Samba stores its registry-based configuration under HKLM\\Software\\Samba\\. Share definitions managed via registry shares appear under HKLM\\Software\\Samba\\smbconf\\.",
-    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#CONFIGBACKEND"
+    "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#REGISTRY_BASED_CONFIGURATION"
   },
   {
     "id": "301.2-22",

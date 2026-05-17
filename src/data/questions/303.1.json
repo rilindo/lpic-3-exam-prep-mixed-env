@@ -45,13 +45,13 @@
   },
   {
     "id": "303.1-5",
-    "type": "multiple_choice",
+    "type": "multiple_select",
     "objective": "303.1",
     "topic": "File Share Configuration",
-    "question": "Which smb.conf parameter allows anonymous (guest) access to a share without requiring authentication?",
+    "question": "Which smb.conf parameters allow anonymous (guest) access to a share without requiring authentication? (Select all that apply)",
     "options": ["public = yes", "guest ok = yes", "anonymous = yes", "allow guest = yes"],
-    "correct": "guest ok = yes",
-    "explanation": "Setting 'guest ok = yes' (also written as 'public = yes') on a share allows unauthenticated guest access. The guest user is mapped to the 'guest account' (typically 'nobody').",
+    "correct": ["guest ok = yes", "public = yes"],
+    "explanation": "'guest ok = yes' and 'public = yes' are synonyms — both allow unauthenticated guest access to a share. The guest user is mapped to the 'guest account' (typically 'nobody').",
     "reference": "https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html#GUESTOK"
   },
   {

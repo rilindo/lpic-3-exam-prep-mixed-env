@@ -8,7 +8,7 @@
     "options": ["[drivers]", "[printdrivers]", "[print$]", "[printers$]"],
     "correct": "[print$]",
     "explanation": "The [print$] share is the standard Samba share where Windows printer drivers are stored. Windows clients download drivers from this share when connecting to printers.",
-    "reference": "https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Print_Server"
+    "reference": "https://wiki.samba.org/index.php/Setting_up_Automatic_Printer_Driver_Downloads_for_Windows_Clients#Setting_up_the_.5Bprint.24.5D_Share"
   },
   {
     "id": "303.4-2",

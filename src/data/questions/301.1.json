@@ -117,7 +117,7 @@
     "options": ["SMB 1.0", "SMB 2.0", "SMB 2.1", "SMB 3.0"],
     "correct": "SMB 3.0",
     "explanation": "SMB 3.0 (introduced in Windows 8 and Windows Server 2012) added end-to-end encryption, SMB Multichannel (multiple NICs per connection), SMB Direct (RDMA), and persistent handles for transparent failover in clusters.",
-    "reference": "https://learn.microsoft.com/en-us/windows-server/storage/file-server/file-server-smb-overview"
+    "reference": "https://learn.microsoft.com/en-us/windows-server/storage/file-server/smb-feature-descriptions#smb-encryption"
   },
   {
     "id": "301.1-12",

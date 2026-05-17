@@ -112,10 +112,10 @@
     "type": "multiple_choice",
     "objective": "301.3",
     "topic": "Regular Samba Maintenance",
-    "question": "What file extension does tdbbackup use for the backup file it creates by default?",
-    "options": [".tar", ".bak", ".tdb.bak", ".backup"],
-    "correct": ".bak",
-    "explanation": "By default, tdbbackup appends '.bak' to the original filename to create the backup (e.g., secrets.tdb becomes secrets.tdb.bak). A custom suffix can be specified with the -s option.",
+    "question": "Which tdbbackup option is used to set a custom suffix for the backup file it creates?",
+    "options": ["-b", "-s", "-e", "-x"],
+    "correct": "-s",
+    "explanation": "The -s option specifies a custom suffix for the backup file (e.g., tdbbackup -s .bak secrets.tdb). Without -s, tdbbackup appends '.bak' by default.",
     "reference": "https://www.mankier.com/8/tdbbackup"
   },
   {

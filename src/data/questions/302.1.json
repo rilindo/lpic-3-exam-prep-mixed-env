@@ -45,13 +45,13 @@
   },
   {
     "id": "302.1-5",
-    "type": "multiple_choice",
+    "type": "multiple_select",
     "objective": "302.1",
     "topic": "Samba as Active Directory Domain Controller",
-    "question": "Which tool is recommended for SYSVOL replication between Samba AD domain controllers on Linux?",
+    "question": "Which tools are recommended for SYSVOL replication between Samba AD domain controllers on Linux? (Select all that apply)",
     "options": ["samba-tool drs replicate", "unison", "rsync", "drbd"],
-    "correct": "rsync",
-    "explanation": "rsync is the recommended tool for SYSVOL replication between Samba AD domain controllers on Linux, as Samba does not yet implement DFS-R natively. robocopy is the Windows equivalent.",
+    "correct": ["rsync", "unison"],
+    "explanation": "Both rsync and unison are recommended for SYSVOL replication between Samba AD DCs on Linux, as Samba does not yet implement DFS-R natively. rsync is more commonly referenced in Samba documentation, while unison provides bidirectional sync.",
     "reference": "https://wiki.samba.org/index.php/SysVol_replication_(DFS-R)"
   },
   {

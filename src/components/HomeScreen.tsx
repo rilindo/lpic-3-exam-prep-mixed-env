@@ -69,7 +69,7 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
             <select
               id="count"
               name="count"
-              defaultValue={20}
+              defaultValue={60}
               className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-800 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
             >
               {QUESTION_COUNTS.map((n) => (
