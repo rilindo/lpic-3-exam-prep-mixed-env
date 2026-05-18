@@ -5,9 +5,10 @@ const QUESTION_COUNTS = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 
 
 interface HomeScreenProps {
   onStart: (mode: QuizMode, count: number) => void
+  onBack?: () => void
 }
 
-export function HomeScreen({ onStart }: HomeScreenProps) {
+export function HomeScreen({ onStart, onBack }: HomeScreenProps) {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const form = e.currentTarget
@@ -19,6 +20,14 @@ export function HomeScreen({ onStart }: HomeScreenProps) {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-lg">
+        {onBack && (
+          <button
+            onClick={onBack}
+            className="flex items-center gap-1 text-sm text-gray-400 hover:text-gray-600 transition-colors mb-6"
+          >
+            ← Menu
+          </button>
+        )}
         <h1 className="text-3xl font-bold text-gray-900 mb-2">LPIC-3 Exam 300 Prep</h1>
         <p className="text-gray-500 mb-8 text-sm">Mixed Environments · Objectives v3.0</p>
 
