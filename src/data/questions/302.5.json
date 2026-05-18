@@ -33,13 +33,13 @@
   },
   {
     "id": "302.5-4",
-    "type": "multiple_choice",
+    "type": "multiple_select",
     "objective": "302.5",
     "topic": "Samba Local User Management",
-    "question": "Which pdbedit option converts the passdb backend from smbpasswd to tdbsam?",
+    "question": "Which pdbedit commands convert the passdb backend from smbpasswd to tdbsam?",
     "options": ["pdbedit --import smbpasswd --export tdbsam", "pdbedit -i smbpasswd -e tdbsam", "pdbedit --convert tdbsam", "samba-tool passdb convert"],
-    "correct": "pdbedit -i smbpasswd -e tdbsam",
-    "explanation": "pdbedit -i (import) and -e (export) allow conversion between passdb backends. For example: pdbedit -i smbpasswd -e tdbsam imports all smbpasswd users into the tdbsam backend.",
+    "correct": ["pdbedit --import smbpasswd --export tdbsam", "pdbedit -i smbpasswd -e tdbsam"],
+    "explanation": "Both commands are equivalent. pdbedit supports the long forms --import and --export as well as the short forms -i and -e for converting between passdb backends. Either syntax can be used to import smbpasswd users into the tdbsam backend.",
     "reference": "https://www.samba.org/samba/docs/current/man-html/pdbedit.8.html"
   },
   {
