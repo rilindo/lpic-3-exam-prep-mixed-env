@@ -253,15 +253,15 @@
     "type": "multiple_choice",
     "objective": "301.2",
     "topic": "Samba Configuration",
-    "question": "When running 'testparm' to troubleshoot a Samba configuration, what does it do if it encounters an unknown parameter?",
+    "question": "According to the testparm man page, what exit code does testparm return if it finds an error in smb.conf?",
     "options": [
-      "It silently ignores unknown parameters",
-      "It exits immediately with a fatal error",
-      "It prints a warning about the unknown parameter and continues parsing",
-      "It replaces unknown parameters with default values"
+      "0",
+      "1",
+      "2",
+      "255"
     ],
-    "correct": "It prints a warning about the unknown parameter and continues parsing",
-    "explanation": "testparm prints a warning message for unrecognized parameters (e.g., 'Unknown parameter encountered') and continues validating the rest of the configuration. This allows administrators to identify typos or deprecated options without stopping the check.",
+    "correct": "1",
+    "explanation": "The testparm man page states that if testparm finds an error in the smb.conf file, it returns exit code 1 to the calling program. If no problems are found, it returns 0.",
     "reference": "https://www.samba.org/samba/docs/current/man-html/testparm.1.html"
   }
 ]
