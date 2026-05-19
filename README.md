@@ -213,6 +213,7 @@ oc start-build lpic3-web --follow
 Notes:
 
 - The BuildConfig expects a source secret named `github-source-ssh` in the same project.
+- The Deployment explicitly sets `NPM_RUN=start` so runtime pods serve the built app instead of trying to run `npm run build` on startup.
 - You can re-run builds at any time with `oc start-build lpic3-web --follow`.
 
 ## GitHub Merge Protection

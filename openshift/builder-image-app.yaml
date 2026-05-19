@@ -57,6 +57,9 @@ spec:
       containers:
         - name: lpic3-web
           image: lpic3-web:latest
+          env:
+            - name: NPM_RUN
+              value: start
           ports:
             - containerPort: 8080
               protocol: TCP
