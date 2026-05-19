@@ -31,7 +31,7 @@ spec:
   triggers:
     - type: ConfigChange
     - github:
-        secret: change-me
+        secret: lpic3-deploy
       type: GitHub
 ---
 apiVersion: apps/v1
