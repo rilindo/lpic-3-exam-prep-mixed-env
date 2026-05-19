@@ -100,3 +100,6 @@ spec:
     name: lpic3-web
   port:
     targetPort: http
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
