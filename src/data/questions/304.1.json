@@ -180,7 +180,7 @@
     "objective": "304.1",
     "topic": "Linux Authentication Clients",
     "question": "SSSD stores its on-disk cache databases below the directory ______.",
-    "correct": "/var/lib/sss/db/",
+    "correct": ["/var/lib/sss/db/", "/var/lib/sss/db"],
     "explanation": "SSSD keeps cached identity and authentication data in database files under /var/lib/sss/db/. Removing or invalidating those caches can help during troubleshooting, but it should be done carefully.",
     "reference": "https://github.com/SSSD/sssd/blob/master/src/conf_macros.m4"
   }
