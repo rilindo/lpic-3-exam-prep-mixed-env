@@ -179,11 +179,19 @@ Prerequisites:
 
 - `oc` CLI installed and logged in
 - Permission to create resources in your target OpenShift project
+- GitHub SSH deploy key configured for this repository
 
 Deploy in a project:
 
 ```bash
-oc new-project lpic3-prep
+oc new-project lpic3-mixed-environments
+oc project lpic3-mixed-environments
+
+ssh-keyscan -t rsa,ecdsa,ed25519 -H github.com > /tmp/known_hosts
+oc create secret generic github-source-ssh \
+  --from-file=ssh-privatekey=$HOME/.ssh/id_ed25519 \
+  --from-file=known_hosts=/tmp/known_hosts
+
 oc apply -f openshift/builder-image-app.yaml
 oc start-build lpic3-web --follow
 oc rollout status deployment/lpic3-web
@@ -198,13 +206,13 @@ oc get route lpic3-web -o jsonpath='{.spec.host}{"\n"}'
 Optional: point the build to your own fork/branch:
 
 ```bash
-oc patch bc/lpic3-web --type merge -p '{"spec":{"source":{"git":{"uri":"https://github.com/<you>/lpic-3-exam-prep-mixed-env.git","ref":"<branch>"}}}}'
+oc patch bc/lpic3-web --type merge -p '{"spec":{"source":{"git":{"uri":"git@github.com:<you>/lpic-3-exam-prep-mixed-env.git","ref":"<branch>"}}}}'
 oc start-build lpic3-web --follow
 ```
 
 Notes:
 
-- The provided manifest includes a sample GitHub webhook trigger secret (`change-me`). Update it before exposing webhooks in real environments.
+- The BuildConfig expects a source secret named `github-source-ssh` in the same project.
 - You can re-run builds at any time with `oc start-build lpic3-web --follow`.
 
 ## GitHub Merge Protection
