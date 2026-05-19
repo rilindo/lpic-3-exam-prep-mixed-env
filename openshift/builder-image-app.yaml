@@ -1,0 +1,89 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: lpic3-web
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: lpic3-web
+spec:
+  source:
+    git:
+      uri: https://github.com/rilindo/lpic-3-exam-prep-mixed-env.git
+      ref: main
+    contextDir: .
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: DockerImage
+        name: registry.access.redhat.com/ubi9/nodejs-22:latest
+      env:
+        - name: NPM_RUN
+          value: build
+        - name: PORT
+          value: "8080"
+  output:
+    to:
+      kind: ImageStreamTag
+      name: lpic3-web:latest
+  triggers:
+    - type: ConfigChange
+    - github:
+        secret: change-me
+      type: GitHub
+---
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: lpic3-web
+spec:
+  replicas: 1
+  selector:
+    app: lpic3-web
+  template:
+    metadata:
+      labels:
+        app: lpic3-web
+    spec:
+      containers:
+        - name: lpic3-web
+          image: lpic3-web:latest
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+  triggers:
+    - type: ConfigChange
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+          - lpic3-web
+        from:
+          kind: ImageStreamTag
+          name: lpic3-web:latest
+      type: ImageChange
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lpic3-web
+spec:
+  ports:
+    - name: http
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: lpic3-web
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: lpic3-web
+spec:
+  to:
+    kind: Service
+    name: lpic3-web
+  port:
+    targetPort: http

@@ -165,6 +165,48 @@ Open:
 http://localhost:5173
 ```
 
+## Run On OpenShift (Builder Image)
+
+This repo includes an OpenShift Builder Image workflow using Source-to-Image (S2I) with Red Hat UBI Node.js 22.
+
+Added files:
+
+- `.s2i/environment` sets `NPM_RUN=build` so the builder runs `npm run build`
+- `scripts/serve-dist.mjs` serves the `dist/` folder on port `8080` with SPA fallback
+- `openshift/builder-image-app.yaml` defines `ImageStream`, `BuildConfig`, `DeploymentConfig`, `Service`, and `Route`
+
+Prerequisites:
+
+- `oc` CLI installed and logged in
+- Permission to create resources in your target OpenShift project
+
+Deploy in a project:
+
+```bash
+oc new-project lpic3-prep
+oc apply -f openshift/builder-image-app.yaml
+oc start-build lpic3-web --follow
+oc rollout status dc/lpic3-web
+```
+
+Get the public URL:
+
+```bash
+oc get route lpic3-web -o jsonpath='{.spec.host}{"\n"}'
+```
+
+Optional: point the build to your own fork/branch:
+
+```bash
+oc patch bc/lpic3-web --type merge -p '{"spec":{"source":{"git":{"uri":"https://github.com/<you>/lpic-3-exam-prep-mixed-env.git","ref":"<branch>"}}}}'
+oc start-build lpic3-web --follow
+```
+
+Notes:
+
+- The provided manifest includes a sample GitHub webhook trigger secret (`change-me`). Update it before exposing webhooks in real environments.
+- You can re-run builds at any time with `oc start-build lpic3-web --follow`.
+
 ## GitHub Merge Protection
 
 This repo is set up to gate merges into `main` with the `verify` check from `.github/workflows/ci.yml`.
