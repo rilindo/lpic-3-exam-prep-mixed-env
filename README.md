@@ -173,7 +173,7 @@ Added files:
 
 - `.s2i/environment` sets `NPM_RUN=build` so the builder runs `npm run build`
 - `scripts/serve-dist.mjs` serves the `dist/` folder on port `8080` with SPA fallback
-- `openshift/builder-image-app.yaml` defines `ImageStream`, `BuildConfig`, `DeploymentConfig`, `Service`, and `Route`
+- `openshift/builder-image-app.yaml` defines `ImageStream`, `BuildConfig`, `Deployment`, `Service`, and `Route`
 
 Prerequisites:
 
@@ -186,7 +186,7 @@ Deploy in a project:
 oc new-project lpic3-prep
 oc apply -f openshift/builder-image-app.yaml
 oc start-build lpic3-web --follow
-oc rollout status dc/lpic3-web
+oc rollout status deployment/lpic3-web
 ```
 
 Get the public URL:
