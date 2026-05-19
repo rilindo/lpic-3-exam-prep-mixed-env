@@ -77,13 +77,13 @@
   },
   {
     "id": "304.2-8",
-    "type": "multiple_choice",
+    "type": "multiple_select",
     "objective": "304.2",
     "topic": "Linux CIFS Clients",
     "question": "Which mount.cifs option is commonly used in /etc/fstab to read the SMB username and password from a protected file instead of exposing them directly in the mount line?",
-    "options": ["authfile=", "credentials=", "secret=", "credfile="],
-    "correct": "credentials=",
-    "explanation": "The 'credentials=' option points to a file containing username, password, and optionally domain entries. This is safer than placing the password directly into /etc/fstab.",
+    "options": ["authfile=", "credentials=", "cred=", "secret="],
+    "correct": ["credentials=", "cred="],
+    "explanation": "Both 'credentials=' and its alias 'cred=' point to a file containing username, password, and optionally domain entries. This is safer than placing the password directly into /etc/fstab.",
     "reference": "https://manpages.debian.org/testing/cifs-utils/mount.cifs.8.en.html"
   },
   {

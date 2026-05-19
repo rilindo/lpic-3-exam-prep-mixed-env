@@ -23,13 +23,13 @@
   },
   {
     "id": "304.3-3",
-    "type": "multiple_choice",
+    "type": "multiple_select",
     "objective": "304.3",
     "topic": "Windows Clients",
     "question": "Which open-source tool allows Linux users to connect to a remote Windows desktop via RDP?",
     "options": ["vncclient", "xfreerdp", "rdesktop", "x2go"],
-    "correct": "rdesktop",
-    "explanation": "rdesktop is an open-source RDP client for Linux that allows connecting to Windows Remote Desktop Services. FreeRDP (xfreerdp) is its modern successor.",
+    "correct": ["xfreerdp", "rdesktop"],
+    "explanation": "Both are valid. rdesktop is an open-source RDP client for Linux, and FreeRDP (xfreerdp) is a modern open-source RDP implementation widely used today.",
     "reference": "https://www.mankier.com/1/rdesktop"
   },
   {
