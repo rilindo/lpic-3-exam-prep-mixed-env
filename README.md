@@ -240,6 +240,15 @@ Dependabot is configured in `.github/dependabot.yml` to open weekly update pull 
 - `tests/` utility, hook, and component tests
 - `.github/workflows/ci.yml` CI pipeline
 
+## Licensing
+
+This project uses a dual-license model:
+
+- Code and app infrastructure are licensed under Apache-2.0. See `LICENSE`.
+- Educational question bank and study content are licensed under CC BY-NC-SA 4.0. See `LICENSE-CONTENT`.
+
+Contribution requirements and source/originality rules are documented in `CONTRIBUTING.md`.
+
 ## Notes
 
 - The question bank is sourced from official LPIC objective coverage and references official Samba and FreeIPA documentation, Microsoft AD DS documentation, Linux man pages (man7.org, manpages.debian.org), Mankier, and Microsoft Learn.

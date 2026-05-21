@@ -37,6 +37,40 @@ export function LandingScreen({ onReview, onExams }: LandingScreenProps) {
             </div>
           </button>
         </div>
+
+        <div className="mt-6 border-t border-gray-100 pt-4 text-center">
+          <p className="text-xs text-gray-500">
+            Found an issue or want to contribute improvements?
+          </p>
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-3 text-sm">
+            <a
+              href="https://github.com/rilindo/lpic-3-exam-prep-mixed-env/issues/new/choose"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 hover:underline"
+            >
+              Open an issue
+            </a>
+            <span className="text-gray-300" aria-hidden="true">|</span>
+            <a
+              href="https://github.com/rilindo/lpic-3-exam-prep-mixed-env/pulls"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 hover:underline"
+            >
+              Create a pull request
+            </a>
+          </div>
+
+          <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-left">
+            <p className="text-xs font-semibold text-amber-900">Disclaimer</p>
+            <p className="mt-1 text-xs leading-relaxed text-amber-800">
+              This practice content is community-generated from public documentation and reference
+              materials. Contributions that copy or reproduce actual certification exam questions
+              or protected test content will be rejected.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )
