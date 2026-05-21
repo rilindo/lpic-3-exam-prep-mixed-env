@@ -4,6 +4,12 @@
 
 Static React + TypeScript quiz app for LPIC-3 Exam 300 (Mixed Environments) practice.
 
+## Live Demo
+
+Use the app directly on GitHub Pages:
+
+- https://rilindo.github.io/lpic-3-exam-prep-mixed-env/
+
 ## Features
 
 - Practice mode with references shown after each submitted answer
